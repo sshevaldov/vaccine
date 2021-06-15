@@ -1,50 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сервис записи на вакцинацию. Авторизация</title>
-    <script src="jquery.min.js"></script>
-    <script src="jquery.maskedinput.min.js"></script> 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="js.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сервис записи на вакцинацию.Авторизация</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://snipp.ru/cdn/maskedinput/jquery.maskedinput.min.js"></script>
 </head>
 <body>
-    <p><input type="text" class="mask-phone form-control" placeholder="Номер телефона"></p>
-    <link rel="stylesheet" href="https://snipp.ru/cdn/bootstrap/3.4.1/bootstrap.min.css">
-    
-    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://snipp.ru/cdn/maskedinput/jquery.maskedinput.min.js"></script>
-    <script>
-    $('.mask-phone').mask('+7 (999) 999-99-99');
-    </script>
-
-Пример 1: <input  id="phone1" type="text" class="form-control">
-<hr>
-Дата рождения: <input  id="date" type="text" class="form-control">
-<input  id="index" type="text" class="form-control">
-<hr>
-Пример 3: <input  id="phone3" type="text" class="form-control">
-<hr>
-Пример 4: <input  id="number" type="text" class="form-control">
-<hr>
-Пример 5: <input  id="number2" type="text" class="form-control">
-<hr>
-Пример 6:
-<input  id="color" type="text" class="form-control">
-<hr>
-Пример 7:
-<hr>
-<div class="form-group">
-<label for="phone">Телефон: </label>
-<select id="country" class="form-control">
-  <option value="ru"><img src="">Россия +7</option>
-  <option value="ua">Украина +380</option>
-  <option value="by">Белоруссия +375</option>
-</select>
-<input id="phone" type="text" class="form-control">
-</div>
-
+  <p>Номер полиса ОМС <input type="text" class="mask-date form-control"></p>
+  <script>
+    $('.mask-date').mask("9999999999999999",{placeholder: "**** **** **** ****" })
+  </script>
+  <p>Дата рождения <input type="text" class="mask-date form-control"></p>
+  <script>
+    $('.mask-date').mask("99.99.9999",{placeholder: "дд.мм.гггг" })
+  </script>
 </body>
+
 </html>
