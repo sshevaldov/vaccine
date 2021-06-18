@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Личный кабинет</title>
 </head>
+
 <body>
-    <h1>Личный кабинет</h1>
+    <section class="container">
+
+
+
+        <div class="table" style="
+    width: auto;
+">
+            <h1 style="    text-align: right;    padding: 10px;">
+                <div>
+                    <div style="
+                    position: absolute;
+                    font-size: -webkit-xxx-large;
+                "><p>Сервис записи на вакцинацию</p></div>
+                    <div>
+                    <p>username</p>
+                    <form action="first.html">
+                        <button class="btn_submit disabled">Выйти</button>
+                    </form>
+                </div>
+                </div>
+            </h1>
+
+            <p> <input id="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
+                <script>
+                    $('.mask-phone').mask('+7 (999) 999-99-99');
+                </script>
+            </p>
+            <p>
+            </p>
+            <p id="exept" hidden="" style="color: red;">Пароли не совпадают</p>
+            <p><input id="pass1" class="rfield" type="password" name="password" placeholder="Пароль"></p>
+
+            <p><input id="pass2" class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
+            <div>
+                <button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
 </body>
+
 </html>
