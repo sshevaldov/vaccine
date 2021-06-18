@@ -107,8 +107,7 @@ body {
   display: block;
           border: 2px solid #cfcfcf;
           font-size: 14px;
-          color: #444444;
-          padding: 7px 7px 8px;
+          color: #444444;          
         
           margin-bottom: 20px;
           transition: all 0.5s;
@@ -259,27 +258,34 @@ input[type=submit]:active {
 }
 
 .table input.empty_field {
-          border-width: 2px;
-          border-color: red;
-        }       
-        
-        .form_box input {
-          display: block;
-          border: 2px solid #cfcfcf;
-          font-size: 14px;
-          color: #444444;
-          padding: 7px 7px 8px;
-          width: 250px;
-          margin-bottom: 20px;
-          transition: all 0.5s;
-          -webkit-transition: all 0.5s;
-          -moz-transition: all 0.5s;
-        }
-        .table input:focus {
-          outline: none;
-          border-color: #07a6e6;
-        }
-     
-       
-       
+  border-width: 2px;
+  border-color: red;
+}       
+
+.table input {
+  display: block;
+  border: 2px solid #cfcfcf;
+  font-size: 14px;
+  color: #444444;
+  
+  width: 250px;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.table .btn_submit {
+  border: none;
+  width: 180px;
+  text-align: center;
+  background: #24b6f0;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  height: 35px;
+  line-height: 28px;
+  padding: 0;
+} 
         
