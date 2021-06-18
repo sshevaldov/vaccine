@@ -33,14 +33,17 @@
          
         
             <button type="submit" id="button" class="btn_submit disabled">Войти</button>
+            
           </div>        
        
         <script type="text/javascript">
           $('document').ready(function() {
             $('#button').on('click', function() {
               $('.table .rfield').each(function() {
+               
                 if ($(this).val() != '') {
                   console.log(32);
+                  location.href = 'cabinet.html'
                   // Если поле не пустое удаляем класс-указание
                   $(this).removeClass('empty_field');
                
@@ -55,8 +58,8 @@
         </script>
         <div class="table-help">
             <a href="index.html">Регистрация</a>
-        </div>
-    
+        </div>    
+       
 </body>
 
 </html>
