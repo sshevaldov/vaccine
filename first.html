@@ -22,105 +22,31 @@
 </head>
 
 <body>
+   
     <section class="container">
         <div class="table">
-            <h1>Войти в личный кабинет</h1>
-            <form method="post" action="index.html">
-                <p><input type="text" id="phone" class="mask-phone form-control" placeholder="Номер телефона">
-                    <script>
-                        $('.mask-phone').mask('+7 (999) 999-99-99');
-                    </script>
-                </p>
-
-                <p><input id="password" type="password" name="password" value="" placeholder="Пароль"></p>
-
-                <p><input type="button" id="commit" value="Войти" >
-                   
-                </p>
-            </form>
-        </div>
-
-
-        <style type="text/css">
-            .form_box input.empty_field {
-              border-width: 2px;
-              border-color: red;
-            }
-            .form_box {
-              width: 300px;
-              margin: 40px auto;
-            }
-            .form_box label {
-              font-size: 13px;
-              font-weight: bold;
-              color: #444444;
-              display: block;
-            }
-            .form_box input {
-              display: block;
-              border: 2px solid #cfcfcf;
-              font-size: 14px;
-              color: #444444;
-              padding: 7px 7px 8px;
-              width: 250px;
-              margin-bottom: 20px;
-              transition: all 0.5s;
-              -webkit-transition: all 0.5s;
-              -moz-transition: all 0.5s;
-            }
-            .form_box input:focus {
-              outline: none;
-              border-color: #07a6e6;
-            }
-            .form_box .btn_submit {
-              border: none;
-              width: 180px;
-              text-align: center;
-              background: #07a6e6;
-              font-size: 13px;
-              font-weight: bold;
-              color: #ffffff;
-              cursor: pointer;
-              height: 35px;
-              line-height: 28px;
-              padding: 0;
-            }
-            .form_box .btn_submit:hover {
-              background: #009ac2;
-            }
-            .form_box .btn_submit:active {
-              box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
-            }
-            .form_box .btn_submit.disabled,
-            .form_box .btn_submit.disabled:hover {
-              background: #afdde6;
-              cursor: default;
-            }
-          </style>
-          <div class="form_box">
-        
-            <label for="user_name">Имя пользователя:</label>
+        <h1>Войти в личный кабинет</h1>
+            
             <input type="text" id="phone" class="mask-phone form-control rfield"  placeholder="Номер телефона">
                     <script>
                         $('.mask-phone').mask('+7 (999) 999-99-99');
                     </script>
         
-            <label for="user_family">Фамилия пользователя</label>
-            <p><input id="password" type="text" class="rfield" name="password" value="" placeholder="Пароль"></p>
+           
+            <p><input id="password" type="text" class="rfield" name="password" value="" placeholder="Пароль"></p>      
+         
         
-            <label for="user_phone">Телефон пользователя:</label>
-            <input type="text" class="rfield" id="user_phone" />
-        
-            <label for="user_work">Профессия пользователя:</label>
-            <input type="text" class="rfield" id="user_work" />
-        
-            <button type="submit" id="button" class="btn_submit disabled">Submit</button>
+            <button type="submit" id="button" class="btn_submit disabled">Войти</button>
           </div>
+
+
+     
+          
         </body>
         <script type="text/javascript">
           $('document').ready(function() {
             $('#button').on('click', function() {
-              $('.form_box .rfield').each(function() {
+              $('.table .rfield').each(function() {
                 if ($(this).val() != '') {
                   console.log(32);
                   // Если поле не пустое удаляем класс-указание
