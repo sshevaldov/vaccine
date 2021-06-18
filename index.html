@@ -18,8 +18,8 @@
 			$.mask.definitions['y'] = '[1 2]';
 			$.mask.definitions['d'] = '[0 9]';
 			$("#date")
-				.datepicker({ nextText: "", prevText: "", dateFormat: 'dd-mm-yy', changeMonth: true, changeYear: true, maxDate: 0, maxYear: 0, showAnim: "fold", yearRange: '1900:2030', firstDay: 1 })
-				.mask("~9-m9-yd99", { placeholder: "ДД-ММ-ГГГГ" });
+				.datepicker({ nextText: "", prevText: "", dateFormat: 'dd.mm.yy', changeMonth: true, changeYear: true, maxDate: 0, maxYear: 0, showAnim: "fold", yearRange: '1900:2030', firstDay: 1 })
+				.mask("~9.m9.yd99", { placeholder: "ДД.ММ.ГГГГ" });
 		});
 	</script>
 	<script>
@@ -68,8 +68,7 @@
 
 		<div class="table">
 			<h1>Регистрация</h1>
-			<p>
-				Личные данные
+			<p>Личные данные</p>
 			<p> <input id="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия"
 					style="text-transform: capitalize;" />
 			<p>
@@ -84,8 +83,7 @@
 		</div>
 
 		<div class="table">
-			<p>
-				Паспорт
+			<p>Паспорт</p>
 			<p><input id="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер">
 			</p>
 			<p><input id="code" type="text" class="mask-pasport-division form-control rfield"
@@ -96,7 +94,7 @@
 				$('.mask-pasport-number').mask('99-99 999999');
 				$('.mask-pasport-division').mask('999-999');
 			</script>
-			Номер полиса ОМС
+			<p>Номер полиса ОМС</p>
 			<p> <input id="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС">
 				<script>
 					$('.number').mask("9999 9999 9999 9999", { placeholder: "**** **** **** ****" })
@@ -107,8 +105,7 @@
 
 		<div class="table">
 
-			<p>
-				Данные аккаунта
+			<p>Данные аккаунта</p>
 			<p> <input id="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
 				<script>
 					$('.mask-phone').mask('+7 (999) 999-99-99');
