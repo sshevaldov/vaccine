@@ -5,33 +5,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link type="text/css" rel="stylesheet"
+        href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <title>Личный кабинет</title>
+    <script>
+        /* Локализация datepicker */
+        $.datepicker.regional['ru'] = {
+            monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+            dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
+        };
+        $.datepicker.setDefaults($.datepicker.regional['ru']);
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $.mask.definitions['~'] = '[1 2 3]';
+            $.mask.definitions['m'] = '[0 1]';
+            $.mask.definitions['y'] = '[1 2]';
+            $.mask.definitions['d'] = '[0 9]';
+            $("#datepicker")
+                .datepicker({ nextText: "", prevText: "", dateFormat: 'dd-mm-yy', changeMonth: true, changeYear: true, minDate: 0, maxYear: 0, showAnim: "fold", daysOfWeekDisabled: [2, 3], yearRange: '2021:2025', firstDay: 1 })
+                .mask("~9-m9-yd99", { placeholder: "ДД-ММ-ГГГГ" });
+        });
+    </script>
+<script>
+/* Локализация datepicker */
+$.datepicker.regional['ru'] = {
+	closeText: 'Закрыть',
+	prevText: 'Предыдущий',
+	nextText: 'Следующий',
+	currentText: 'Сегодня',
+	monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+	monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+	dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+	dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+	dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+	weekHeader: 'Не',
+	dateFormat: 'dd.mm.yy',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['ru']);
+
+$(function(){
+	$("#datepicker").datepicker({
+		beforeShowDay: function(date){
+			var dayOfWeek = date.getDay();
+			if (dayOfWeek == 0 || dayOfWeek == 6){
+				return [false];
+			} else {
+				return [true];
+			}
+		}
+	});
+});
+
+</script>
+
 </head>
 
 <body>
     <section class="container">
-
-
-
-        <div class="table" style="
-    width: auto;
-">
+        <div class="table" style="width: auto;">
             <h1 style="    text-align: right;    padding: 10px;">
                 <div>
                     <div style="
                     position: absolute;
-                    font-size: -webkit-xxx-large;
-                "><p>Сервис записи на вакцинацию</p></div>
+                    font-size: -webkit-xxx-large;">
+                        <p>Сервис записи на вакцинацию</p>
+                    </div>
                     <div>
-                    <p>username</p>
-                    <form action="first.html">
-                        <button class="btn_submit disabled">Выйти</button>
-                    </form>
-                </div>
+                        <p>username</p>
+                        <form action="first.html">
+                            <button class="btn_submit disabled">Выйти</button>
+                        </form>
+                    </div>
                 </div>
             </h1>
-
+            <p>Выберите дату вакцинации</p>
+            <p> <input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата рождения" />
+            </p>
             <p> <input id="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
                 <script>
                     $('.mask-phone').mask('+7 (999) 999-99-99');
@@ -41,17 +99,15 @@
             </p>
             <p id="exept" hidden="" style="color: red;">Пароли не совпадают</p>
             <p><input id="pass1" class="rfield" type="password" name="password" placeholder="Пароль"></p>
-
             <p><input id="pass2" class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
             <div>
                 <button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
-
             </div>
         </div>
     </section>
 
 
-
+    <div id="datepicker"></div>
 
 </body>
 
