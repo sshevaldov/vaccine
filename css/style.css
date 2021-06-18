@@ -287,5 +287,7 @@ input[type=submit]:active {
   height: 35px;
   line-height: 28px;
   padding: 0;
+  margin-left: 5px;
+  outline: 5px solid #eff4f7;
 } 
         
