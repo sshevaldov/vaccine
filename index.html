@@ -33,6 +33,7 @@
 			$('.table .rfield').each(function() {
 			  if ($(this).val() != '') {
 				console.log(32);
+				location.href = 'first.html'
 				// Если поле не пустое удаляем класс-указание
 				$(this).removeClass('empty_field');
 			  } else {
@@ -100,7 +101,7 @@
 				<p>
 				<p><input class="rfield" type="password" name="password" placeholder="Пароль"></p>
 				<p><input class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
-				<button type="submit" id="button" class="btn_submit disabled">Войти</button>
+				<button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
 			
 		</div>		
 	</section>
