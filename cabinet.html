@@ -82,16 +82,21 @@
                 </div>
             </h1>
             <p>Дата вакцинации</p>
-            <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
+            <input id="datepicker" type="text" class="rfield hasDatepicker" tabindex="1" placeholder="Дата вакцинации"
+                style="
+    height: 34px;
+">
             </p>
             <p>Город вакцинации</p>
             <select>
+                <option disabled selected>город</option>
                 <option>Ульяновск</option>
                 <option>Москва</option>
             </select>
             <p>Место вакцинации</p>
             <!--https://stackoverflow.com/questions/4579570/jquery-loading-data-from-database-and-inserting-it-to-select-->
             <select>
+                <option disabled selected>место вакцинации</option>
                 <option>ЦГКБ, ул. Оренбургская, 27</option>
                 <option>ГП №1, ул. Гагарина, 20</option>
                 <option>ГП №5, пр. Созидателей, 11</option>
@@ -102,7 +107,8 @@
                 <option>Консультативно-диагностический центр № 2 Филиал № 3, Открытое шоссе, 24, корпус 9</option>
             </select>
             <p>Время вакцинации</p>
-            <select >
+            <select>
+                <option disabled selected>время</option>
                 <option>12:00</option>
                 <option>12:10</option>
                 <option>12:20</option>
@@ -122,9 +128,8 @@
                 <option>14:40</option>
                 <option>14:50</option>
                 <option>15:00</option>
-            </select>  
+            </select>
             <p>Незабывайте о необходимости приходить заранее.</p>
-                  
             <div>
                 <button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
             </div>
