@@ -31,22 +31,19 @@
 		$('document').ready(function () {
 			$('#button').on('click', function () {
 				$('.table .rfield').each(function () {
+					var fam = document.getElementById("fam").value;
+					var name = document.getElementById("name").value;
+					var date = document.getElementById("date").value;
+					var ser = document.getElementById("ser").value;
+					var code = document.getElementById("code").value;
+					var omc = document.getElementById("omc").value;
+					var phone = document.getElementById("phone").value;
+					var pass1 = document.getElementById("pass1").value;
+					var pass2 = document.getElementById("pass2").value;
 					if ($(this).val() != '') {
 						console.log(32);
-						var fam = document.getElementById("pass1").value;
-						var name = document.getElementById("pass1").value;
-						var birth = document.getElementById("pass1").value;
-						var ser = document.getElementById("pass1").value;
-						var code1 = document.getElementById("pass1").value;
-						var omc = document.getElementById("pass1").value;
-						var phone = document.getElementById("pass1").value;
-						var pass1 = document.getElementById("pass2").value;
-						var pass2 = document.getElementById("exept")
-
-
 						// Если поле не пустое удаляем класс-указание
 						$(this).removeClass('empty_field');
-
 					} else {
 						console.log(33);
 						// Если поле пустое добавляем класс-указание
@@ -55,7 +52,7 @@
 					if (pass1 == pass2) {
 						$("#exept").hide();
 					} else { $("#exept").show(); }
-					if (pass1.value != '' && num.value != '') {
+					if (name != '' && date != '' && ser != '' && code != '' && omc != '' && phone != '' && pass1 != '' && pass2 != '') {
 						location.href = 'first.html';
 					}
 				});
@@ -73,10 +70,10 @@
 			<h1>Регистрация</h1>
 			<p>
 				Личные данные
-			<p> <input type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия"
+			<p> <input id="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия"
 					style="text-transform: capitalize;" />
 			<p>
-				<input type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Имя"
+				<input id="name" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Имя"
 					style="text-transform: capitalize;" />
 			<p> <input type="text" onkeyup="limitInput( 'ru', this );" placeholder="Отчество (при наличии)"
 					style="text-transform:capitalize;" />
@@ -89,8 +86,10 @@
 		<div class="table">
 			<p>
 				Паспорт
-			<p><input type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер"></p>
-			<p><input type="text" class="mask-pasport-division form-control rfield" placeholder="Код подразделения"></p>
+			<p><input id="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер">
+			</p>
+			<p><input id="code" type="text" class="mask-pasport-division form-control rfield"
+					placeholder="Код подразделения"></p>
 
 
 			<script>
@@ -98,7 +97,7 @@
 				$('.mask-pasport-division').mask('999-999');
 			</script>
 			Номер полиса ОМС
-			<p> <input type="text" class="number form-control rfield" placeholder="Номер полиса ОМС">
+			<p> <input id="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС">
 				<script>
 					$('.number').mask("9999 9999 9999 9999", { placeholder: "**** **** **** ****" })
 				</script>
@@ -110,17 +109,19 @@
 
 			<p>
 				Данные аккаунта
-			<p> <input type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
+			<p> <input id="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
 				<script>
 					$('.mask-phone').mask('+7 (999) 999-99-99');
 				</script>
 			</p>
 			<p>
+				<p id="exept" hidden style="color: red;">Пароли не совпадают</p>
 			<p><input id="pass1" class="rfield" type="password" name="password" placeholder="Пароль"></p>
+			
 			<p><input id="pass2" class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
 			<div>
 				<button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
-				<p id="exept" hidden>Пароли не совпадают</p>
+				
 			</div>
 		</div>
 	</section>
