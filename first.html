@@ -42,8 +42,8 @@
       $('#button').on('click', function () {
         
         $('.table .rfield').each(function () {
-         var pass = = document.getElementById("exept")
-         
+         var pass  = document.getElementById("password")
+         var num  = document.getElementById("phone")
          
           if ($(this).val() != '') {
             console.log(32);        
@@ -55,7 +55,10 @@
            
             // Если поле пустое добавляем класс-указание
             $(this).addClass('empty_field');
-            return true;
+           
+          }
+          if (pass.value !='' && num.value!=''){
+            location.href = 'cabinet.html';            
           }
 
          
