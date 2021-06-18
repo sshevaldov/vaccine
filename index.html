@@ -28,65 +28,86 @@
 </head>
 
 <body>
-
-	<div class="table">
-		<h1>Регистрация</h1>
-		<p>
-			Личные данные
-		<p> <input type="text" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия"
-				style="text-transform: capitalize;" />
-		</p>
-		<p>
-			
-		<p> <input type="text" onkeyup="limitInput( 'ru', this );" placeholder="Имя"
-				style="text-transform: capitalize;" />
-		</p>
-		<p>
-			
-		<p> <input type="text" onkeyup="limitInput( 'ru', this );" placeholder="Отчество [при наличии] "
-				style="text-transform: capitalize;" />
-		</p>
-		<p>
-		<p> <input id="date" value="1231" type="text" tabindex="1" placeholder="Дата рождения" />
-		</p>
-		</p>
-	</div>
-
-	<div class="table">
-		<p>
-			Паспорт
-		<p><input type="text" class="mask-pasport-number form-control" placeholder="Серия, номер"></p>
-		<p><input type="text" class="mask-pasport-division form-control" placeholder="Код подразделения"></p>
-
-
-		<script>
-			$('.mask-pasport-number').mask('99-99 999999');
-			$('.mask-pasport-division').mask('999-999');
-		</script>
-		Номер полиса ОМС
-		<p> <input type="text" class="number form-control" placeholder="Номер полиса ОМС">
-			<script>
-				$('.number').mask("9999 9999 9999 9999", { placeholder: "**** **** **** ****" })
-			</script>
-		</p>
-		</p>
-	</div>
-
-	<div class="table">
-		<form method="post" action="index.html">
+	<section class="container">
+		<div class="table">
+			<h1>Регистрация</h1>
 			<p>
-				Данные аккаунта
-			<p> <input type="text" class="mask-phone form-control" placeholder="Номер телефона">
-				<script>
-					$('.mask-phone').mask('+7 (999) 999-99-99');
-				</script>
+				Личные данные
+			<p> <input type="text" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия"
+					style="text-transform: capitalize;" />
 			</p>
 			<p>
-			<p><input type="password" name="password" value="" placeholder="Пароль"></p>
-			<p><input type="password" name="password" value="" placeholder="Повторите пароль"></p>
-			<p class="submit"><input type="submit" name="commit" value="Регистрация"></p>
-		</form>
-	</div>
+
+			<p> <input type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Имя"
+					style="text-transform: capitalize;" />
+
+			</p>
+			<p>
+
+			<p> <input type="text" onkeyup="limitInput( 'ru', this );" placeholder="Отчество [при наличии] "
+					style="text-transform: capitalize;" />
+			</p>
+			<p>
+			<p> <input id="date" value="1231" type="text" tabindex="1" placeholder="Дата рождения" />
+			</p>
+			</p>
+		</div>
+
+		<div class="table">
+			<p>
+				Паспорт
+			<p><input type="text" class="mask-pasport-number form-control" placeholder="Серия, номер"></p>
+			<p><input type="text" class="mask-pasport-division form-control" placeholder="Код подразделения"></p>
+
+
+			<script>
+				$('.mask-pasport-number').mask('99-99 999999');
+				$('.mask-pasport-division').mask('999-999');
+			</script>
+			Номер полиса ОМС
+			<p> <input type="text" class="number form-control" placeholder="Номер полиса ОМС">
+				<script>
+					$('.number').mask("9999 9999 9999 9999", { placeholder: "**** **** **** ****" })
+				</script>
+			</p>
+			</p>
+		</div>
+
+		<div class="table">
+			<form method="post" action="index.html">
+				<p>
+					Данные аккаунта
+				<p> <input type="text" class="mask-phone form-control" placeholder="Номер телефона">
+					<script>
+						$('.mask-phone').mask('+7 (999) 999-99-99');
+					</script>
+				</p>
+				<p>
+				<p><input type="password" name="password" value="" placeholder="Пароль"></p>
+				<p><input type="password" name="password" value="" placeholder="Повторите пароль"></p>
+				<p class="submit"><input type="submit" name="commit" value="Регистрация"></p>
+				<button type="submit" id="button" class="btn_submit disabled">Войти</button>
+			</form>
+		</div>
+	</section>
 </body>
+<script type="text/javascript">
+	$('document').ready(function () {
+		$('#button').on('click', function () {
+			$('.table .rfield').each(function () {
+				if ($(this).val() != '') {
+					console.log(32);
+					// Если поле не пустое удаляем класс-указание
+					$(this).removeClass('empty_field');
+				} else {
+					console.log(33);
+					// Если поле пустое добавляем класс-указание
+					$(this).addClass('empty_field');
+				}
+			});
+		});
+	});
+</script>
+
 
 </html>
