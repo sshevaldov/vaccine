@@ -42,12 +42,11 @@
       $('#button').on('click', function () {
         
         $('.table .rfield').each(function () {
+         var pass = = document.getElementById("exept")
          
          
-          alert($(this).val());
           if ($(this).val() != '') {
-            console.log(32);
-          
+            console.log(32);        
             
             // Если поле не пустое удаляем класс-указание
             $(this).removeClass('empty_field');
@@ -58,6 +57,7 @@
             $(this).addClass('empty_field');
             return true;
           }
+
          
         }); 
       }); 
