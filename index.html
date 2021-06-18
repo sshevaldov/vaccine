@@ -28,30 +28,37 @@
 		}
 	</script>
 	<script type="text/javascript">
-		$('document').ready(function() {
-		  $('#button').on('click', function() {
-			$('.table .rfield').each(function() {
-			  if ($(this).val() != '') {
-				console.log(32);
-				location.href = 'first.html'
-				// Если поле не пустое удаляем класс-указание
-				$(this).removeClass('empty_field');
-			  } else {
-				console.log(33);
-				// Если поле пустое добавляем класс-указание
-				$(this).addClass('empty_field');
-			  }
+		$('document').ready(function () {
+			$('#button').on('click', function () {
+				$('.table .rfield').each(function () {
+					if ($(this).val() != '') {
+						console.log(32);
+						var pass1 = document.getElementById("pass1").value;
+						var pass2 = document.getElementById("pass2").value;
+						var exept = document.getElementById("exept")
+						if (pass1 == pass2) {
+							$("#exept").hide();
+						} else { $("#exept").show(); }
+						
+						// Если поле не пустое удаляем класс-указание
+						$(this).removeClass('empty_field');
+						location.href = 'first.html';
+					} else {
+						console.log(33);
+						// Если поле пустое добавляем класс-указание
+						$(this).addClass('empty_field');
+					}
+				});
 			});
-		  });
 		});
-	  </script>
+	</script>
 </head>
 
 <body>
 	<section class="container">
 
 
-		
+
 		<div class="table">
 			<h1>Регистрация</h1>
 			<p>
@@ -90,20 +97,22 @@
 		</div>
 
 		<div class="table">
-			
-				<p>
-					Данные аккаунта
-				<p> <input type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
-					<script>
-						$('.mask-phone').mask('+7 (999) 999-99-99');
-					</script>
-				</p>
-				<p>
-				<p><input class="rfield" type="password" name="password" placeholder="Пароль"></p>
-				<p><input class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
+
+			<p>
+				Данные аккаунта
+			<p> <input type="text" class="rfield mask-phone form-control" placeholder="Номер телефона">
+				<script>
+					$('.mask-phone').mask('+7 (999) 999-99-99');
+				</script>
+			</p>
+			<p>
+			<p><input id="pass1" class="rfield" type="password" name="password" placeholder="Пароль"></p>
+			<p><input id="pass2" class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
+			<div>
 				<button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
-			
-		</div>		
+				<p id="exept" hidden>Пароли не совпадают</p>
+			</div>
+		</div>
 	</section>
 
 
