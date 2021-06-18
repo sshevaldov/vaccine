@@ -33,20 +33,30 @@
 				$('.table .rfield').each(function () {
 					if ($(this).val() != '') {
 						console.log(32);
-						var pass1 = document.getElementById("pass1").value;
-						var pass2 = document.getElementById("pass2").value;
-						var exept = document.getElementById("exept")
-						if (pass1 == pass2) {
-							$("#exept").hide();
-						} else { $("#exept").show(); }
-						
+						var fam = document.getElementById("pass1").value;
+						var name = document.getElementById("pass1").value;
+						var birth = document.getElementById("pass1").value;
+						var ser = document.getElementById("pass1").value;
+						var code1 = document.getElementById("pass1").value;
+						var omc = document.getElementById("pass1").value;
+						var phone = document.getElementById("pass1").value;
+						var pass1 = document.getElementById("pass2").value;
+						var pass2 = document.getElementById("exept")
+
+
 						// Если поле не пустое удаляем класс-указание
 						$(this).removeClass('empty_field');
-						location.href = 'first.html';
+
 					} else {
 						console.log(33);
 						// Если поле пустое добавляем класс-указание
 						$(this).addClass('empty_field');
+					}
+					if (pass1 == pass2) {
+						$("#exept").hide();
+					} else { $("#exept").show(); }
+					if (pass1.value != '' && num.value != '') {
+						location.href = 'first.html';
 					}
 				});
 			});
