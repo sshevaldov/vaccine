@@ -23,9 +23,10 @@
   <div class="table">
     <h1>Войти в личный кабинет</h1>
 
-    <input type="text" id="phone" class="mask-phone form-control rfield" placeholder="Номер телефона">
+    <p><input id="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта">
+    </p>
     <script>
-      $('.mask-phone').mask('+7 (999) 999-99-99');
+      $('.mask-pasport-number').mask('9999 999999');    
     </script>
 
 
@@ -40,10 +41,10 @@
   
     $('document').ready(function () {
       $('#button').on('click', function () {
-        
+        var pass  = document.getElementById("password")
+         var num  = document.getElementById("ser")
         $('.table .rfield').each(function () {
-         var pass  = document.getElementById("password")
-         var num  = document.getElementById("phone")
+         
          
           if ($(this).val() != '') {
             console.log(32);        
