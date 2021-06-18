@@ -78,7 +78,6 @@ body {
   background: rgba(0, 0, 0, 0.08);
   border-radius: 4px;
 }
-
 .table h1 {
   margin: -20px -20px 21px;
   line-height: 40px;
@@ -98,8 +97,7 @@ body {
   box-shadow: 0 1px whitesmoke;
 }
 .table p {
-  margin: 15px 0 5px;
-  
+  margin: 5px 0 0;
 }
 .table p:first-child {
   margin-top: 0;
@@ -289,8 +287,6 @@ input[type=submit]:active {
   height: 35px;
   line-height: 28px;
   padding: 0;
-  margin-left: 5px;
-  outline: 5px solid #eff4f7;
- 
+  
 } 
         
