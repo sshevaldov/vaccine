@@ -4,6 +4,9 @@
 	<script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="src/jquery.maskedinput.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<style>
+
+	</style>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link type="text/css" rel="stylesheet"
@@ -83,48 +86,119 @@
 					</script>
 				</p>
 				<p>
-				<p><input type="password" name="password"  placeholder="Пароль"></p>
-				<p><input type="password" name="password"  placeholder="Повторите пароль"></p>
+				<p><input type="password" name="password" placeholder="Пароль"></p>
+				<p><input type="password" name="password" placeholder="Повторите пароль"></p>
 				<button type="submit" id="button" class="btn_submit disabled">Войти</button>
 			</form>
 		</div>
-	</section>
-	<div class="form_box">
 
-		<label for="user_name">Имя пользователя:</label>
-		<input type="text" class="rfield" id="user_name" />
-	
-		<label for="user_family">Фамилия пользователя</label>
-		<input type="text" class="rfield" id="user_family" />
-	
-		<label for="user_phone">Телефон пользователя:</label>
-		<input type="text" class="rfield" id="user_phone" />
-	
-		<label for="user_work">Профессия пользователя:</label>
-		<input type="text" class="rfield" id="user_work" />
-	
-		<button type="submit" id="button" class="btn_submit disabled">Submit</button>
-	  </div>
-	</body>
-	<script type="text/javascript">
-	  $('document').ready(function() {
-		$('#button').on('click', function() {
-		  $('.form_box .rfield').each(function() {
-			if ($(this).val() != '') {
-			  console.log(32);
-			  // Если поле не пустое удаляем класс-указание
-			  $(this).removeClass('empty_field');
-			} else {
-			  console.log(33);
-			  // Если поле пустое добавляем класс-указание
-			  $(this).addClass('empty_field');
+		<style type="text/css">
+			.form_box input.empty_field {
+				border-width: 2px;
+				border-color: red;
 			}
-		  });
-		});
-	  });
-	</script>
-</body>
 
+			.form_box {
+				width: 300px;
+				margin: 40px auto;
+			}
+
+			.form_box label {
+				font-size: 13px;
+				font-weight: bold;
+				color: #444444;
+				display: block;
+			}
+
+			.form_box input {
+				display: block;
+				border: 2px solid #cfcfcf;
+				font-size: 14px;
+				color: #444444;
+				padding: 7px 7px 8px;
+				width: 250px;
+				margin-bottom: 20px;
+				transition: all 0.5s;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+			}
+
+			.form_box input:focus {
+				outline: none;
+				border-color: #07a6e6;
+			}
+
+			.form_box .btn_submit {
+				border: none;
+				width: 180px;
+				text-align: center;
+				background: #07a6e6;
+				font-size: 13px;
+				font-weight: bold;
+				color: #ffffff;
+				cursor: pointer;
+				height: 35px;
+				line-height: 28px;
+				padding: 0;
+			}
+
+			.form_box .btn_submit:hover {
+				background: #009ac2;
+			}
+
+			.form_box .btn_submit:active {
+				box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+			}
+
+			.form_box .btn_submit.disabled,
+			.form_box .btn_submit.disabled:hover {
+				background: #afdde6;
+				cursor: default;
+			}
+		</style>
+		<div class="form_box">
+
+			<label for="user_name">Имя пользователя:</label>
+			<input type="text" class="rfield" id="user_name" />
+
+			<label for="user_family">Фамилия пользователя</label>
+			<input type="text" class="rfield" id="user_family" />
+
+			<label for="user_phone">Телефон пользователя:</label>
+			<input type="text" class="rfield" id="user_phone" />
+
+			<label for="user_work">Профессия пользователя:</label>
+			<input type="text" class="rfield" id="user_work" />
+
+			<button type="submit" id="button" class="btn_submit disabled">Submit</button>
+		</div>
+
+		
+
+
+
+	</section>
+	<script type="text/javascript">
+		$('document').ready(function () {
+			$('#button').on('click', function () {
+				$('.form_box .rfield').each(function () {
+					if ($(this).val() != '') {
+						console.log(32);
+						// Если поле не пустое удаляем класс-указание
+						$(this).removeClass('empty_field');
+					} else {
+						console.log(33);
+						// Если поле пустое добавляем класс-указание
+						$(this).addClass('empty_field');
+					}
+				});
+			});
+		});
+	</script>
+	
+
+
+</body>
 
 
 </html>
