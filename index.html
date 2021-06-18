@@ -48,7 +48,7 @@
 					style="text-transform: capitalize;" />
 			</p>
 			<p>
-			<p> <input id="date" value="1231" type="text" tabindex="1" placeholder="Дата рождения" />
+			<p> <input id="date" type="text" tabindex="1" placeholder="Дата рождения" />
 			</p>
 			</p>
 		</div>
@@ -83,31 +83,48 @@
 					</script>
 				</p>
 				<p>
-				<p><input type="password" name="password" value="" placeholder="Пароль"></p>
-				<p><input type="password" name="password" value="" placeholder="Повторите пароль"></p>
-				<p class="submit"><input type="submit" name="commit" value="Регистрация"></p>
+				<p><input type="password" name="password"  placeholder="Пароль"></p>
+				<p><input type="password" name="password"  placeholder="Повторите пароль"></p>
 				<button type="submit" id="button" class="btn_submit disabled">Войти</button>
 			</form>
 		</div>
 	</section>
-</body>
-<script type="text/javascript">
-	$('document').ready(function () {
-		$('#button').on('click', function () {
-			$('.table .rfield').each(function () {
-				if ($(this).val() != '') {
-					console.log(32);
-					// Если поле не пустое удаляем класс-указание
-					$(this).removeClass('empty_field');
-				} else {
-					console.log(33);
-					// Если поле пустое добавляем класс-указание
-					$(this).addClass('empty_field');
-				}
-			});
+	<div class="form_box">
+
+		<label for="user_name">Имя пользователя:</label>
+		<input type="text" class="rfield" id="user_name" />
+	
+		<label for="user_family">Фамилия пользователя</label>
+		<input type="text" class="rfield" id="user_family" />
+	
+		<label for="user_phone">Телефон пользователя:</label>
+		<input type="text" class="rfield" id="user_phone" />
+	
+		<label for="user_work">Профессия пользователя:</label>
+		<input type="text" class="rfield" id="user_work" />
+	
+		<button type="submit" id="button" class="btn_submit disabled">Submit</button>
+	  </div>
+	</body>
+	<script type="text/javascript">
+	  $('document').ready(function() {
+		$('#button').on('click', function() {
+		  $('.form_box .rfield').each(function() {
+			if ($(this).val() != '') {
+			  console.log(32);
+			  // Если поле не пустое удаляем класс-указание
+			  $(this).removeClass('empty_field');
+			} else {
+			  console.log(33);
+			  // Если поле пустое добавляем класс-указание
+			  $(this).addClass('empty_field');
+			}
+		  });
 		});
-	});
-</script>
+	  });
+	</script>
+</body>
+
 
 
 </html>
