@@ -98,13 +98,13 @@ body {
   box-shadow: 0 1px whitesmoke;
 }
 .table p {
-  margin: 0px 0px 15px;
-
+  margin: 15px 0 5px;
+  
 }
 .table p:first-child {
   margin-top: 0;
 }
-.table input[type=text], .table input[type=password], select {
+.table input[type=text], .table input[type=password] {
   width: 278px;
   display: block;
           border: 2px solid #cfcfcf;
@@ -165,7 +165,7 @@ input {
   font-size: 14px;
 }
 
-input[type=text], input[type=password], select {
+input[type=text], input[type=password] {
   margin: 5px;
   padding: 0 10px;
   width: 200px;
@@ -185,7 +185,6 @@ input[type=text]:focus, input[type=password]:focus {
   outline-color: #dceefc;
   outline-offset: 0;
 }
-
 
 input[type=submit] {
   padding: 0 18px;
@@ -292,6 +291,6 @@ input[type=submit]:active {
   padding: 0;
   margin-left: 5px;
   outline: 5px solid #eff4f7;
-  margin-top: 15px;
+ 
 } 
         
