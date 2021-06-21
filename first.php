@@ -9,7 +9,7 @@
 <head>
   <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   <meta charset="utf-8">
@@ -88,12 +88,12 @@ $dbname = "vaccine";
 $conn = mysqli_connect($servername, $uname, $pword, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+    $res = $mysqli->query("SELECT passport FROM users where password='admin'");?>
+    <p> $res</p><?php
 }
 ?>
 <ul>
-<?php for($i=1;$i<=5;$i++){ ?>
-<li>Menu Item <?php echo $i; ?></li>
-<?php } ?>
+
 
 
 </body>
