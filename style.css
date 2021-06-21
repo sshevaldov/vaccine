@@ -292,7 +292,7 @@ input[type=submit]:active {
   padding: 0;
   
 } 
-.table select {
+select {
   width: auto; 
   border: 2px solid #cfcfcf;
   font-size: 14px;
@@ -314,8 +314,8 @@ input[type=submit]:active {
   box-shadow: inset 0 1px 3px rgb(0 0 0 / 12%);
 }
 
-.table select.empty_field {
+table select.empty_field {
   border-width: 2px;
-  border-color: red;
+  border-color: red
 }       
         
