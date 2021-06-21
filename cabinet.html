@@ -85,7 +85,7 @@
             <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
             </p>
             <p>Город вакцинации</p>
-            <select>
+            <select id="sel">
                 <option disabled selected>Выберите город</option>
                 <option>Ульяновск</option>
                 <option>Москва</option>
@@ -133,8 +133,15 @@
         </div>
     </section>
 
-    <script></script>
-    <div id="datepicker"></div>
+    <button type="button" id="btn">Button</button>
+  <script>
+    document.getElementById('btn').onclick = function(){
+      var val=document.getElementById('datepicker').value;
+      var val2=document.getElementById('sel').value;
+      alert(val2);
+    }
+  </script>
+    
 
 </body>
 
