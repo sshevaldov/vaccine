@@ -292,18 +292,30 @@ input[type=submit]:active {
   padding: 0;
   
 } 
-select {
-  width: auto;  
+.table select {
+  width: auto; 
   border: 2px solid #cfcfcf;
   font-size: 14px;
   color: #444444;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   margin: 5px;
-  padding: 0 10px;
+  padding: 0 10px;  
   height: 34px;
+  color: #404040;
   background: white;
+  border: 1px solid;
   border-color: #c4c4c4 #d1d1d1 #d4d4d4;
   border-radius: 2px;
-  outline: 5px solid #eff4f7;  
+  outline: 5px solid #eff4f7;
+  -moz-outline-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgb(0 0 0 / 12%);
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 12%);
 }
+
+.table select.empty_field {
+  border-width: 2px;
+  border-color: red;
+}       
         
