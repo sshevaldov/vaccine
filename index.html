@@ -6,7 +6,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+		/* Локализация datepicker */
+		$.datepicker.regional['ru'] = {
+			monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+			dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+			dateFormat: 'dd.mm.yy',
+			monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+			firstDay: 1,
+			changeMonth: true,
+			changeYear: true,
+			maxDate: 0,
+			yearRange: '1900:2021'
+		};
+		$.datepicker.setDefaults($.datepicker.regional['ru']);
 
+
+	</script>
 	<link type="text/css" rel="stylesheet"
 		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 	<title>Регистрация</title>
@@ -52,7 +68,7 @@
 					if (pass1 == pass2) {
 						$("#exept").hide();
 					} else { $("#exept").show(); }
-					if (name != '' && date != '' && ser != '' && code != '' && omc != '' && phone != '' && pass1 != '' && pass2 != '') {
+					if (name != '' && date != '' && ser != '' && code != '' && omc != '' && phone != '' && pass1 != '' && pass1 == pass2) {
 						location.href = 'first.php';
 					}
 				});
@@ -112,13 +128,13 @@
 				</script>
 			</p>
 			<p>
-				<p id="exept" hidden style="color: red;">Пароли не совпадают</p>
+			<p id="exept" hidden style="color: red;">Пароли не совпадают</p>
 			<p><input id="pass1" class="rfield" type="password" name="password" placeholder="Пароль"></p>
-			
+
 			<p><input id="pass2" class="rfield" type="password" name="password" placeholder="Повторите пароль"></p>
 			<div>
 				<button type="submit" id="button" class="btn_submit disabled">Зарегистрироваться</button>
-				
+
 			</div>
 		</div>
 	</section>
