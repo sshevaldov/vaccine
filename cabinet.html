@@ -77,14 +77,21 @@
                 </div>
             </h1>
             <p>Город вакцинации</p>
-            <select id="sel">
-                <option disabled selected>Выберите город</option>
-                <option>Ульяновск</option>
-                <option>Москва</option>
-            </select>
+            <div style="
+    display: flex;
+">
+
+
+                <select id="sel" class="rfield empty_field">
+                    <option selected disabled="disabled" value='test'>Выберите город</option>
+                    <option>Ульяновск</option>
+                    <option>Москва</option>
+                </select>
+
+            </div>
             <p>Место вакцинации</p>
             <!--https://stackoverflow.com/questions/4579570/jquery-loading-data-from-database-and-inserting-it-to-select-->
-            <select>
+            <select id="place" class="rfield empty_field">
                 <option disabled selected>Выберите место вакцинации</option>
                 <option>ЦГКБ, ул. Оренбургская, 27</option>
                 <option>ГП №1, ул. Гагарина, 20</option>
@@ -95,12 +102,14 @@
                 <option>ГП № 66, Салтыковская улица, 11б</option>
                 <option>Консультативно-диагностический центр № 2 Филиал № 3, Открытое шоссе, 24, корпус 9</option>
             </select>
-            
+
             <p>Дата вакцинации</p>
             <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
             </p>
+
             <p>Время вакцинации</p>
-            <select>
+
+            <select id="time" class="rfield empty_field">
                 <option disabled selected> время</option>
                 <option>12:00</option>
                 <option>12:10</option>
@@ -124,7 +133,7 @@
             </select>
             <p>Незабывайте о необходимости приходить заранее.</p>
             <div>
-                <button type=" submit" id="button" class="btn_submit disabled">Записаться</button>
+                <button type="submit" id="button" class="btn_submit disabled">Записаться</button>
             </div>
         </div>
     </section>
@@ -134,10 +143,54 @@
         document.getElementById('btn').onclick = function () {
             var val = document.getElementById('datepicker').value;
             var val2 = document.getElementById('sel').value;
-            alert(val2);
+            alert($("#sel").val());
+            alert($("#datepicker").val());
         }
     </script>
 
+    <!--<script type="text/javascript">
+        $('document').ready(function () {
+            $('#button').on('click', function () {
+                $('.table .rfield').each(function () {
+                    var city = document.getElementById('sel').value;
+                    var place = document.getElementById('place').value;
+                    var date = document.getElementById('datepicker').value;
+                    var time = document.getElementById('time').value;
+
+                    if (name != '' && date != '' && ser != '' && code != '' && omc != '' && phone != '' && pass1 != '' && pass1 == pass2) {
+                        location.href = 'first.php';
+                    }
+                });
+            });
+        });
+    </script>-->
+
+    <script type="text/javascript">
+
+        $('document').ready(function () {
+            $('#button').on('click', function () {
+                $('.table .rfield').each(function () {
+
+                    var city = $("#sel").val();
+                    var place = document.getElementById('place').value;
+                    var date = document.getElementById('datepicker').value;
+                    var time = document.getElementById('time').value;
+                    if ($(this).val() != '' && $(this).val() != null) {
+                        console.log(32);
+                        // Если поле не пустое удаляем класс-указание
+                        $(this).removeClass('empty_field');
+
+                    } else {
+                        console.log(33);
+                        // Если поле пустое добавляем класс-указание                        
+
+
+                        $(this).addClass('empty_field');
+                    } console.log($(this).val());
+                });
+            });
+        });
+    </script>
 
 </body>
 
