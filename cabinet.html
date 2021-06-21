@@ -8,19 +8,12 @@
     <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link type="text/css" rel="stylesheet"
         href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <title>Личный кабинет</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script>
-        /* Локализация datepicker */
-        $.datepicker.regional['ru'] = {
-            monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-            dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-        };
-        $.datepicker.setDefaults($.datepicker.regional['ru']);
-    </script>
+
     <script type="text/javascript">
         $(function () {
             $.mask.definitions['~'] = '[1 2 3]';
@@ -40,6 +33,7 @@
             monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
             dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
             dateFormat: 'dd.mm.yy',
+            monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
             firstDay: 1,
             changeMonth: true,
             changeYear: true,
@@ -82,9 +76,6 @@
                     </div>
                 </div>
             </h1>
-            <p>Дата вакцинации</p>
-            <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
-            </p>
             <p>Город вакцинации</p>
             <select id="sel">
                 <option disabled selected>Выберите город</option>
@@ -104,6 +95,10 @@
                 <option>ГП № 66, Салтыковская улица, 11б</option>
                 <option>Консультативно-диагностический центр № 2 Филиал № 3, Открытое шоссе, 24, корпус 9</option>
             </select>
+            
+            <p>Дата вакцинации</p>
+            <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
+            </p>
             <p>Время вакцинации</p>
             <select>
                 <option disabled selected> время</option>
@@ -130,19 +125,19 @@
             <p>Незабывайте о необходимости приходить заранее.</p>
             <div>
                 <button type=" submit" id="button" class="btn_submit disabled">Записаться</button>
-        </div>
+            </div>
         </div>
     </section>
 
     <button type="button" id="btn">Button</button>
-  <script>
-    document.getElementById('btn').onclick = function(){
-      var val=document.getElementById('datepicker').value;
-      var val2=document.getElementById('sel').value;
-      alert(val2);
-    }
-  </script>
-    
+    <script>
+        document.getElementById('btn').onclick = function () {
+            var val = document.getElementById('datepicker').value;
+            var val2 = document.getElementById('sel').value;
+            alert(val2);
+        }
+    </script>
+
 
 </body>
 
