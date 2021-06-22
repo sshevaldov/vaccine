@@ -38,11 +38,15 @@
   </div>
 
   <script type="text/javascript">
-  
-    $('document').ready(function () {
-      $('#button').on('click', function () {
-        var pass  = document.getElementById("password")
-         var num  = document.getElementById("ser")
+  console.log(31);  
+    $('document').ready(function () {console.log(31);  
+      $('#button').on('click', function () {console.log(31);  
+        var pass  = document.getElementById("password");console.log(31);  
+         var num  = document.getElementById("ser");
+         console.log(31);   
+         var ps=pass.value;
+         var ps1=<?php print(sql_exec($ps))?>;
+         alert(ps1);
         $('.table .rfield').each(function () {
          
          
@@ -58,9 +62,10 @@
             $(this).addClass('empty_field');
            
           }
-          if (pass.value !='' && num.value!=''){
+          /*if (pass.value !='' && num.value!=''){
             location.href = 'cabinet.php';            
-          }
+          }*/
+         
 
          
         }); 
@@ -70,32 +75,24 @@
   <div class="table-help">
     <a href="index.php">Регистрация</a>
   </div>
-  <button type="button" id="btn">Button</button>
-  <script>
-    document.getElementById('btn').onclick = function(){
-      var val=document.getElementById('ser').value;      
-      alert(val);
-    }
-  </script>
-
-
 <?php
-$servername = "localhost";
+  function sql_exec($login,$password){
+    $servername = "localhost";
+    $uname = "root";
+    $pword = "";
+    $dbname = "vaccine";
 
-$uname = "root";
-$pword = "";
-$dbname = "vaccine";
-$conn = mysqli_connect($servername, $uname, $pword, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    $res = $mysqli->query("SELECT passport FROM users where password='admin'");?>
-    <p> $res</p><?php
-}
-?>
-<ul>
-
-
-
+    $conn = mysqli_connect($servername, $uname, $pword, $dbname);
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    $sql="SELECT * FROM users where password=$password"; 
+    $result=mysqli_query($conn, $sql); 
+    $ml=mysqli_num_rows($result); 
+    return $ml;
+   
+  }
+    ?>
 </body>
 
 </html>
