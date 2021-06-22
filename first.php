@@ -59,7 +59,7 @@
            
           }
           if (pass.value !='' && num.value!=''){
-            location.href = 'cabinet.html';            
+            location.href = 'cabinet.php';            
           }
 
          
@@ -68,7 +68,7 @@
     }); 
   </script>
   <div class="table-help">
-    <a href="index.html">Регистрация</a>
+    <a href="index.php">Регистрация</a>
   </div>
   <button type="button" id="btn">Button</button>
   <script>
