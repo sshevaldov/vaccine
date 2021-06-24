@@ -19,14 +19,15 @@
 
 <body>
 
-
   <div class="table">
     <h1>Войти в личный кабинет</h1>
 
-    <p><input id="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта">
+   
+
+    <p><input id="ser" name="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта">
     </p>
     <script>
-      $('.mask-pasport-number').mask('9999 999999');    
+      $('.mask-pasport-number').mask('9999 999999');
     </script>
 
 
@@ -34,56 +35,48 @@
 
 
     <button type="submit" id="button" class="btn_submit disabled">Войти</button>
-
+  
   </div>
-  <?php
-function add($a,$b){
-  $c=$a+$b;
-  return $c;
-}
 
-?>
   <script type="text/javascript">
-  console.log(31);  
-    $('document').ready(function () {console.log(31);  
-      $('#button').on('click', function () {console.log(31);  
-        var pass  = document.getElementById("password");console.log(31);  
-         var num  = document.getElementById("ser");
-         console.log(31);   
-         var ps=pass.value;
-         
-  var phpadd= "<?php echo sql_exec("1111 111111","admin");?>" //call the php add function
-
-         alert(phpadd);
+    
+    $('document').ready(function () {
+    
+      $('#button').on('click', function () {
+        
+        var pass = document.getElementById("password"); 
+        var num = document.getElementById("ser");
+       
+      
+       
+       
+        
         $('.table .rfield').each(function () {
-         
-         
+
+
           if ($(this).val() != '') {
-            console.log(32);        
-            
+            console.log(32);
+
             // Если поле не пустое удаляем класс-указание
             $(this).removeClass('empty_field');
           } else {
             console.log(33);
-           
+
             // Если поле пустое добавляем класс-указание
             $(this).addClass('empty_field');
-           
-          }
-          /*if (pass.value !='' && num.value!=''){
-            location.href = 'cabinet.php';            
-          }*/
-         
 
-         
-        }); 
-      }); 
-    }); 
+          }
+          if (pass.value !='' && num.value!=''){
+            location.href = 'cabinet.php';            
+          }
+        });
+      });
+    });
   </script>
   <div class="table-help">
     <a href="index.php">Регистрация</a>
   </div>
-<?php
+  <?php
   function sql_exec($login,$password){
     $servername = "localhost";
     $uname = "root";
@@ -96,18 +89,17 @@ function add($a,$b){
     }
     $sql="SELECT * FROM users where password=$password"; 
     $result=mysqli_query($conn,"SELECT password FROM users where password='$password'");  
-    mysqli_num_rows($result);
-    
-   $row = mysqli_fetch_array($result);
-    $total = $row[0];
-    
+    $row = mysqli_fetch_array($result);
+    $total = $row[0];    
     mysqli_close($conn);
-    return $total;
-    
+    return $total;  }?>
 
-  }
- 
-    ?>
+
+
+
+
+     
+
 </body>
 
 </html>
