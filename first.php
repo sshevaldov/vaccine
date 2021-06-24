@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-         <html lang="en">         
+        <html lang="en">         
             <head>
-               <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-               <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
-               <link rel="stylesheet" type="text/css" href="style.css">
-               <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-               <meta charset="utf-8">
-               <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-               <title>Добро пожаловать!</title>
+              <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+              <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+              <link rel="stylesheet" type="text/css" href="style.css">
+              <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+              <meta charset="utf-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+              <title>Добро пожаловать!</title>
             </head>
             <body>
-               <div class="table">
+              <div class="table">
                   <h1>Войти в личный кабинет</h1>
                   <p><input id="ser" name="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта">
                   </p>
                   <script>
-                     $('.mask-pasport-number').mask('9999 999999');
+                    $('.mask-pasport-number').mask('9999 999999');
                   </script>
                   <p><input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль"></p>
                   <button type="submit" id="button" class="btn_submit disabled">Войти</button>
-               </div>
-               <script type="text/javascript">
+              </div>
+              <script type="text/javascript">
                   $('document').ready(function () {                  
                     $('#button').on('click', function () {                      
                       var pass = document.getElementById("password"); 
@@ -41,11 +41,11 @@
                       });
                     });
                   });
-               </script>
-               <div class="table-help">
+              </script>
+              <div class="table-help">
                   <a href="index.php">Регистрация</a>
-               </div>
-               <?php
+              </div>
+              <?php
                   function sql_exec($login,$password){
                     $servername = "localhost";
                     $uname = "root";
@@ -61,5 +61,25 @@
                     $total = $row[0];    
                     mysqli_close($conn);
                     return $total;  }?>
+                    <script>
+                      $(document).ready(function () {
+  createCookie("height", $(window).height(), "10");
+});
+
+function createCookie(name, value, days) {
+  var expires;
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+  }
+  else {
+    expires = "";
+  }
+  document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+}
+                    </script>
+
+                    <p><?PHP echo $_COOKIE["height"]; ?></p>
             </body>
-         </html>
+        </html>
