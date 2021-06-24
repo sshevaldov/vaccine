@@ -36,7 +36,13 @@
     <button type="submit" id="button" class="btn_submit disabled">Войти</button>
 
   </div>
+  <?php
+function add($a,$b){
+  $c=$a+$b;
+  return $c;
+}
 
+?>
   <script type="text/javascript">
   console.log(31);  
     $('document').ready(function () {console.log(31);  
@@ -45,8 +51,10 @@
          var num  = document.getElementById("ser");
          console.log(31);   
          var ps=pass.value;
-         var ps1=<?php print(sql_exec($ps))?>;
-         alert(ps1);
+         
+  var phpadd= "<?php echo sql_exec("1111 111111","admin");?>" //call the php add function
+
+         alert(phpadd);
         $('.table .rfield').each(function () {
          
          
@@ -87,11 +95,18 @@
       die("Connection failed: " . $conn->connect_error);
     }
     $sql="SELECT * FROM users where password=$password"; 
-    $result=mysqli_query($conn, $sql); 
-    $ml=mysqli_num_rows($result); 
-    return $ml;
-   
+    $result=mysqli_query($conn,"SELECT password FROM users where password='$password'");  
+    mysqli_num_rows($result);
+    
+   $row = mysqli_fetch_array($result);
+    $total = $row[0];
+    
+    mysqli_close($conn);
+    return $total;
+    
+
   }
+ 
     ?>
 </body>
 
