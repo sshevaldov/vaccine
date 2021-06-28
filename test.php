@@ -7,14 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="Имя обработчика">
+<form method="post" >
    <input type="text" name="user" placeholder="Введите Ваше Имя" />
    <input type="submit" value="Send" />
 </form>
 <p>
 <?php 
-   echo ($_POST["user"]);
-   
+   if (!empty($_POST['user'])){ echo $_POST['user'];}   
 ?>
 </p>
 </body>
