@@ -12,6 +12,7 @@
             <body>
               <div class="table">
                   <h1>Войти в личный кабинет</h1>
+                  <form method="post" >
                   <p><input id="ser" name="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта">
                   </p>
                   <script>
@@ -19,12 +20,14 @@
                   </script>
                   <p><input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль"></p>
                   <button type="submit" id="button" class="btn_submit disabled">Войти</button>
+                  </form>                  
               </div>
-              <script type="text/javascript">
+              
+              <!--<script type="text/javascript">
                   $('document').ready(function () {                  
                     $('#button').on('click', function () {                      
                       var pass = document.getElementById("password"); 
-                      var num = document.getElementById("ser");                     
+                      var num = document.getElementById("ser");                                        
                       $('.table .rfield').each(function () {                                    
                         if ($(this).val() != '') {
                           console.log(32);                  
@@ -35,18 +38,19 @@
                           // Если поле пустое добавляем класс-указание
                           $(this).addClass('empty_field');                  
                         }
-                        if (pass.value !='' && num.value!=''){
-                          location.href = 'cabinet.php';            
-                        }
+                        if (pass.value !='' && num.value!=''){                         
+                        location.href = 'cabinet.php';            
+                        }                    
                       });
                     });
                   });
-              </script>
+              </script>-->
               <div class="table-help">
                   <a href="index.php">Регистрация</a>
               </div>
               <?php
-                  function sql_exec($login,$password){
+                  /*function sql_exec($login,$password){
+
                     $servername = "localhost";
                     $uname = "root";
                     $pword = "";
@@ -60,26 +64,38 @@
                     $row = mysqli_fetch_array($result);
                     $total = $row[0];    
                     mysqli_close($conn);
-                    return $total;  }?>
-                    <script>
-                      $(document).ready(function () {
-  createCookie("height", $(window).height(), "10");
-});
+                    return $total;  }*/
+               
+    if(isset($_POST['ser']) and isset($_POST['password']))
+    {
+        $login = trim($_POST['ser']);
+        $password = $_POST['password'];
 
-function createCookie(name, value, days) {
-  var expires;
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    expires = "; expires=" + date.toGMTString();
-  }
-  else {
-    expires = "";
-  }
-  document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
-}
-                    </script>
+        $servername = "localhost";
+                    $uname = "root";
+                    $pword = "";
+                    $dbname = "vaccine";                  
+                    $link = mysqli_connect($servername, $uname, $pword, $dbname);
+        
+        $sql = "SELECT * FROM `users`";
+        $result=mysqli_query($link,"SELECT * FROM `users`");
 
-                    <p><?PHP echo $_COOKIE["height"]; ?></p>
+        while($row = mysqli_fetch_array($result))
+        {
+            if((password_verify($password, $row['password']) == true) and ($login == $row['passport']))
+            {
+              
+
+                echo '<script>window.location.href = "index.php";</script>';
+            }
+            else
+            {
+                $error = "Неправильный логин или пароль";
+            }
+        }
+    }
+?>
+                  
+                    
             </body>
         </html>
