@@ -16,24 +16,40 @@
     <h1>Войти в личный кабинет</h1>
     <p id="excp" name="excp" hidden style="color: red;">Неверна серия, номер паспорта и/или пароль</p>
     <form method="post">
-      <form method="post" id="form" name="form">
-        <p><input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield"
-            placeholder="Серия, номер паспорта" required>
-        </p>
-        <script>
-          $('.mask-pasport-number').mask('9999 999999');
-        </script>
-        <p><input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
-        </p>
-
-        <button type="submit" id="button" class="btn_submit disabled">Войти</button>
-
-
-      </form>
+      <input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield"
+          placeholder="Серия, номер паспорта" required>        
+      <input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
+      
+         <button type="submit" id="button" class="btn_submit disabled">Войти</button>
     </form>
   </div>
+  <div class="table-help">
+    <a href="index.php">Регистрация</a>
+  </div>
+
+  
+<style type="text/css">
 
 
+
+</style>
+<script>
+function show_hide_password(target){
+	var input = document.getElementById('password');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+</script>
+
+  <script>
+        $('.mask-pasport-number').mask('9999 999999');
+      </script>
   <script type="text/javascript">
     $('document').ready(function () {
       $('#button').on('click', function () {
@@ -41,36 +57,26 @@
         var num = document.getElementById("ser");
         $('.table .rfield').each(function () {
           if ($(this).val() != '') {
-            console.log(32);
-            // Если поле не пустое удаляем класс-указание
+            console.log(35);
             $(this).removeClass('empty_field');
-          } else {
-            console.log(33);
-            // Если поле пустое добавляем класс-указание
+          } else {console.log(36);
             $(this).addClass('empty_field');
-          }
-          /*if (pass.value !='' && num.value!=''){                         
-          location.href = 'cabinet.php';            
-          } */
+          }         
         });
       });
     });
-  </script>
-  <div class="table-help">
-    <a href="index.php">Регистрация</a>
-  </div>
+  </script> 
 
   <?php
    if(isset($_POST['ser']) and isset($_POST['password']))
     {
         $login = trim($_POST['ser']);
         $password = $_POST['password'];
-
         $servername = "localhost";
-                    $uname = "root";
-                    $pword = "";
-                    $dbname = "vaccine";                  
-                    $link = mysqli_connect($servername, $uname, $pword, $dbname);
+        $uname = "root";
+        $pword = "";
+        $dbname = "vaccine";                  
+        $link = mysqli_connect($servername, $uname, $pword, $dbname);
         
         $sql = "SELECT * FROM `users`";
         $result=mysqli_query($link,"SELECT * FROM `users`");
@@ -83,54 +89,12 @@
             }
             else
             {             
-             echo "<script>$(\"#excp\").show();</script>";  
-              
-              
-            }
-         
-            
-        }  
-      
-    }
-    
+             echo "<script>$(\"#excp\").show();</script>";              
+            }            
+        }      
+    }    
 ?>
-
-
-  <script>
-    $(document).ready(function () {
-      $("form").submit(function () {
-        var formData = $(this).serialize(); // создаем переменную, которая содержит закодированный набор элементов формы в виде строки
-        $('document').ready(function () {
-          $('#button').on('click', function () {
-            var pass = document.getElementById('password');
-            var num = document.getElementById('ser');
-            $('.table .rfield').each(function () {
-              if ($(this).val() != '') {
-                console.log(32);
-                // Если поле не пустое удаляем класс-указание
-                $(this).removeClass('empty_field');
-              } else {
-                console.log(33);
-                // Если поле пустое добавляем класс-указание
-                $(this).addClass('empty_field');
-              }
-              if (pass.value != '' && num.value != '') {
-                $.post("user.php", formData, function (data) { //  передаем и загружаем данные с сервера с помощью HTTP запроса методом POST
-                  $("div").html(data); // вставляем в элемент <div> данные, полученные от сервера
-                })
-                /*location.href = 'cabinet.php';   */
-              }
-            });
-          });
-        });
-
-      });
-    });
-  </script>
-
-
   <div></div>
-
 </body>
 
 </html>
