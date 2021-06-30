@@ -84,18 +84,23 @@
         {
             if((password_verify($password, $row['password']) == true) and ($login == $row['passport']))
             {
-              
-
                 echo '<script>window.location.href = "index.php";</script>';
+                header("Location:index.php");
+                print ("<p>$password</p>")
+                ?>
+                
+<p>верно</p>
+               <?php
             }
             else
             {
-                $error = "Неправильный логин или пароль";
+              print ("<p>$password</p>")
+               ?>
+<p>ошибка</p>
+               <?php
             }
         }
     }
-?>
-                  
-                    
+?>                    
             </body>
         </html>
