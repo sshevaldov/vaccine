@@ -12,18 +12,25 @@
             <body>
               <div class="table">
                   <h1>Войти в личный кабинет</h1>
-                  <form method="post" >
-                  <p><input id="ser" name="ser" type="text" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта">
+                  <p id="excp" name= "excp" hidden style="color: red;">Неверна серия, номер паспорта и/или пароль</p>
+                  <form method = "post">
+                  <form method="post" id="form" name="form" >
+                  <p><input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
                   </p>
                   <script>
                     $('.mask-pasport-number').mask('9999 999999');
                   </script>
-                  <p><input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль"></p>
+                  <p><input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required></p>
+
                   <button type="submit" id="button" class="btn_submit disabled">Войти</button>
+                  
+			
+		</form>
                   </form>                  
               </div>
               
-              <!--<script type="text/javascript">
+              
+             <script type="text/javascript">
                   $('document').ready(function () {                  
                     $('#button').on('click', function () {                      
                       var pass = document.getElementById("password"); 
@@ -38,35 +45,19 @@
                           // Если поле пустое добавляем класс-указание
                           $(this).addClass('empty_field');                  
                         }
-                        if (pass.value !='' && num.value!=''){                         
+                        /*if (pass.value !='' && num.value!=''){                         
                         location.href = 'cabinet.php';            
-                        }                    
+                        } */                   
                       });
                     });
                   });
-              </script>-->
+              </script>
               <div class="table-help">
                   <a href="index.php">Регистрация</a>
               </div>
+           
               <?php
-                  /*function sql_exec($login,$password){
-
-                    $servername = "localhost";
-                    $uname = "root";
-                    $pword = "";
-                    $dbname = "vaccine";                  
-                    $conn = mysqli_connect($servername, $uname, $pword, $dbname);
-                    if ($conn->connect_error) {
-                      die("Connection failed: " . $conn->connect_error);
-                    }
-                    $sql="SELECT * FROM users where password=$password"; 
-                    $result=mysqli_query($conn,"SELECT password FROM users where password='$password'");  
-                    $row = mysqli_fetch_array($result);
-                    $total = $row[0];    
-                    mysqli_close($conn);
-                    return $total;  }*/
-               
-    if(isset($_POST['ser']) and isset($_POST['password']))
+   if(isset($_POST['ser']) and isset($_POST['password']))
     {
         $login = trim($_POST['ser']);
         $password = $_POST['password'];
@@ -79,28 +70,62 @@
         
         $sql = "SELECT * FROM `users`";
         $result=mysqli_query($link,"SELECT * FROM `users`");
-
+      $flag=false;
         while($row = mysqli_fetch_array($result))
         {
-            if((password_verify($password, $row['password']) == true) and ($login == $row['passport']))
-            {
-                echo '<script>window.location.href = "index.php";</script>';
-                header("Location:index.php");
-                print ("<p>$password</p>")
-                ?>
-                
-<p>верно</p>
-               <?php
+            if(($password==$row['password']) and ($login == $row['passport']))
+            {             
+                header('Location:cabinet.php');                    
             }
             else
-            {
-              print ("<p>$password</p>")
-               ?>
-<p>ошибка</p>
-               <?php
+            {             
+             echo "<script>$(\"#excp\").show();</script>";  
+              
+              
             }
-        }
+         
+            
+        }  
+      
     }
-?>                    
+    
+?>     
+ 
+
+<script>
+	$( document ).ready(function(){
+	  $( "form" ).submit(function(){
+	    var formData = $( this ).serialize(); // создаем переменную, которая содержит закодированный набор элементов формы в виде строки
+      $('document').ready(function () {                  
+                $('#button').on('click', function () {                      
+                  var pass = document.getElementById('password'); 
+                  var num = document.getElementById('ser');                                        
+                  $('.table .rfield').each(function () {                                    
+                    if ($(this).val() != '') {
+                      console.log(32);                  
+                      // Если поле не пустое удаляем класс-указание
+                      $(this).removeClass('empty_field');
+                    } else {
+                      console.log(33);                  
+                      // Если поле пустое добавляем класс-указание
+                      $(this).addClass('empty_field');                  
+                    }
+                    if (pass.value !='' && num.value!=''){     
+                      $.post( "user.php", formData, function( data ) { //  передаем и загружаем данные с сервера с помощью HTTP запроса методом POST
+	      $( "div" ).html( data ); // вставляем в элемент <div> данные, полученные от сервера
+	    })                    
+                    /*location.href = 'cabinet.php';   */         
+                    }                   
+                  });
+                });
+              });
+	    
+	  });
+	});
+		</script>
+
+   
+		<div></div>
+      
             </body>
         </html>
