@@ -7,18 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-<select id="comboA" onchange="getComboA(this)">
-  <option value="">Select combo</option>
-  <option value="Value1">Text1</option>
-  <option value="Value2">Text2</option>
-  <option value="Value3">Text3</option>
-</select>
-<script>
-function getComboA(selectObject) {
-  var value = selectObject.value;  
-  console.log(value);
-}
+  <?php session_start();?>
+<h2>Табель вакцинации</h2>
+<?php
+echo "<p>ФИО: {$_SESSION['surname']} {$_SESSION['secondname']} {$_SESSION['name']}";
+echo "<p>Город: {$_SESSION['city']}";
+echo "<p>Адрес вакцинации: г. {$_SESSION['city']}, {$_SESSION['place']}";
+echo "<p>Дата и время: {$_SESSION['date']} {$_SESSION['time']}";
 
-</script>
+?>
 </body>
 </html>
