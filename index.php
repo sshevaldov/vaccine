@@ -162,7 +162,7 @@
 		}
 		
 		$date=trim($_POST['date'])	;	
-        $login = trim($_POST['ser']);
+        $login = ($_POST['ser']);
 		$code = trim($_POST['code']);
 		$oms = trim($_POST['omc']);
 		$phone = trim($_POST['phone']);
