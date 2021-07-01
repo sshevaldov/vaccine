@@ -33,19 +33,7 @@
 
 
 </style>
-<script>
-function show_hide_password(target){
-	var input = document.getElementById('password');
-	if (input.getAttribute('type') == 'password') {
-		target.classList.add('view');
-		input.setAttribute('type', 'text');
-	} else {
-		target.classList.remove('view');
-		input.setAttribute('type', 'password');
-	}
-	return false;
-}
-</script>
+
 
   <script>
         $('.mask-pasport-number').mask('9999 999999');
@@ -72,24 +60,28 @@ function show_hide_password(target){
     {
         $login = trim($_POST['ser']);
         $password = $_POST['password'];
+     
         $servername = "localhost";
         $uname = "root";
         $pword = "";
         $dbname = "vaccine";                  
         $link = mysqli_connect($servername, $uname, $pword, $dbname);
         
-        $sql = "SELECT * FROM `users`";
-        $result=mysqli_query($link,"SELECT * FROM `users`");
+        $sql = "SELECT * FROM `accounts`";
+        $result=mysqli_query($link,"SELECT * FROM `accounts`");
       $flag=false;
         while($row = mysqli_fetch_array($result))
         {
-            if(($password==$row['password']) and ($login == $row['passport']))
-            {             
+            if((password_verify($password,$row['password'])) and ($login == $row['passport']))
+            {     
+              $result=mysqli_query($link,"SELECT `password` FROM `accounts` where passport="7320 365666");
+                $_SESSION["name"]=    
                 header('Location:cabinet.php');                    
             }
             else
             {             
-             echo "<script>$(\"#excp\").show();</script>";              
+             echo "<script>$(\"#excp\").show();</script>";  
+           
             }            
         }      
     }    
