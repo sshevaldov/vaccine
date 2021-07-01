@@ -67,37 +67,57 @@
                 <div style="
                 position: absolute;
                 font-size: -webkit-xxx-large;">
-                    <p>Сервис записи на вакцинацию</p>
+                    <p style="margin-top:15px">Сервис записи на вакцинацию</p>
                 </div>
                 <div>
-                    <p>username</p>
+                    <p>
+                        <?php
+                    session_start();
+                    $name=$_SESSION['name'];
+                    $servername = "localhost";
+        $uname = "root";
+        $pword = "";
+        $dbname = "vaccine";                  
+        $link = mysqli_connect($servername, $uname, $pword, $dbname);
+        mysqli_set_charset($link, "utf8");       
+        $result=mysqli_query($link,"SELECT * FROM `users` where `passport`='$name'");     
+        mysqli_set_charset($link, "utf8");
+              
+        while($row = mysqli_fetch_array($result))
+        {
+            echo ("${row['surname']} ${row['name']} ${row['secondname']}");
+            $_SESSION['surname']=$row['surname'];
+            $_SESSION['name']=$row['name'];
+            $_SESSION['secondname']= $row['secondname'];
+        } 
+                    ?>
+                    </p>
                     <form action="first.php">
                         <button class="btn_submit disabled">Выйти</button>
                     </form>
                 </div>
             </div>
         </h1>
+        <form method="post">
         <p>Город вакцинации</p>
-        <div style="
-    display: flex;
-">
-<script>
-function chplace(selectObject) {
-    var value = selectObject.value;
-    $( document ).ready(function(){
-	  $( "form" ).submit(function(){
-	    var formData = $( this ).serialize(); // создаем переменную, которая содержит закодированный набор элементов формы в виде строки
-	    $.post( "cabinet.php", city: value)
-	  });
-	});
-   
-  console.log(value);
-}
+        <div style="display: flex;">
+            <script>
+                function chplace(selectObject) {
+                    var value = selectObject.value;
+                    $(document).ready(function () {
+                        $("form").submit(function () {
+                            var formData = $(this).serialize(); // создаем переменную, которая содержит закодированный набор элементов формы в виде строки
+                            $.post("cabinet.php", city: value)
+                        });
+                    });
 
-</script>
+                    console.log(value);
+                }
+
+            </script>
             <?php
 
-$servername = "localhost";
+        $servername = "localhost";
         $uname = "root";
         $pword = "";
         $dbname = "vaccine";                  
@@ -107,7 +127,7 @@ $servername = "localhost";
         $result=mysqli_query($link,"SELECT * FROM `cities`");
       $flag=false;
       mysqli_set_charset($link, "utf8");
-      ?> <select type="text" class="rfield " id="city" name="city" onchange="chplace(this)">
+      ?> <select type="text" class="rfield " id="city" name="city" onchange="chplace(this)" required>
 
                 <?php  
         while($row = mysqli_fetch_array($result))
@@ -116,13 +136,13 @@ $servername = "localhost";
         } 
         ?>
             </select>
-     
-           
+
+
 
         </div>
         <p>Место вакцинации</p>
         <!--https://stackoverflow.com/questions/4579570/jquery-loading-data-from-database-and-inserting-it-to-select-->
-       
+
         <?php
 
         $servername = "localhost";
@@ -137,7 +157,7 @@ $servername = "localhost";
         $result=mysqli_query($link,"SELECT * FROM `places`");
       $flag=false;
       mysqli_set_charset($link, "utf8");
-      ?> <select type="text" class="rfield" id="place">
+      ?> <select type="text" class="rfield" id="place" name="place" required>
             <?php  
         while($row = mysqli_fetch_array($result))
         {
@@ -150,11 +170,12 @@ $servername = "localhost";
 
 
         <p>Дата вакцинации</p>
-        <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
+        <p><input id="datepicker" name="datepicker" type="text" class="rfield" tabindex="1"
+                placeholder="Дата вакцинации" required />
         </p>
 
         <p>Время вакцинации</p>
-        <select type="text" class="rfield" id="time">
+        <select type="text" class="rfield" id="time" name="time" required>
             <option disabled selected hidden> время</option>
             <option>12:00</option>
             <option>12:10</option>
@@ -181,24 +202,33 @@ $servername = "localhost";
             <button type="submit" id="button" class="btn_submit disabled">Записаться</button>
         </div>
     </div>
-
+    </form>
+    <?php
+if (isset($_POST['city']) and isset($_POST['place']) and isset($_POST['datepicker']) and isset($_POST['time'])){
+    $_SESSION['city']=$_POST['city'];
+    $_SESSION['place']=$_POST['place'];
+    $_SESSION['date']=$_POST['datepicker'];
+    $_SESSION['time']=$_POST['time'];
+    echo "<script>window.location = \"sel.php\"</script>";
+}
+?>
 </body>
 <script type="text/javascript">
-        $('document').ready(function () {
-            $('#button').on('click', function () {
-                $('.table .rfield').each(function () {
-                    if ($(this).val() != '' && $(this).val() != null) {
-                        console.log(32);
-                        // Если поле не пустое удаляем класс-указание
-                        $(this).removeClass('empty_field');
-                    } else {
-                        console.log(33);
-                        // Если поле пустое добавляем класс-указание
-                        $(this).addClass('empty_field');
-                    }
-                });
+    $('document').ready(function () {
+        $('#button').on('click', function () {
+            $('.table .rfield').each(function () {
+                if ($(this).val() != '' && $(this).val() != null) {
+                    console.log(32);
+                    // Если поле не пустое удаляем класс-указание
+                    $(this).removeClass('empty_field');
+                } else {
+                    console.log(33);
+                    // Если поле пустое добавляем класс-указание
+                    $(this).addClass('empty_field');
+                }
             });
         });
+    });
 </script>
 
 </html>
