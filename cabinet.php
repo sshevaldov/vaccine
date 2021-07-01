@@ -9,7 +9,7 @@
     <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+
     <link type="text/css" rel="stylesheet"
         href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <title>Личный кабинет</title>
@@ -81,25 +81,73 @@
         <div style="
     display: flex;
 ">
-            <select type="text" class="rfield " id="city">
-                <option selected disabled="disabled" hidden value='test'>Выберите город</option>
-                <option>Ульяновск</option>
-                <option>Москва</option>
+<script>
+function chplace(selectObject) {
+    var value = selectObject.value;
+    $( document ).ready(function(){
+	  $( "form" ).submit(function(){
+	    var formData = $( this ).serialize(); // создаем переменную, которая содержит закодированный набор элементов формы в виде строки
+	    $.post( "cabinet.php", city: value)
+	  });
+	});
+   
+  console.log(value);
+}
+
+</script>
+            <?php
+
+$servername = "localhost";
+        $uname = "root";
+        $pword = "";
+        $dbname = "vaccine";                  
+        $link = mysqli_connect($servername, $uname, $pword, $dbname);
+        mysqli_set_charset($link, "utf8");
+        $sql = "SELECT * FROM `cities`";
+        $result=mysqli_query($link,"SELECT * FROM `cities`");
+      $flag=false;
+      mysqli_set_charset($link, "utf8");
+      ?> <select type="text" class="rfield " id="city" name="city" onchange="chplace(this)">
+
+                <?php  
+        while($row = mysqli_fetch_array($result))
+        {
+            echo '<option>'.$row['city_name'].'</option>';
+        } 
+        ?>
             </select>
+     
+           
+
         </div>
         <p>Место вакцинации</p>
         <!--https://stackoverflow.com/questions/4579570/jquery-loading-data-from-database-and-inserting-it-to-select-->
-        <select type="text" class="rfield" id="place">
-            <option disabled selected hidden>Выберите место вакцинации</option>
-            <option>ЦГКБ, ул. Оренбургская, 27</option>
-            <option>ГП №1, ул. Гагарина, 20</option>
-            <option>ГП №5, пр. Созидателей, 11</option>
-            <option>ГП №2, им. В.А. Егорова пр. 50-летия ВЛКСМ, 8а</option>
-            <option>ГП № 175 Филиал № 2, Сиреневый бульвар, 30</option>
-            <option>ГП № 8 Филиал № 2, улица 26-ти Бакинских Комиссаров, 10, корпус 5</option>
-            <option>ГП № 66, Салтыковская улица, 11б</option>
-            <option>Консультативно-диагностический центр № 2 Филиал № 3, Открытое шоссе, 24, корпус 9</option>
+       
+        <?php
+
+        $servername = "localhost";
+              
+        $uname = "root";
+        $pword = "";
+        $dbname = "vaccine"; 
+        
+        $link = mysqli_connect($servername, $uname, $pword, $dbname);
+        mysqli_set_charset($link, "utf8");
+       
+        $result=mysqli_query($link,"SELECT * FROM `places`");
+      $flag=false;
+      mysqli_set_charset($link, "utf8");
+      ?> <select type="text" class="rfield" id="place">
+            <?php  
+        while($row = mysqli_fetch_array($result))
+        {
+
+            echo '<option>'.$row['place_name'].'</option>';
+        } 
+        ?>
         </select>
+
+
 
         <p>Дата вакцинации</p>
         <p><input id="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" />
@@ -136,21 +184,21 @@
 
 </body>
 <script type="text/javascript">
-    $('document').ready(function () {
-        $('#button').on('click', function () {
-            $('.table .rfield').each(function () {
-                if ($(this).val() != '' && $(this).val() != null) {
-                    console.log(32);
-                    // Если поле не пустое удаляем класс-указание
-                    $(this).removeClass('empty_field');
-                } else {
-                    console.log(33);
-                    // Если поле пустое добавляем класс-указание
-                    $(this).addClass('empty_field');
-                }
+        $('document').ready(function () {
+            $('#button').on('click', function () {
+                $('.table .rfield').each(function () {
+                    if ($(this).val() != '' && $(this).val() != null) {
+                        console.log(32);
+                        // Если поле не пустое удаляем класс-указание
+                        $(this).removeClass('empty_field');
+                    } else {
+                        console.log(33);
+                        // Если поле пустое добавляем класс-указание
+                        $(this).addClass('empty_field');
+                    }
+                });
             });
         });
-    });
 </script>
 
 </html>
