@@ -73,7 +73,7 @@
                     <p>
                         <?php
                     session_start();
-                    $name=$_SESSION['name'];
+                    $name=$_SESSION['passport'];
                     $servername = "localhost";
         $uname = "root";
         $pword = "";
