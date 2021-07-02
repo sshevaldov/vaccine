@@ -79,7 +79,7 @@
         {
             if((password_verify($password,$row['password'])) and ($login == $row['passport']))
             {              
-                $_SESSION['name']=$row['passport'];
+                $_SESSION['passport']=$row['passport'];
               
                 header('Location:cabinet.php');                    
             }
