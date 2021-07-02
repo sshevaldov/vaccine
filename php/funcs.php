@@ -1,5 +1,5 @@
 <?php
-function first()
+function dbconnect()
 {
     $servername = "localhost";
     $uname = "root";

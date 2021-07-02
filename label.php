@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <title>Табель записи на вакцинацию</title>
 </head>
 <body>
  
-<div class="table" style="width: max-content;"><h1>Табель записи на вакцинацию</h1>
+<div class="table" style="width: max-content;"><h1>Заявка отправлена</h1>
 <?php
 session_start();
+
+
 echo "<h2 style=\"font-weight:bold\">Пациент:</h2>";
 echo "<ins>{$_SESSION['fio']} </ins>";
 echo "<p>Дата рождения: <ins> {$_SESSION['birthdate']}";  

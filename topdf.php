@@ -7,7 +7,7 @@
       $pdf->AddFont('Arial','','arial.php');  
       $pdf->SetFont('Arial');       
       $pdf->SetFontSize(25);   
-      $pdf->MultiCell(0,0,iconv('utf-8', 'windows-1251',"Табель вакцинации"),0,'C');
+      $pdf->MultiCell(0,0,iconv('utf-8', 'windows-1251',"Табель записи на вакцинацию"),0,'C');
       $pdf->SetFontSize(15); 
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Пациент"));
       $pdf->SetFontSize(10); 

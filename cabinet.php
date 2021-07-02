@@ -65,8 +65,8 @@
                     <p>
                     <?php
                         session_start();
-                        require_once('php/Funct.php');
-                        $link=first();
+                        require_once('php/funct.php');
+                        $link=dbconnect();
                         mysqli_set_charset($link, "utf8");       
                         $result=mysqli_query($link,"SELECT * FROM `users` where `passport`='{$_SESSION['passport']}'");     
                         mysqli_set_charset($link, "utf8");
@@ -106,7 +106,7 @@
                 </script>
                 <?php
 
-$link=first();
+$link=dbconnect();
         mysqli_set_charset($link, "utf8");
         $sql = "SELECT * FROM `cities`";
         $result=mysqli_query($link,"SELECT * FROM `cities`");
@@ -130,7 +130,7 @@ $link=first();
 
             <?php
 
-$link=first();
+$link=dbconnect();
         mysqli_set_charset($link, "utf8");
        
         $result=mysqli_query($link,"SELECT * FROM `places`");
