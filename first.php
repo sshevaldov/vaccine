@@ -16,7 +16,7 @@
     <h1>Войти в личный кабинет</h1>
     <p id="excp" name="excp" hidden style="color: red;">Неверна серия, номер паспорта и/или пароль</p>
     <form method="post">
-      <input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield"
+      <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield"
         placeholder="Серия, номер паспорта" required>
       <input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
 
@@ -26,72 +26,50 @@
   <div class="table-help">
     <a href="index.php">Регистрация</a>
   </div>
-
-
-  <style type="text/css">
-
-
-
-  </style>
-
-
   <script>
     $('.mask-pasport-number').mask('9999 999999');
   </script>
   <script type="text/javascript">
     $('document').ready(function () {
-      $('#button').on('click', function () {
-        var pass = document.getElementById("password");
-        var num = document.getElementById("ser");
+      $('#button').on('click', function () {     
         $('.table .rfield').each(function () {
-          if ($(this).val() != '') {
-            console.log(35);
+          if ($(this).val() != '') {           
             $(this).removeClass('empty_field');
           } else {
-            console.log(36);
             $(this).addClass('empty_field');
           }
         });
       });
     });
   </script>
-
   <?php
-  session_start();
-  
-   if(isset($_POST['ser']) and isset($_POST['password']))
-    {
-      
-        $login = trim($_POST['ser']);
+  session_start();  
+   if(isset($_POST['passport']) and isset($_POST['password']))
+    {      
+        $passport = $_POST['passport'];
         $password = $_POST['password'];
-     
         $servername = "localhost";
         $uname = "root";
         $pword = "";
         $dbname = "vaccine";                  
-        $link = mysqli_connect($servername, $uname, $pword, $dbname);
-        
+        $link = mysqli_connect($servername, $uname, $pword, $dbname);        
         $sql = "SELECT * FROM `accounts`";
-        $result=mysqli_query($link,"SELECT * FROM `accounts`");
-      $flag=false;
-    
+        $result=mysqli_query($link,$sql);     
         while($row = mysqli_fetch_array($result))
         {
-            if((password_verify($password,$row['password'])) and ($login == $row['passport']))
+            if((password_verify($password,$row['password'])) and ($passport == $row['passport']))
             {              
-                $_SESSION['passport']=$row['passport'];
-              
+                $_SESSION['passport']=$row['passport'];              
                 header('Location:cabinet.php');                    
             }
             else
             {             
-             echo "<script>$(\"#excp\").show();</script>";  
-           
+             echo "<script>$(\"#excp\").show();</script>";           
             }            
         }      
     }    
 ?>
-  <div></div>
+ 
 </body>
 
 </html>
