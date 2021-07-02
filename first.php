@@ -43,16 +43,13 @@
     });
   </script>
   <?php
+  require_once('php/Funct.php');
   session_start();  
    if(isset($_POST['passport']) and isset($_POST['password']))
     {      
         $passport = $_POST['passport'];
-        $password = $_POST['password'];
-        $servername = "localhost";
-        $uname = "root";
-        $pword = "";
-        $dbname = "vaccine";                  
-        $link = mysqli_connect($servername, $uname, $pword, $dbname);        
+        $password = $_POST['password'];        
+        $link=first();               
         $sql = "SELECT * FROM `accounts`";
         $result=mysqli_query($link,$sql);     
         while($row = mysqli_fetch_array($result))

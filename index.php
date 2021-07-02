@@ -95,6 +95,7 @@
 		});
 	</script>
 	<?php
+	 		require_once('php/Funct.php');
 			if(isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) and isset($_POST['name']) and isset($_POST['date']) and isset($_POST['code']) and isset($_POST['omc']) and isset($_POST['phone']) )
 			{
 				$name= (trim($_POST['name']));
@@ -113,11 +114,7 @@
 				$password = $_POST['password'];	
 				$password=password_hash($password,PASSWORD_DEFAULT);				
 				
-				$servername = "localhost";
-				$uname = "root";
-				$pword = "";
-				$dbname = "vaccine";
-				$link = mysqli_connect($servername, $uname, $pword, $dbname);
+				$link=first();
 				mysqli_set_charset($link, "utf8");
 				$sql="INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`) VALUES ('$name','$otch','$fam','$date','$code','$phone','$login','$oms');";
 				$result=mysqli_query($link,$sql);				

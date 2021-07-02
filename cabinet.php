@@ -65,12 +65,8 @@
                     <p>
                     <?php
                         session_start();
-                        
-                        $servername = "localhost";
-                        $uname = "root";
-                        $pword = "";
-                        $dbname = "vaccine";                  
-                        $link = mysqli_connect($servername, $uname, $pword, $dbname);
+                        require_once('php/Funct.php');
+                        $link=first();
                         mysqli_set_charset($link, "utf8");       
                         $result=mysqli_query($link,"SELECT * FROM `users` where `passport`='{$_SESSION['passport']}'");     
                         mysqli_set_charset($link, "utf8");
@@ -84,8 +80,7 @@
                             $_SESSION['phone']=$row['phone'];
                             echo ("{$_SESSION['fio']}");                           
                         } 
-                    ?>
-                    </p>
+                    ?>                   
                     <form action="first.php">
                         <button class="btn_submit disabled">Выйти</button>
                     </form>
@@ -111,11 +106,7 @@
                 </script>
                 <?php
 
-        $servername = "localhost";
-        $uname = "root";
-        $pword = "";
-        $dbname = "vaccine";                  
-        $link = mysqli_connect($servername, $uname, $pword, $dbname);
+$link=first();
         mysqli_set_charset($link, "utf8");
         $sql = "SELECT * FROM `cities`";
         $result=mysqli_query($link,"SELECT * FROM `cities`");
@@ -139,13 +130,7 @@
 
             <?php
 
-        $servername = "localhost";
-              
-        $uname = "root";
-        $pword = "";
-        $dbname = "vaccine"; 
-        
-        $link = mysqli_connect($servername, $uname, $pword, $dbname);
+$link=first();
         mysqli_set_charset($link, "utf8");
        
         $result=mysqli_query($link,"SELECT * FROM `places`");
