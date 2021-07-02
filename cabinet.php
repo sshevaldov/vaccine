@@ -81,7 +81,7 @@
                             echo ("{$_SESSION['fio']}");                           
                         } 
                     ?>                   
-                    <form action="first.php">
+                    <form action="auth.php">
                         <button class="btn_submit disabled">Выйти</button>
                     </form>
                 </div>
@@ -188,7 +188,7 @@ if (isset($_POST['city']) and isset($_POST['place']) and isset($_POST['datepicke
     $_SESSION['addres']= "{$_POST['city']} {$_POST['place']}";
     $_SESSION['datetime']="{$_POST['datepicker']} {$_POST['time']}";
    
-    echo "<script>window.location = \"sel.php\"</script>";
+    echo "<script>window.location = \"label.php\"</script>";
 }
 ?>
 </body>
