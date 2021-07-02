@@ -22,6 +22,5 @@
       $pdf->SetFontSize(10); 
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Адрес вакцинации: {$_SESSION['adress']}"));
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Дата и время: {$_SESSION['datetime']}"));
-      $pdf->Output('label.pdf','I');   
-    
+      $pdf->Output('label.pdf','I');    
 ?>

@@ -197,6 +197,7 @@
             <option>14:50</option>
             <option>15:00</option>
         </select>
+        
         <p>Незабывайте о необходимости приходить заранее.</p>
         <div>
             <button type="submit" id="button" class="btn_submit disabled">Записаться</button>

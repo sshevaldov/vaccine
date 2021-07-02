@@ -58,7 +58,7 @@
 
   <?php
   session_start();
-  echo session_id();
+  
    if(isset($_POST['ser']) and isset($_POST['password']))
     {
       

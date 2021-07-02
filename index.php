@@ -181,8 +181,7 @@
 		$result=mysqli_query($link,"INSERT INTO `accounts` (`passport`, `password`) VALUES ('$login', '$password');");
 
 		echo "<script>window.location = \"first.php\"</script>";
-        
-            
+                 
                          
              echo "<script>$(\"#excp\").show();</script>";              
                         

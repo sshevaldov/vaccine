@@ -14,8 +14,6 @@
 echo "<h2 style=\"font-weight:bold\">Пациент:</h2>";
 echo "<ins>{$_SESSION['surname']}  {$_SESSION['name']} {$_SESSION['secondname']} </ins>";
 
-
-
 $servername = "localhost";
 $uname = "root";
 $pword = "";
