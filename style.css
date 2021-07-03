@@ -162,6 +162,7 @@ body {
 input {
   font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
   font-size: 14px;
+  
 }
 
 input[type=text], input[type=password] {
@@ -316,4 +317,5 @@ input[type=submit]:active {
   border-width: 2px;
   border-color: red;
 } 
-        
+       
+
