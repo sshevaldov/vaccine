@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="darkmode">
+        <input type="checkbox" id="darkmodebtn" onclick="Page()">Dark Mode</input>
+        <a href="2.html">Регистрация</a>
+    </div>
+    <script>
+        window.onload = function() {
+            switch (localStorage.getItem('mode')) {               
+                case "dark":
+                    document.body.style.backgroundColor = "#040040";
+                    break;
+                default:
+                    document.body.style.backgroundColor = "lightblue";
+            }
+        }
+
+
+        var mode;
+        console.log(localStorage.getItem('mode'));
+
+        function Page() {
+            mode = localStorage.getItem('mode');
+            if (mode == "dark") {
+                TolightMode();
+                console.log("TolightMode");
+            } else {
+                TodarkMode();
+                console.log("TodarkMode");
+            }
+            console.log(mode);
+        }
+        function TodarkMode() {
+            document.body.style.backgroundColor = "#040040";
+            localStorage.setItem('mode', 'dark');
+            mode = localStorage.getItem('mode');
+        }
+
+        function TolightMode() {
+            document.body.style.backgroundColor = "lightblue";
+            localStorage.setItem('mode', 'light');
+            mode = localStorage.getItem('mode');
+        }
+    </script>
+</body>
+
+</html>

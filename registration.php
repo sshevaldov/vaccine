@@ -32,7 +32,21 @@
 		}
 	</script>
 </head>
+<script>
+   
+        window.onload = function() {
+            switch (localStorage.getItem('mode')) {               
+                case "dark":
+                    document.body.style.backgroundColor = "#040040";
+                    document.getElementById("toggle").checked = true;
 
+                    break;
+                default:
+                    document.body.style.backgroundColor = "lightblue";
+                    document.getElementById("toggle").checked = false;
+            }
+        }
+</script>
 <body>
 
 	<div class="table">

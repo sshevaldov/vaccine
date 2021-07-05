@@ -13,7 +13,21 @@
         href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <title>Личный кабинет</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+   
+        window.onload = function() {
+            switch (localStorage.getItem('mode')) {               
+                case "dark":
+                    document.body.style.backgroundColor = "#040040";
+                    document.getElementById("toggle").checked = true;
 
+                    break;
+                default:
+                    document.body.style.backgroundColor = "lightblue";
+                    document.getElementById("toggle").checked = false;
+            }
+        }
+</script>
     <script type="text/javascript">
         $(function () {
             $.mask.definitions['~'] = '[]';            
