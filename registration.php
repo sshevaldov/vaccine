@@ -32,7 +32,7 @@
 		}
 	</script>
 </head>
-<script>
+<!--<script>
    
         window.onload = function() {
             switch (localStorage.getItem('mode')) {               
@@ -46,15 +46,15 @@
                     document.getElementById("toggle").checked = false;
             }
         }
-</script>
+</script>-->
 <body>
-
+<?php session_start();  ?>
 	<div class="table">
 		<form method="post">
 			<h1>Регистрация</h1>
 			<p>Личные данные
 			<p> <input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );"
-					placeholder="Фамилия" style="text-transform: capitalize;" required />
+					placeholder="Фамилия" style="text-transform: capitalize;" required value=<?php echo $_SESSION['fam']?>>
 			<p><input id="name" name="name" type="text" class="rfield" onkeyup="limitInput( 'ru', this );"
 					placeholder="Имя" style="text-transform: capitalize;" required />
 			<p><input type="text" id="otch" name="otch" onkeyup="limitInput( 'ru', this );"
@@ -108,6 +108,26 @@
 			});
 		});
 	</script>
+	<script>
+	
+	$(document).ready(function(){
+    $("#form").submit(function(event) { //устанавливаем событие отправки для формы с id=form
+      event.preventDefault(); //Отключаем обновление страницы
+
+      var form_data = $(this).serialize(); //собераем все данные из формы
+
+      $.ajax({
+         type: "POST", //Метод отправки
+         url: "registration.php", //путь до php фаила отправителя
+         data: form_data,
+         success: function() {
+            //код в этом блоке выполняется при успешной отправке сообщения
+             alert("Ваше сообщение отпрвлено!");
+          }
+     });
+  });
+});
+</script>
 	<?php
 	 		require_once('php/funct.php');
 			if(isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) and isset($_POST['name']) and isset($_POST['date']) and isset($_POST['code']) and isset($_POST['omc']) and isset($_POST['phone']) )
@@ -118,7 +138,7 @@
 					$otch= (trim($_POST['otch']));
 					if ($otch=="") {$otch="-";}
 				}
-				$fam= (trim($_POST['fam']));				
+				$_SESSION['fam']= (trim($_POST['fam']));				
 				$date=trim($_POST['date']);	
 				$code = trim($_POST['code']);
 				$phone = trim($_POST['phone']);
@@ -126,15 +146,24 @@
 				$oms = trim($_POST['omc']);
 				
 				$password = $_POST['password'];	
-				$password=password_hash($password,PASSWORD_DEFAULT);				
+				$password=password_hash($password,PASSWORD_DEFAULT);
+				$link=dbconnect();				
+				$sql = "SELECT * FROM `accounts` where `passport`='{$login}'";
+        		$result=mysqli_query($link,$sql);    
+				$rows = mysqli_num_rows($result);
+				echo $rows;
+				if ($rows == 0){
+					mysqli_set_charset($link, "utf8");
+					$sql="INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`) VALUES ('$name','$otch','{$_SESSION['fam']}','$date','$code','$phone','$login','$oms');";
+					$result=mysqli_query($link,$sql);				
 				
-				$link=dbconnect();
-				mysqli_set_charset($link, "utf8");
-				$sql="INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`) VALUES ('$name','$otch','$fam','$date','$code','$phone','$login','$oms');";
-				$result=mysqli_query($link,$sql);				
-				$sql="INSERT INTO `accounts` (`passport`, `password`) VALUES ('$login', '$password');";
-				$result=mysqli_query($link,$sql);
-				echo "<script>window.location = \"auth.php\"</script>";					
+					$sql="INSERT INTO `accounts` (`passport`, `password`) VALUES ('$login', '$password');";
+					$result=mysqli_query($link,$sql);			
+					echo "    all is good    ";
+				}else{
+					echo " user already create";
+				}
+			//	echo "<script>window.location = \"auth.php\"</script>";					
 			}    
 		?>
 </body>
