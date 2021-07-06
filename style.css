@@ -466,6 +466,7 @@ input[type=submit]:active {
 
     .reating-arkows {
  position: relative;
+ width: fit-content;
 }
 .reating-arkows *, .reating-arkows *:before, .reating-arkows *:after {
  -moz-box-sizing: border-box;
