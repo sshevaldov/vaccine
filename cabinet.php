@@ -69,7 +69,14 @@
 
 
 <body>
-    <div class="table" style="width: auto;">
+<div class="reating-arkows zatujgdsanuk">
+ <input id="e" type="checkbox" onclick="Page()">
+ <label for="e">
+ <div class="trianglesusing" data-checked="Yes" data-unchecked="No"></div>
+ <div class="moresharpened"></div>
+ </label>
+</div>
+    <div class="table" style="width: 1200px;">
         <h1 style=" text-align: right; padding: 10px;">
             <div>
                 <div style="position: absolute; font-size: -webkit-xxx-large;">
