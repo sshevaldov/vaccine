@@ -13,7 +13,21 @@
         href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <title>Личный кабинет</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+   
+        window.onload = function() {
+            switch (localStorage.getItem('mode')) {               
+                case "dark":
+                    document.body.style.backgroundColor = "#040040";
+                    document.getElementById("toggle").checked = true;
 
+                    break;
+                default:
+                    document.body.style.backgroundColor = "lightblue";
+                    document.getElementById("toggle").checked = false;
+            }
+        }
+</script>
     <script type="text/javascript">
         $(function () {
             $.mask.definitions['~'] = '[]';            
@@ -55,7 +69,14 @@
 
 
 <body>
-    <div class="table" style="width: auto;">
+<div class="reating-arkows zatujgdsanuk">
+ <input id="e" type="checkbox" onclick="Page()">
+ <label for="e">
+ <div class="trianglesusing" data-checked="Yes" data-unchecked="No"></div>
+ <div class="moresharpened"></div>
+ </label>
+</div>
+    <div class="table" style="width: 1200px;">
         <h1 style=" text-align: right; padding: 10px;">
             <div>
                 <div style="position: absolute; font-size: -webkit-xxx-large;">

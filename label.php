@@ -8,7 +8,20 @@
     <title>Табель записи на вакцинацию</title>
 </head>
 <body>
- 
+<script>
+        window.onload = function() {
+            switch (localStorage.getItem('mode')) {               
+                case "dark":
+                   document.body.style.backgroundColor = "#040040";
+                    document.getElementById("e").checked = true;
+
+                    break;
+                default:
+                    document.body.style.backgroundColor = "lightblue";
+                    document.getElementById("e").checked = false;
+            }
+        }
+        </script>
 <div class="table" style="width: max-content;"><h1>Заявка отправлена</h1>
 <?php
 session_start();
