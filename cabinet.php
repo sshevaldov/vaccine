@@ -13,21 +13,7 @@
         href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <title>Личный кабинет</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script>
-   
-        window.onload = function() {
-            switch (localStorage.getItem('mode')) {               
-                case "dark":
-                    document.body.style.backgroundColor = "#040040";
-                    document.getElementById("toggle").checked = true;
 
-                    break;
-                default:
-                    document.body.style.backgroundColor = "lightblue";
-                    document.getElementById("toggle").checked = false;
-            }
-        }
-</script>
     <script type="text/javascript">
         $(function () {
             $.mask.definitions['~'] = '[]';            
@@ -67,7 +53,47 @@
     </script>
 </head>
 
+<script>
+        window.onload = function() {
+            switch (localStorage.getItem('mode')) {               
+                case "dark":
+                   document.body.style.backgroundColor = "#040040";
+                    document.getElementById("e").checked = true;
 
+                    break;
+                default:
+                    document.body.style.backgroundColor = "lightblue";
+                    document.getElementById("e").checked = false;
+            }
+        }
+
+       
+        var mode;
+        console.log(localStorage.getItem('mode'));
+
+        function Page() {
+            mode = localStorage.getItem('mode');
+            if (mode == "dark") {
+                TolightMode();
+                console.log("TolightMode");
+            } else {
+                TodarkMode();
+                console.log("TodarkMode");
+            }
+            console.log(mode);
+        }
+        function TodarkMode() {
+            document.body.style.backgroundColor = "#040040";
+            localStorage.setItem('mode', 'dark');
+            mode = localStorage.getItem('mode');
+        }
+
+        function TolightMode() {
+            document.body.style.backgroundColor = "lightblue";
+            localStorage.setItem('mode', 'light');
+            mode = localStorage.getItem('mode');
+        }
+    </script>
 <body>
 <div class="reating-arkows zatujgdsanuk">
  <input id="e" type="checkbox" onclick="Page()">
@@ -76,6 +102,7 @@
  <div class="moresharpened"></div>
  </label>
 </div>
+
     <div class="table" style="width: 1200px;">
         <h1 style=" text-align: right; padding: 10px;">
             <div>
