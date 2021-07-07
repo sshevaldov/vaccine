@@ -39,12 +39,14 @@
   
     <h1>Войти в личный кабинет</h1>
     <p id="excp" name="excp" hidden style="color: red;">Пользователь не существует</p>
+    <p id="excp1" name="excp1" hidden style="color: red;">Неверный пароль</p>
+    <p id="excp2" name="excp2" hidden style="color: red;">Переход в личный кабинет</p>
     <form method="post">
       <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield"
         placeholder="Серия, номер паспорта" required>
       <input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
 
-      <button type="submit" id="button" class="btn_submit disabled" onclick=sendAjaxForm('result_form', 'ajax_form', 'action_ajax_form.php');>Войти</button>
+      <button type="submit" id="button" class="btn_submit disabled" >Войти</button>
       
     </form>
   </div>
@@ -72,7 +74,7 @@
     
   </script>
   
-  
+  <div id="result_form"></div> 
 
 </body>
 </html>
