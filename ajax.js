@@ -2,8 +2,12 @@
 $( document ).ready(function() {
     $("#button").click(
 		function(){
+			log=document.getElementById('passport').value;
+			
+			if(log !=""){
 			sendAjaxForm('result_form', 'ajax_form', 'action_ajax_form.php');
-			return false; 
+			return false; }
+			
 		}
 	);
 });
