@@ -17,7 +17,9 @@ function sendAjaxForm(result_form, ajax_form, url) {
         success: function(response) { //Данные отправлены успешно
         	result = $.parseJSON(response);
 			if(result.name==0)
-			{$("#excp").show();  }
+			{
+			//	$("#excp").show(); 
+			 }
 			else {$("#excp").hide(); }
         	$('#result_form').html('Имя: '+result.name+'<br>Телефон: '+result.phonenumber);
 			  
