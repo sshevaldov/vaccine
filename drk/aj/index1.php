@@ -44,7 +44,7 @@
         placeholder="Серия, номер паспорта" required>
       <input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
 
-      <button type="submit" id="button" class="btn_submit disabled" onclick=sendAjaxForm('result_form', 'ajax_form', 'action_ajax_form.php');>Войти</button>
+      <button type="submit" id="button" class="btn_submit disabled" >Войти</button>
       
     </form>
   </div>
@@ -69,25 +69,7 @@
         });
       });
     });
-    function sendAjaxForm(result_form, ajax_form, url) {
-    $.ajax({
-        url:     url, //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#"+ajax_form).serialize(),  // Сеарилизуем объект
-        success: function(response) { //Данные отправлены успешно
-        	result = $.parseJSON(response);
-			if(result.name==0)
-			{$("#excp").show();  }
-			else {$("#excp").hide(); }
-        	$('#result_form').html('Имя: '+result.name+'<br>Телефон: '+result.phonenumber);
-			  
-    	},
-    	error: function(response) { // Данные не отправлены
-            $('#excp').html('Ошибка. Данные не отправлены.');
-    	}
- 	});
-}
+
   </script>
   
   
