@@ -11,9 +11,10 @@ $(document).ready(function () {
 			omc = document.getElementById('omc').value;
 			phone = document.getElementById('phone').value;
 			password = document.getElementById('password').value;
-			if (ser != '' && code != '' && fam != '' && name != '' && date != '' && code != '' && omc != '' && phone != '' && password!='') {
+			if (ser != '' && code != '' && fam != '' && name != '' && date != '' && code != '' && omc != '' && phone != '' && password != '') {
 				sendAjaxForm('result_form', 'ajax_form1', 'action_ajax_form1.php');
 			}
+			else if (ser == '') { $("#sererror").hide(); }
 			return false;
 		}
 	);
@@ -29,14 +30,12 @@ function sendAjaxForm(result_form, ajax_form, url) {
 			result = $.parseJSON(response);
 			$('#result_form').html('Имя: ' + result.name);
 			ser = document.getElementById('ser').value;
-			if (ser != '') {
-				if (result.name != 0) {
-					$("#sererror").show();
-				}
+
+			if (result.name != 0) {
+				$("#sererror").show();
 			}
-			else {
-				$("#sererror").hide();
-			}
+
+
 
 		},
 		error: function (response) { // Данные не отправлены
