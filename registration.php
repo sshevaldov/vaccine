@@ -1,15 +1,26 @@
 <html>
 
 <head>
-	<script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="src/jquery.maskedinput.js" type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!--<script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>--->
+		
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	
 	<link type="text/css" rel="stylesheet"
-		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />--->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
+  <script src="ajax1.js"></script>
+<script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+	
+	
 	<title>Регистрация</title>
-	<script>
+	<!--<script >
 		$.datepicker.regional['ru'] = {
 			dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
 			dateFormat: 'dd.mm.yy',
@@ -27,10 +38,8 @@
 				.datepicker({ nextText: "", prevText: "", dateFormat: 'dd.mm.yy', changeMonth: true, changeYear: true, maxDate: 0, maxYear: 0, showAnim: "fold", yearRange: '1900:2030', firstDay: 1 })
 				.mask("~~.~~.~~~~", { placeholder: "дд.мм.гггг" });
 		});
-		function limitInput(k, obj) {
-			obj.value = obj.value.replace(/[^а-яА-ЯёЁ -]/ig, '');
-		}
-	</script>
+		
+	</script>-->
 </head>
 <!--<script>
    
@@ -46,15 +55,16 @@
                     document.getElementById("toggle").checked = false;
             }
         }
-</script>-->
+</script>--->
 <body>
+<form method="post" id="ajax_form1" action="" >
 <?php session_start();  ?>
 	<div class="table">
 		<form method="post">
 			<h1>Регистрация</h1>
 			<p>Личные данные
 			<p> <input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );"
-					placeholder="Фамилия" style="text-transform: capitalize;" required value=<?php echo $_SESSION['fam']?>>
+					placeholder="Фамилия" style="text-transform: capitalize;" required >
 			<p><input id="name" name="name" type="text" class="rfield" onkeyup="limitInput( 'ru', this );"
 					placeholder="Имя" style="text-transform: capitalize;" required />
 			<p><input type="text" id="otch" name="otch" onkeyup="limitInput( 'ru', this );"
@@ -62,8 +72,10 @@
 			<p><input id="date" name="date" autocomplete="off" type="text" class="rfield" tabindex="1"
 					placeholder="Дата рождения" required />
 	</div>
+	
 	<div class="table">
 		<p>Паспорт
+		<p id="sererror" name="sererror" hidden style="color: red;">Паспорт уже зарегистрирован</p>
 			<input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield"
 				placeholder="Серия, номер паспорта" required>
 		<p><input id="code" name="code" type="text" class="mask-pasport-division form-control rfield"
@@ -107,28 +119,13 @@
 				});
 			});
 		});
+		function limitInput(k, obj) {
+			obj.value = obj.value.replace(/[^а-яА-ЯёЁ -]/ig, '');
+		}
+		
 	</script>
-	<script>
 	
-	$(document).ready(function(){
-    $("#form").submit(function(event) { //устанавливаем событие отправки для формы с id=form
-      event.preventDefault(); //Отключаем обновление страницы
-
-      var form_data = $(this).serialize(); //собераем все данные из формы
-
-      $.ajax({
-         type: "POST", //Метод отправки
-         url: "registration.php", //путь до php фаила отправителя
-         data: form_data,
-         success: function() {
-            //код в этом блоке выполняется при успешной отправке сообщения
-             alert("Ваше сообщение отпрвлено!");
-          }
-     });
-  });
-});
-</script>
-	<?php
+	<?php/*
 	 		require_once('php/funct.php');
 			if(isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) and isset($_POST['name']) and isset($_POST['date']) and isset($_POST['code']) and isset($_POST['omc']) and isset($_POST['phone']) )
 			{
@@ -163,10 +160,15 @@
 				}else{
 					echo " user already create";
 				}
-			//	echo "<script>window.location = \"auth.php\"</script>";					
+								
 			}    
-		?>
+		*/?>
+		 </form>
+		 <div id="result_form"></div> 
 </body>
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">var jQuery_2_0_3 = $.noConflict(true);</script>
+<script type="text/javascript">
+var jQuery_2_0_3 = $.noConflict(true);
+</script>
 
 </html>

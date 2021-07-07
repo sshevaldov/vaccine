@@ -4,10 +4,11 @@
 	<script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="src/jquery.maskedinput.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<link type="text/css" rel="stylesheet"
 		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
 	<title>Регистрация</title>
 	<script>
 		$.datepicker.regional['ru'] = {

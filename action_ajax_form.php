@@ -27,7 +27,7 @@ if (isset($_POST["passport"]) && isset($_POST["password"])) {
     $result = array(
     	'name' => $rows,
         'psw' => $psw,
-        'h' =>password_hash("{$_POST["password"]}",PASSWORD_DEFAULT)
+        'h' =>password_hash("{$_POST["password"]}",PASSWORD_DEFAULT);
     ); 
 
     // Переводим массив в JSON

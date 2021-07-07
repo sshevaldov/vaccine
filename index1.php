@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Article FRUCTCODE.COM. How to send html-form with Ajax.</title>
-  <meta name="description" content="Article FRUCTCODE.COM. How to send ajax form.">
-  <meta name="author" content="fructcode.com">
+  
+ 
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
   <script src="ajax.js"></script>
 <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+  
   <link rel="stylesheet" type="text/css" href="style.css">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
+ 
+  
   
   <title>Добро пожаловать!</title>
 </head>
@@ -62,8 +60,7 @@
       $('#button').on('click', function () {     
         $('.table .rfield').each(function () {
           if ($(this).val() != '') {           
-            $(this).removeClass('empty_field');
-            sendAjaxForm('result_form', 'ajax_form', 'action_ajax_form.php');
+            $(this).removeClass('empty_field');         
           } else {
             $(this).addClass('empty_field');
             $("#excp").hide();

@@ -1,3 +1,4 @@
+
 /* Article FructCode.com */
 $( document ).ready(function() {
     $("#button").click(
