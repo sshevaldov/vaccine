@@ -1,13 +1,13 @@
+//вызызывается в cabinet.php
 /* Article FructCode.com */
 $(document).ready(function () {
-	$("#city").change(
+	$("#city_selector").change(
 		function () {
-			sendAjaxForm('result_form', 'ajax_form2', 'action_ajax_form2.php');
+			sendAjaxForm('result_form', 'CabinetForm', 'action_ajax_form2.php');
 			return false;
 		}
 	);
 });
-
 function sendAjaxForm(result_form, ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
@@ -17,19 +17,12 @@ function sendAjaxForm(result_form, ajax_form, url) {
 		success: function (response) { //Данные отправлены успешно
 			result = $.parseJSON(response);
 			$('#result_form').html('Имя: |' + result[0] + '|');
-
-
 			//const select = document.createElement('select');
 			$(".pgh").remove();
-			const select = document.getElementById('hh');
-
+			const select = document.getElementById('place_selector');
 			document.querySelector('.weather').insertAdjacentElement('afterBegin', select);
-
 			select.classList.add('weather__list');
 			//select.id = 'city';
-
-
-
 			for (let key in result) {
 
 				const city = result[key];
@@ -38,58 +31,48 @@ function sendAjaxForm(result_form, ajax_form, url) {
 				option.textContent = city;
 				option.value = city;
 				select.appendChild(option);
-
 			}
-			document.getElementById("hh").disabled = false;
-
-
+			document.getElementById("place_selector").disabled = false;
 		},
 		error: function (response) { // Данные не отправлены
-			$('#excp').html('Ошибка. Данные не отправлены.');
+			$('#LoginErrorMessage').html('Ошибка. Данные не отправлены.');
 		}
 	});
 }
-
 //--------------------------
 /* Article FructCode.com */
 $(document).ready(function () {
-	$("#hh").change(
+	$("#place_selector").change(
 		function () {
 			if (document.getElementById("datepicker").value != '') {
-				sendAjaxForm1('result_form', 'ajax_form2', 'action_ajax_form3.php');
+				sendAjaxForm1('result_form', 'CabinetForm', 'action_ajax_form3.php');
 			}
-			else { document.getElementById("time").disabled = true; }
+			else { document.getElementById("time_selector").disabled = true; }
 			document.getElementById("datepicker").disabled = false;
 		}
 	);
 });
-
-
 $(document).ready(function () {
 	$("#datepicker").change(
 		function () {
-			sendAjaxForm1('result_form', 'ajax_form2', 'action_ajax_form3.php');
+			sendAjaxForm1('result_form', 'CabinetForm', 'action_ajax_form3.php');
 		}
 	);
 });
-
 $(document).ready(function () {
-	$("#buttonzap").click(
+	$("#buttonSubmit").click(
 		function () {
-			
-			if (document.getElementById('city').value != '' &&
-				document.getElementById('hh').value != '' &&
+
+			if (document.getElementById('city_selector').value != '' &&
+				document.getElementById('place_selector').value != '' &&
 				document.getElementById('datepicker').value != '' &&
-				document.getElementById('time').value != '') {
-				sendAjaxForm4('result_form', 'ajax_form2', 'action_ajax_form4.php');
-			
+				document.getElementById('time_selector').value != '') {
+				sendAjaxForm4('result_form', 'CabinetForm', 'action_ajax_form4.php');
 			}
-			
 			return false;
 		}
 	);
 });
-
 function sendAjaxForm4(result_form, ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
@@ -99,15 +82,12 @@ function sendAjaxForm4(result_form, ajax_form, url) {
 		success: function (response) { //Данные отправлены успешно
 			result = $.parseJSON(response);
 			$('#result_form').html('Имя: |' + result.name + '|');
-
 		},
 		error: function (response) { // Данные не отправлены
-			$('#excp').html('Ошибка. Данные не отправлены.');
+			$('#LoginErrorMessage').html('Ошибка. Данные не отправлены.');
 		}
 	});
 }
-
-
 function sendAjaxForm1(result_form, ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
@@ -118,48 +98,34 @@ function sendAjaxForm1(result_form, ajax_form, url) {
 			result = $.parseJSON(response);
 			$('#result_form').html('Имя: |' + result + '|');
 			$('#result_form').html('Имя: |' + document.getElementById('datepicker').value + '|');
-
 			//const select = document.createElement('select');
 			$(".pgp").remove();
-			const select = document.getElementById('time');
-
+			const select = document.getElementById('time_selector');
 			document.querySelector('.temp').insertAdjacentElement('afterBegin', select);
-
 			select.classList.add('temp__list1');
 			//select.id = 'city';
-
-
-
 			for (let key in result) {
-
 				const city = result[key];
 				const option = document.createElement('option');
 				option.classList.add('pgp');
 				option.textContent = city;
 				option.value = city;
-
 				select.appendChild(option);
-
 			}
-
-			//	document.getElementById("time").disabled = false;
-
-
+			//	document.getElementById("time_selector").disabled = false;
 		},
 		error: function (response) { // Данные не отправлены
-			$('#excp').html('Ошибка. Данные не отправлены.');
+			$('#LoginErrorMessage').html('Ошибка. Данные не отправлены.');
 		}
 	});
 }
-
 $(document).ready(function () {
 	$("#datepicker").change(
 		function () {
 			if (document.getElementById('datepicker').value != '') {
-				document.getElementById("time").disabled = false;
+				document.getElementById("time_selector").disabled = false;
 			}
-			else { document.getElementById("time").disabled = true; }
-		
+			else { document.getElementById("time_selector").disabled = true; }
 		}
 	);
 });
