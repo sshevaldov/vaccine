@@ -3,18 +3,21 @@
 
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-        <script src="ajax2.js"></script>
+        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
         <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+        <script src="ajax2.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+        <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+        <link type="text/css" rel="stylesheet"
+		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 
         <link rel="stylesheet" type="text/css" href="style.css">
 
         <title>Личный кабинет</title>
        
 
-        <!--<script type="text/javascript">
+       <script type="text/javascript">
                         $(function () {
                             $.mask.definitions['~'] = '[]';
                         $("#datepicker")
@@ -50,7 +53,7 @@
                             });
         });
 
-                    </script>-->
+                    </script>
     </head>
 
     <script>
@@ -151,7 +154,7 @@
                                             mysqli_set_charset($link, "utf8");
                         ?>
                         <select type="text" class="rfield " id="city" name="city" required>
-                        <option disabled selected hidden> Выберите город</option>      
+                        <option disabled selected hidden value=''> Выберите город</option>      
                         <?php
                                                 while($row = mysqli_fetch_array($result))
                                                 {
@@ -167,7 +170,7 @@
                     
                     </select>
                     <select type="text" class="rfield " id="hh" name="hh" required disabled>
-                        <option disabled selected hidden id="hh1" name="hh1" > Выберите место вакцинации</option>                       
+                        <option disabled selected hidden id="hh1" name="hh1" value='' > Выберите место вакцинации</option>                       
                         
                     </select>
 
@@ -179,12 +182,12 @@
 
                     <p>Дата вакцинации datepicker</p>
                     <p><input id="datepicker" autocomplete="off" name="datepicker" type="text" class="rfield"
-                            tabindex="1" placeholder="Дата вакцинации" required />
+                            tabindex="1" placeholder="Дата вакцинации" required disabled />
                     </p>
 
                     <p>Время вакцинации time</p>
                     <select type="text" class="rfield " id="time" name="time" required disabled>
-                        <option disabled selected hidden> time</option>
+                        <option disabled selected hidden value=''> time</option>
                         <option class="pgp">ttest</option>
                         
                     </select>
@@ -193,26 +196,20 @@
     <div class="temp__deg1"></div>
 </div>
                     <p>Незабывайте о необходимости приходить заранее.</p>
+                    <p id="next" name="next" hidden style="color: red;">go to</p>
                     <div>
-                        <button type="submit" id="button" class="btn_submit disabled">Записаться</button>
+                        <button  id="buttonzap" class="btn_submit disabled">Записаться</button>
                     </div>
                
               
             </div>
-            <?php
-                                if (isset($_POST['city']) and isset($_POST['place']) and isset($_POST['datepicker']) and isset($_POST['time'])){
-                                    $_SESSION['addres'] = "{$_POST['city']} {$_POST['place']}";
-                                $_SESSION['datetime']="{$_POST['datepicker']} {$_POST['time']}";
-
-                                echo "<script>window.location = \"label.php\"</script>";
-                }
-                ?>
+           
         </form>
         <div id="result_form"></div>
     </body>
     <script type="text/javascript">
         $('document').ready(function () {
-            $('#button').on('click', function () {
+            $('#buttonzap').on('click', function () {
                 $('.table .rfield').each(function () {
                     if ($(this).val() != '' && $(this).val() != null) {
                         console.log(32);
