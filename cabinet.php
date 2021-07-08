@@ -2,6 +2,7 @@
     <html>
 
     <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
         <script src="ajax2.js"></script>
@@ -11,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
 
         <title>Личный кабинет</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       
 
         <!--<script type="text/javascript">
                         $(function () {
@@ -137,7 +138,7 @@
                     </div>
                 </h1>
                
-                    <p>Город вакцинации</p>
+                    <p>Город вакцинации city</p>
                     <div style="display: flex;">
 
                         <?php
@@ -150,6 +151,7 @@
                                             mysqli_set_charset($link, "utf8");
                         ?>
                         <select type="text" class="rfield " id="city" name="city" required>
+                        <option disabled selected hidden> Выберите город</option>      
                         <?php
                                                 while($row = mysqli_fetch_array($result))
                                                 {
@@ -159,31 +161,13 @@
                         </select>
                     </div>
                     <div class="container"></div>
-                    <p>Место вакцинации</p>
+                    <p>Место вакцинации hh</p>
                     <!--https://stackoverflow.com/questions/4579570/jquery-loading-data-from-database-and-inserting-it-to-select-->
 
-                    <?php
-
-                                        $link=dbconnect();
-                                        mysqli_set_charset($link, "utf8");
-
-                                        $result=mysqli_query($link,"SELECT * FROM `places`");
-                                        $flag=false;
-                                        mysqli_set_charset($link, "utf8");
-                    ?>
-                    <select type="text" class="rfield" id="place" name="place" required>
-                    <?php
-                                            while($row = mysqli_fetch_array($result))
-                                            {
-
-                                                echo '<option>'.$row['place_name'].'</option>';
-                                            } 
-                    ?>
+                    
                     </select>
-                    <select type="text" class="rfield ttf" id="hh" name="hh" required>
-                        <option disabled selected > время</option>
-                        <option class="pgh">12:10</option>
-                       
+                    <select type="text" class="rfield " id="hh" name="hh" required disabled>
+                        <option disabled selected hidden id="hh1" name="hh1" > Выберите место вакцинации</option>                       
                         
                     </select>
 
@@ -192,35 +176,22 @@
     <div class="weather__deg"></div>
 </div>
 
-                    <p>Дата вакцинации</p>
+
+                    <p>Дата вакцинации datepicker</p>
                     <p><input id="datepicker" autocomplete="off" name="datepicker" type="text" class="rfield"
                             tabindex="1" placeholder="Дата вакцинации" required />
                     </p>
 
-                    <p>Время вакцинации</p>
-                    <select type="text" class="rfield" id="time" name="time" required>
-                        <option disabled selected hidden> время</option>
-                        <option>12:00</option>
-                        <option>12:10</option>
-                        <option>12:20</option>
-                        <option>12:30</option>
-                        <option>12:40</option>
-                        <option>12:50</option>
-                        <option>13:00</option>
-                        <option>13:10</option>
-                        <option>13:20</option>
-                        <option>13:30</option>
-                        <option>13:40</option>
-                        <option>13:50</option>
-                        <option>14:00</option>
-                        <option>14:10</option>
-                        <option>14:20</option>
-                        <option>14:30</option>
-                        <option>14:40</option>
-                        <option>14:50</option>
-                        <option>15:00</option>
+                    <p>Время вакцинации time</p>
+                    <select type="text" class="rfield " id="time" name="time" required disabled>
+                        <option disabled selected hidden> time</option>
+                        <option class="pgp">ttest</option>
+                        
                     </select>
-
+                    <div class="temp">
+    <div class="temp__feature1"></div>
+    <div class="temp__deg1"></div>
+</div>
                     <p>Незабывайте о необходимости приходить заранее.</p>
                     <div>
                         <button type="submit" id="button" class="btn_submit disabled">Записаться</button>
