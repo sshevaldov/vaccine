@@ -10,7 +10,8 @@ if(isset($_POST['hh'])){
   $link->set_charset("utf8");
   $city=$_POST['city'];
   $pl=$_POST['hh'];
-  $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city']}' AND `place_name` = '{$_POST['hh']}' AND `date` = '01.01.2021' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
+  $dt=$_POST['datepicker'];
+  $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city']}' AND `place_name` = '{$_POST['hh']}' AND `date` = '{$_POST['datepicker']}' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
   $result=mysqli_query($link,$sql); 
   $rows = mysqli_num_rows($result);
   $r=0;
