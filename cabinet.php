@@ -10,8 +10,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Личный кабинет</title>
     <?php require_once('php/funct.php') ?>
-    <script type="text/javascript">
-    </script>
+
 </head>
 
 <body>
@@ -50,19 +49,14 @@
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
-            <div class="weather">
-                <div class="weather__feature"></div>
-                <div class="weather__deg"></div>
-            </div>
+            <div class="place_list"></div>
             <p>Дата вакцинации</p>
             <p><input id="datepicker" autocomplete="off" name="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" required disabled />
             <p>Время вакцинации </p>
             <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
                 <option disabled selected hidden value=''>Время вакцинации</option>
             </select>
-            <div class="temp">
-                <div class="temp__feature1"></div>
-                <div class="temp__deg1"></div>
+            <div class="time_list">
             </div>
             <p>Незабывайте о необходимости приходить заранее.</p>
             <div>

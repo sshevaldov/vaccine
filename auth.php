@@ -32,7 +32,6 @@
       <a href="registration.php">Регистрация</a>
     </div>
   </form>
-  <script src="auth_script.js"></script>
 </body>
 
 </html>

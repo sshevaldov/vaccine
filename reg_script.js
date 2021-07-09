@@ -28,24 +28,7 @@ $(function () {
             placeholder: "дд.мм.гггг"
         });
 });
-$('.number').mask("9999 9999 9999 9999", {
-    placeholder: "**** **** **** ****"
-})
-$('.mask-pasport-number').mask('9999 999999');
-$('.mask-pasport-division').mask('999-999');
-$('.mask-phone').mask('+7 (999) 999-99-99');
-$('document').ready(function () {
-    $('#buttonRegistration').on('click', function () {
-        var pass = document.getElementById("password");
-        var num = document.getElementById("ser");
-        $('.table .rfield').each(function () {
-            if ($(this).val() != '') {
-                console.log(35);
-                $(this).removeClass('empty_field');
-            } else {
-                console.log(36);
-                $(this).addClass('empty_field');
-            }
-        });
-    });
-});
+
+function limitInput(_k, obj) {
+    obj.value = obj.value.replace(/[^а-яА-ЯёЁ -]/ig, '');
+}
