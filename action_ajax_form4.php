@@ -1,5 +1,5 @@
 <?php
-//вызывается из ajax2.js из cabinet.php
+//вызывается из ajax.js из cabinet.php
 //используется для сохранения данных о заявке
 if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($_POST['datepicker']) && isset($_POST['time'])) {
 

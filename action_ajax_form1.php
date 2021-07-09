@@ -1,5 +1,5 @@
 <?php
-//вызывается из ajax1.js из registration.php
+//вызывается из ajax.js из registration.php
 //используется для проверки и сохранения данных регистрации
 require_once('php/funct.php');
 if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) and isset($_POST['name']) and isset($_POST['date']) and isset($_POST['code']) and isset($_POST['omc']) and isset($_POST['phone'])) {

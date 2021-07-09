@@ -1,5 +1,5 @@
 <?php
-//используется в ajax.js, вызванном из index1.php
+//используется в ajax.js, вызванном из auth.php
 //проверка введенного логина и пароля
 if (isset($_POST["passport"]) && isset($_POST["password"])) {
     $servername = "localhost";

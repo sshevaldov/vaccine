@@ -1,5 +1,5 @@
 <?php
-//вызывается из ajax2.js из cabinet.php
+//вызывается из ajax.js из cabinet.php
 //используется для подгрузки свободных времен приема
 if (isset($_POST['place_selector'])) {
   $servername = "localhost";

@@ -1,5 +1,5 @@
 <?php
-//вызывается из ajax2.js из cabinet.php
+//вызывается из ajax.js из cabinet.php
 //используется для подгрузки адресов по выбранному городу
 if (isset($_POST['city_selector'])) {
   $servername = "localhost";
