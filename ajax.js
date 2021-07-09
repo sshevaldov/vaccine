@@ -8,7 +8,7 @@ $(document).ready(function () {
 	);
 	$("#city_selector").change(
 		function () {
-			sendAjaxForm('result_form', 'CabinetForm', 'action_ajax_form2.php');
+			LoadPlaces('CabinetForm', 'action_ajax_form2.php');
 			return false;
 		}
 	);
@@ -51,7 +51,7 @@ $(document).ready(function () {
 				document.getElementById('place_selector').value != '' &&
 				document.getElementById('datepicker').value != '' &&
 				document.getElementById('time_selector').value != '') {
-				sendAjaxForm4('result_form', 'CabinetForm', 'action_ajax_form4.php');
+				SendInputLabel('CabinetForm', 'action_ajax_form4.php');
 			}
 			return false;
 		}
@@ -117,12 +117,12 @@ function LoadTimes(ajax_form, url) {
 		success: function (response) { //данные отправлены успешно
 			result = $.parseJSON(response);
 			const select = document.getElementById('time_selector');
-			$(".options_class").remove();
+			$(".time_options_class").remove();
 			document.querySelector('.time_list').insertAdjacentElement('afterBegin', select);
 			for (let index in result) {
 				const content = result[index];
 				const option = document.createElement('option');
-				option.classList.add('options_class');
+				option.classList.add('time_options_class');
 				option.textContent = content;
 				option.value = content;
 				select.appendChild(option);
@@ -175,7 +175,7 @@ function SendInputUserData(ajax_form, url) {
 	});
 }
 
-function sendAjaxForm(_result_form, ajax_form, url) {
+function LoadPlaces(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
 		type: "POST", //метод отправки
@@ -183,29 +183,22 @@ function sendAjaxForm(_result_form, ajax_form, url) {
 		data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
 		success: function (response) { //Данные отправлены успешно
 			result = $.parseJSON(response);
-			$('#result_form').html('Имя: |' + result[0] + '|');
-			//const select = document.createElement('select');
-			$(".pgh").remove();
 			const select = document.getElementById('place_selector');
+			$(".place_options_class").remove();
 			document.querySelector('.place_list').insertAdjacentElement('afterBegin', select);
-			select.classList.add('place__list');
-			//select.id = 'content';
 			for (let index in result) {
 				const content = result[index];
 				const option = document.createElement('option');
-				option.classList.add('pgh');
+				option.classList.add('place_options_class');
 				option.textContent = content;
 				option.value = content;
 				select.appendChild(option);
 			}
 			document.getElementById("place_selector").disabled = false;
-		},
-		error: function (_response) { // Данные не отправлены
-			$('#LoginErrorMessage').html('Ошибка. Данные не отправлены.');
 		}
 	});
 }
-function sendAjaxForm4(_result_form, ajax_form, url) {
+function SendInputLabel(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
 		type: "POST", //метод отправки
@@ -213,10 +206,7 @@ function sendAjaxForm4(_result_form, ajax_form, url) {
 		data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
 		success: function (response) { //Данные отправлены успешно
 			result = $.parseJSON(response);
-			$('#result_form').html('Имя: |' + result.name + '|');
-		},
-		error: function (_response) { // Данные не отправлены
-			$('#LoginErrorMessage').html('Ошибка. Данные не отправлены.');
+			//$('#result_form').html('Имя: |' + result.name + '|');
 		}
 	});
 }
