@@ -16,7 +16,7 @@
 <body>
     <form method="post" id="CabinetForm" action="">
         <div class="reating-arkows zatujgdsanuk">
-            <input id="e" type="checkbox" onclick="Page()">
+            <input id="e" type="checkbox" onclick="SetPageMode()">
             <label for="e">
                 <div class="trianglesusing" data-checked="Yes" data-unchecked="No"></div>
                 <div class="moresharpened"></div>

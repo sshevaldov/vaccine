@@ -33,7 +33,11 @@
 			<div class="table">
 				<p>Данные аккаунта</p>
 				<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
-				<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
+				<div class="password">
+					<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
+					<a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+				</div>
+
 				<button type="submit" id="buttonRegistration" class="btn_submit disabled">Зарегистрироваться</button>
 		</form>
 		</div>

@@ -22,19 +22,18 @@ if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) 
       }
     }
     $_SESSION['fam'] = (trim($_POST['fam']));
-    $date = trim($_POST['date']);
-    $code = trim($_POST['code']);
-    $phone = trim($_POST['phone']);
+  
+    $phone = ($_POST['phone']);
     $login = ($_POST['ser']);
-    $oms = trim($_POST['omc']);
+    $oms = ($_POST['omc']);
     $password = $_POST['password'];
     $password = password_hash($password, PASSWORD_DEFAULT);
     mysqli_set_charset($link, "utf8");
-    $sql = "INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`) VALUES ('$name','$otch','{$_SESSION['fam']}','$date','$code','$phone','$login','$oms');";
+    $sql = "INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`) VALUES ('$name','$otch','{$_POST['fam']}','{$_POST['date']}','{$_POST['code']}','$phone','$login','$oms');";
     $result = mysqli_query($link, $sql);
     $sql = "INSERT INTO `accounts` (`passport`, `password`) VALUES ('$login', '$password');";
     $result = mysqli_query($link, $sql);
-    echo "    all is good    ";
+   
   }
   // Формируем массив для JSON ответа
   $result = array(

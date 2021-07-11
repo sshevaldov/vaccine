@@ -13,7 +13,7 @@
 <body>
   <form method="post" id="АuthorizationForm" action="">
     <div class="reating-arkows zatujgdsanuk">
-      <input id="e" type="checkbox" onclick="Page()">
+      <input id="e" type="checkbox" onclick="SetPageMode()">
       <label for="e">
         <div class="trianglesusing" data-checked="Yes" data-unchecked="No"></div>
         <div class="moresharpened"></div>
@@ -25,7 +25,11 @@
       <p id="PasswordErrorMessage" name="PasswordErrorMessage" hidden style="color: red;">Неверный пароль</p>
       <p id="ToCabinetMessage" name="ToCabinetMessage" hidden style="color: red;">Переход в личный кабинет</p>
       <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
-      <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
+      <div class="password">
+        <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
+        <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+      </div>
+      
       <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
     </div>
     <div class="table-help">

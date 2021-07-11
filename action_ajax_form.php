@@ -1,4 +1,5 @@
 <?php
+session_start();
 //используется в ajax.js, вызванном из auth.php
 //проверка введенного логина и пароля
 if (isset($_POST["passport"]) && isset($_POST["password"])) {
@@ -16,14 +17,14 @@ if (isset($_POST["passport"]) && isset($_POST["password"])) {
         while ($row = mysqli_fetch_array($result)) {
             if ((password_verify($_POST["password"], $row['password']))) {
                 $psw = 1;
+                $_SESSION['passport'] = $_POST["passport"];
             }
         }
     }
     // Формируем массив для JSON ответа
     $result = array(
         'name' => $rows,
-        'psw' => $psw,
-        'h' => password_hash("{$_POST["password"]}", PASSWORD_DEFAULT)
+        'psw' => $psw
     );
 
     // Переводим массив в JSON

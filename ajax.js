@@ -2,13 +2,15 @@
 $(document).ready(function () {
 	$("#buttonToCabinet").click(
 		function () {
-			CheckInputAccount('АuthorizationForm', 'action_ajax_form.php');
+			AjaxCheckInputAccount('АuthorizationForm', 'action_ajax_form.php');
+			
 			return false;
+			
 		}
 	);
 	$("#city_selector").change(
 		function () {
-			LoadPlaces('CabinetForm', 'action_ajax_form2.php');
+			AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');
 			return false;
 		}
 	);
@@ -24,16 +26,18 @@ $(document).ready(function () {
 			phone = document.getElementById('phone').value;
 			password = document.getElementById('password').value;
 			if (ser != '' && code != '' && fam != '' && name != '' && date != '' && code != '' && omc != '' && phone != '' && password != '') {
-				SendInputUserData('RegistrationForm', 'action_ajax_form1.php');
+				AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
+				
 			}
 			else { $("#ErrorRegistration").hide(); }
+			
 			return false;
 		}
 	);
 	$("#place_selector").change(
 		function () {
 			if (document.getElementById("datepicker").value != '') {
-				LoadTimes('CabinetForm', 'action_ajax_form3.php');
+				AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
 			}
 			else { document.getElementById("time_selector").disabled = true; }
 			document.getElementById("datepicker").disabled = false;
@@ -41,7 +45,7 @@ $(document).ready(function () {
 	);
 	$("#datepicker").change(
 		function () {
-			LoadTimes('CabinetForm', 'action_ajax_form3.php');
+			AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
 		}
 	);
 	$("#buttonSubmit").click(
@@ -51,19 +55,18 @@ $(document).ready(function () {
 				document.getElementById('place_selector').value != '' &&
 				document.getElementById('datepicker').value != '' &&
 				document.getElementById('time_selector').value != '') {
-				SendInputLabel('CabinetForm', 'action_ajax_form4.php');
+				AjaxSendInputLabel('CabinetForm', 'action_ajax_form4.php');
 			}
+			window.location = "label.php";
 			return false;
 		}
 	);
 	$('#buttonSubmit').on('click', function () {
 		$('.table .rfield').each(function () {
 			if ($(this).val() != '' && $(this).val() != null) {
-				console.log(32);
 				// Если поле не пустое удаляем класс-указание
 				$(this).removeClass('empty_field');
 			} else {
-				console.log(33);
 				// Если поле пустое добавляем класс-указание
 				$(this).addClass('empty_field');
 			}
@@ -79,7 +82,6 @@ $(document).ready(function () {
 			}
 		});
 	});
-
 	$("#datepicker").change(
 		function () {
 			if (document.getElementById('datepicker').value != '') {
@@ -91,10 +93,8 @@ $(document).ready(function () {
 	$('#buttonRegistration').on('click', function () {
 		$('.table .rfield').each(function () {
 			if ($(this).val() != '') {
-				console.log(35);
 				$(this).removeClass('empty_field');
 			} else {
-				console.log(36);
 				$(this).addClass('empty_field');
 			}
 		});
@@ -108,7 +108,7 @@ $(document).ready(function () {
 	})
 });
 
-function LoadTimes(ajax_form, url) {
+function AjaxLoadTimes(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы
 		type: "POST", //метод отправки
@@ -131,7 +131,7 @@ function LoadTimes(ajax_form, url) {
 	});
 }
 
-function CheckInputAccount(ajax_form, url) {
+function AjaxCheckInputAccount(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form.php)
 		type: "POST", //метод отправки
@@ -151,13 +151,24 @@ function CheckInputAccount(ajax_form, url) {
 				} else {
 					$("#PasswordErrorMessage").hide();
 					$("#ToCabinetMessage").show();
+					window.location = "cabinet.php";
 				}
 			}
 		}
 	});
 }
-
-function SendInputUserData(ajax_form, url) {
+function show_hide_password(target) {
+	var input = document.getElementById('password');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+function AjaxSendInputUserData(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
 		type: "POST", //метод отправки
@@ -170,12 +181,13 @@ function SendInputUserData(ajax_form, url) {
 			}
 			else {
 				$("#ErrorRegistration").hide();
+				window.location = "auth.php";
 			}
 		}
 	});
 }
 
-function LoadPlaces(ajax_form, url) {
+function AjaxLoadPlaces(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
 		type: "POST", //метод отправки
@@ -198,7 +210,7 @@ function LoadPlaces(ajax_form, url) {
 		}
 	});
 }
-function SendInputLabel(ajax_form, url) {
+function AjaxSendInputLabel(ajax_form, url) {
 	$.ajax({
 		url: url, //url страницы (action_ajax_form1.php)
 		type: "POST", //метод отправки
@@ -211,25 +223,23 @@ function SendInputLabel(ajax_form, url) {
 	});
 }
 
-
-function Page() {
+function SetPageMode() {
 	mode = localStorage.getItem('mode');
 	if (mode == "dark") {
-		TolightMode();
-		console.log("TolightMode");
+		ToLightMode();
+		console.log("ToLightMode");
 	} else {
-		TodarkMode();
-		console.log("TodarkMode");
+		ToDarkMode();
+		console.log("ToDarkMode");
 	}
-	console.log(mode);
 }
-function TodarkMode() {
+function ToDarkMode() {
 	document.body.style.backgroundColor = "#040040";
 	localStorage.setItem('mode', 'dark');
 	mode = localStorage.getItem('mode');
 }
 
-function TolightMode() {
+function ToLightMode() {
 	document.body.style.backgroundColor = "lightblue";
 	localStorage.setItem('mode', 'light');
 	mode = localStorage.getItem('mode');
