@@ -20,8 +20,14 @@ function showuser()
         $_SESSION['oms'] = $row['oms'];
         $_SESSION['district_code'] = $row['district_code'];
         $_SESSION['phone'] = $row['phone'];
-        echo ("{$_SESSION['fio']}");
+        if ($row['status'] == 'vaccinated') {
+
+          
+            echo ('вы уже вакцинированы');
+        }
     }
+   
+    echo ("{$_SESSION['fio']}");
 }
 
 function city_loader()

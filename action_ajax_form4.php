@@ -15,6 +15,8 @@ if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($
   $_SESSION['adress']="{$_POST['city_selector']}, {$_POST['place_selector']}";
   $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector']}', '{$_POST['place_selector']}', '{$_POST['datepicker']}', '{$_POST['time_selector']}', '{$_SESSION['fio']}');";
   $result = mysqli_query($link, $sql);
+  $sql = "UPDATE `users` SET `status`='vaccinated' WHERE `passport`='{$_SESSION['passport']}'";
+  $result = mysqli_query($link, $sql);
   $ok1 = 'ok';
   // Формируем массив для JSON ответа
   $result1 = array(
