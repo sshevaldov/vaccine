@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <form method="post" id="CabinetForm" action="">
+    <form method="post" id="CabinetForm" action="" >
         <div class="reating-arkows zatujgdsanuk">
             <input id="e" type="checkbox" onclick="SetPageMode()">
             <label for="e">
@@ -22,7 +22,7 @@
                 <div class="moresharpened"></div>
             </label>
         </div>
-        <div class="table" style="width: 1200px;">
+        <div class="table" style="width: 1200px;" disabled>
             <h1 style=" text-align: right; padding: 10px;">
                 <div>
                     <div style="position: absolute; font-size: -webkit-xxx-large;">
@@ -36,6 +36,8 @@
                     </form>
                 </div>
             </h1>
+          
+            <p id="ErrorRegistration" name="ErrorRegistration"   style="color: red;"></p>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector" required>

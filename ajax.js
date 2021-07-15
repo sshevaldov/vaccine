@@ -3,9 +3,9 @@ $(document).ready(function () {
 	$("#buttonToCabinet").click(
 		function () {
 			AjaxCheckInputAccount('АuthorizationForm', 'action_ajax_form.php');
-			
+
 			return false;
-			
+
 		}
 	);
 	$("#city_selector").change(
@@ -27,10 +27,10 @@ $(document).ready(function () {
 			password = document.getElementById('password').value;
 			if (ser != '' && code != '' && fam != '' && name != '' && date != '' && code != '' && omc != '' && phone != '' && password != '') {
 				AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
-				
+
 			}
 			else { $("#ErrorRegistration").hide(); }
-			
+
 			return false;
 		}
 	);
@@ -246,6 +246,7 @@ function ToLightMode() {
 }
 
 window.onload = function () {
+	
 	switch (localStorage.getItem('mode')) {
 		case "dark":
 			document.body.style.backgroundColor = "#040040";
@@ -256,6 +257,32 @@ window.onload = function () {
 			document.body.style.backgroundColor = "lightblue";
 			document.getElementById("toggle").checked = false;
 	}
+
+}
+
+window.onload = function () {
+
+	AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
+}
+
+function AjaxShowStatus(ajax_form, url) {
+	$.ajax({
+		url: url, //url страницы (action_ajax_form1.php)
+		type: "POST", //метод отправки
+		dataType: "html", //формат данных
+		data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
+		success: function (response) { //Данные отправлены успешно
+			result = $.parseJSON(response);
+			console.log(result.name);
+			if (result.name == 'vaccinated') {
+				document.getElementById('city_selector').disabled=true;
+			//	$("#ErrorRegistration").show();
+				document.getElementById('buttonSubmit').disabled=true;
+				$('#ErrorRegistration').html('Вы уже вакицнированы. Запись на вакцинацию недоступна.');
+				
+			}
+		}
+	});
 }
 
 $(function () {

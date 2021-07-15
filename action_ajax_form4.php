@@ -17,10 +17,11 @@ if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($
   $result = mysqli_query($link, $sql);
   $sql = "UPDATE `users` SET `status`='vaccinated' WHERE `passport`='{$_SESSION['passport']}'";
   $result = mysqli_query($link, $sql);
+  $rows = mysqli_num_rows($result);
   $ok1 = 'ok';
   // Формируем массив для JSON ответа
   $result1 = array(
-    'name' => $ok1
+    'name' => $rows
   );
   //SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = 'Ульяновск' AND `place_name` = 'Ленина' AND `date` = '04.01.2021' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL
   // Переводим массив в JSON
