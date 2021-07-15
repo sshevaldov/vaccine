@@ -8,6 +8,14 @@ $(document).ready(function () {
 
 		}
 	);
+	$("#buttonToAdminCabinet").click(
+		function () {
+			AjaxCheckInputAccount('АuthorizationForm1', 'action_ajax_form_admin.php');
+			return false;
+
+		}
+	);
+	
 	$("#city_selector").change(
 		function () {
 			AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');
@@ -82,6 +90,17 @@ $(document).ready(function () {
 			}
 		});
 	});
+	$('#buttonToAdminCabinet').on('click', function () {
+		$('.table .rfield').each(function () {
+			if ($(this).val() != '') {
+				$(this).removeClass('empty_field');
+			} else {
+				$(this).addClass('empty_field');
+				$("#LoginErrorMessage").hide();
+			}
+		});
+	});
+	
 	$("#datepicker").change(
 		function () {
 			if (document.getElementById('datepicker').value != '') {
@@ -151,12 +170,13 @@ function AjaxCheckInputAccount(ajax_form, url) {
 				} else {
 					$("#PasswordErrorMessage").hide();
 					$("#ToCabinetMessage").show();
-					window.location = "cabinet.php";
+					window.location = "admin_cabinet.php";
 				}
 			}
 		}
 	});
 }
+
 function show_hide_password(target) {
 	var input = document.getElementById('password');
 	if (input.getAttribute('type') == 'password') {

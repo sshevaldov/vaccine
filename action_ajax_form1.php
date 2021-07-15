@@ -29,7 +29,7 @@ if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) 
     $password = $_POST['password'];
     $password = password_hash($password, PASSWORD_DEFAULT);
     mysqli_set_charset($link, "utf8");
-    $sql = "INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`) VALUES ('$name','$otch','{$_POST['fam']}','{$_POST['date']}','{$_POST['code']}','$phone','$login','$oms');";
+    $sql = "INSERT INTO `users`(`name`, `secondname`, `surname`, `birthdate`, `district_code`, `phone`, `passport`, `oms`, `access`) VALUES ('$name','$otch','{$_POST['fam']}','{$_POST['date']}','{$_POST['code']}','$phone','$login','$oms','user');";
     $result = mysqli_query($link, $sql);
     $sql = "INSERT INTO `accounts` (`passport`, `password`) VALUES ('$login', '$password');";
     $result = mysqli_query($link, $sql);
