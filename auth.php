@@ -12,12 +12,14 @@
 
 <body>
   <form method="post" id="АuthorizationForm" action="">
-    <div class="reating-arkows zatujgdsanuk">
-      <input id="e" type="checkbox" onclick="SetPageMode()">
-      <label for="e">
-        <div class="trianglesusing" data-checked="Yes" data-unchecked="No"></div>
-        <div class="moresharpened"></div>
-      </label>
+    <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
+      <div class="reating-arkows zatujgdsanuk">
+        <input id="e" type="checkbox" onclick="SetPageMode()">
+        <label for="e">
+          <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+          <div class="moresharpened"></div>
+        </label>
+      </div>
     </div>
     <div class="table">
       <h1>Войти в личный кабинет</h1>
@@ -29,7 +31,7 @@
         <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
         <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
       </div>
-      
+
       <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
     </div>
     <div class="table-help">

@@ -224,7 +224,9 @@ function AjaxSendInputLabel(ajax_form, url) {
 }
 
 function SetPageMode() {
+	
 	mode = localStorage.getItem('mode');
+	console.log(mode);
 	if (mode == "dark") {
 		ToLightMode();
 		console.log("ToLightMode");
@@ -234,7 +236,7 @@ function SetPageMode() {
 	}
 }
 function ToDarkMode() {
-	document.body.style.backgroundColor = "#040040";
+	document.body.style.backgroundColor = "#132f56";		
 	localStorage.setItem('mode', 'dark');
 	mode = localStorage.getItem('mode');
 }
@@ -246,7 +248,7 @@ function ToLightMode() {
 }
 
 window.onload = function () {
-	
+
 	switch (localStorage.getItem('mode')) {
 		case "dark":
 			document.body.style.backgroundColor = "#040040";
@@ -275,11 +277,11 @@ function AjaxShowStatus(ajax_form, url) {
 			result = $.parseJSON(response);
 			console.log(result.name);
 			if (result.name == 'vaccinated') {
-				document.getElementById('city_selector').disabled=true;
-			//	$("#ErrorRegistration").show();
-				document.getElementById('buttonSubmit').disabled=true;
+				document.getElementById('city_selector').disabled = true;
+				//	$("#ErrorRegistration").show();
+				document.getElementById('buttonSubmit').disabled = true;
 				$('#ErrorRegistration').html('Вы уже вакицнированы. Запись на вакцинацию недоступна.');
-				
+
 			}
 		}
 	});

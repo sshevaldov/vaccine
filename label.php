@@ -7,23 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Табель записи на вакцинацию</title>
+    <script src="ajax.js"></script>
 </head>
+<div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
+    <div class="reating-arkows zatujgdsanuk">
+        <input id="e" type="checkbox" onclick="SetPageMode()">
+        <label for="e">
+            <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+            <div class="moresharpened"></div>
+        </label>
+    </div>
+</div>
 
 <body>
-    <script>
-        window.onload = function() {
-            switch (localStorage.getItem('mode')) {
-                case "dark":
-                    document.body.style.backgroundColor = "#040040";
-                    document.getElementById("e").checked = true;
 
-                    break;
-                default:
-                    document.body.style.backgroundColor = "lightblue";
-                    document.getElementById("e").checked = false;
-            }
-        }
-    </script>
     <div class="table" style="width: max-content;">
         <h1>Заявка отправлена</h1>
         <?php

@@ -15,13 +15,15 @@
 
 <body>
     <form method="post" id="CabinetForm" action="" >
-        <div class="reating-arkows zatujgdsanuk">
-            <input id="e" type="checkbox" onclick="SetPageMode()">
-            <label for="e">
-                <div class="trianglesusing" data-checked="Yes" data-unchecked="No"></div>
-                <div class="moresharpened"></div>
-            </label>
-        </div>
+    <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
+      <div class="reating-arkows zatujgdsanuk">
+        <input id="e" type="checkbox" onclick="SetPageMode()">
+        <label for="e">
+          <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+          <div class="moresharpened"></div>
+        </label>
+      </div>
+    </div>
         <div class="table" style="width: 1200px;" disabled>
             <h1 style=" text-align: right; padding: 10px;">
                 <div>

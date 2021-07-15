@@ -14,7 +14,17 @@
 <body>
 	<form method="post" id="RegistrationForm" action="">
 		<form method="post">
+			<div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
+				<div class="reating-arkows zatujgdsanuk">
+					<input id="e" type="checkbox" onclick="SetPageMode()">
+					<label for="e">
+						<div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+						<div class="moresharpened"></div>
+					</label>
+				</div>
+			</div>
 			<div class="table">
+
 				<h1>Регистрация</h1>
 				<p>Личные данные
 				<p><input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия" style="text-transform: capitalize;" required>
