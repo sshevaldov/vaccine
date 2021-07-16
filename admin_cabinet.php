@@ -31,7 +31,7 @@
                         <p style="margin-top:15px">Сервис записи на вакцинацию</p>
                     </div>
                     <?php
-                    showuser();
+                    echo $_SESSION['login']
                     ?>
                     <form action="auth.php">
                         <p><button class="btn_submit disabled">Выйти</button>
@@ -40,12 +40,12 @@
             </h1>
 
             <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
-           
-               <p> <a href="admin_auth.php">Создать аккаунт администратора</a>
-               <p> <a href="admin_auth.php">Удалить пользователя</a>
-               <p> <a href="admin_auth.php">Перечень вакцинаций</a>
-               <p> <a href="admin_auth.php">Добавить место вакцинации</a>
-            
+            <p> <a href="create_list.php">Перечень вакцинаций</a>
+            <p> <a href="admin_auth.php">Создать аккаунт администратора</a>
+            <p> <a href="admin_auth.php">Удалить пользователя</a>
+
+            <p> <a href="admin_auth.php">Добавить место вакцинации</a>
+
         </div>
     </form>
     <script src="cab_script.js"></script>
