@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="ajax.js"></script>
+    <!-- <script src="ajax.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
@@ -38,7 +38,10 @@
                     </form>
                 </div>
             </h1>
-
+            <p>Период</p>
+            <p><input id="datepicker1" autocomplete="off" name="datepicker1" type="text" class="rfield" tabindex="1" placeholder="С" required  />
+           
+            <p><input id="datepicker2" autocomplete="off" name="datepicker2" type="text" class="rfield" tabindex="1" placeholder="По" required  />
             <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
             <p>Город вакцинации</p>
             <div style="display: flex;">
@@ -54,8 +57,7 @@
                 <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
             <div class="place_list"></div>
-            <p>Дата вакцинации</p>
-            <p><input id="datepicker" autocomplete="off" name="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" required disabled />
+
             <p>Время вакцинации </p>
             <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
                 <option disabled selected hidden value=''>Время вакцинации</option>
@@ -64,11 +66,11 @@
             </div>
             <p>Незабывайте о необходимости приходить заранее.</p>
             <div>
-                <button id="buttonSubmit" class="btn_submit disabled">Записаться</button>
+                <button id="buttonSubmit" class="btn_submit disabled">Сформировать</button>
             </div>
         </div>
     </form>
-    <script src="cab_script.js"></script>
+    <!-- <script src="cab_script.js"></script> -->
 </body>
 
 </html>
