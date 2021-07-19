@@ -33,13 +33,13 @@
                     <?php
                     echo $_SESSION['login']
                     ?>
-                    <form action="auth.php">
+                    <form action="admin_auth.php">
                         <p><button class="btn_submit disabled">Выйти</button>
                     </form>
                 </div>
             </h1>
 
-            <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
+                
             <p> <a href="create_list.php">Перечень вакцинаций</a>
             <p> <a href="admin_auth.php">Создать аккаунт администратора</a>
             <p> <a href="admin_auth.php">Удалить пользователя</a>

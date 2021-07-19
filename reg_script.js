@@ -15,7 +15,7 @@ $(function () {
         .datepicker({
             nextText: "",
             prevText: "",
-            dateFormat: 'dd.mm.yy',
+            dateFormat: 'yyyy.mm.dd',
             changeMonth: true,
             changeYear: true,
             maxDate: 0,
@@ -25,7 +25,7 @@ $(function () {
             firstDay: 1
         })
         .mask("~~.~~.~~~~", {
-            placeholder: "дд.мм.гггг"
+            placeholder: "гг.мм.дд"
         });
 });
 

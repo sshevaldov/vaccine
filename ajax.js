@@ -319,6 +319,30 @@ $(function () {
 		}
 	});
 });
+$(function () {
+	$("#datepicker1").datepicker({
+		beforeShowDay: function (date) {
+			var dayOfWeek = date.getDay();
+			if (dayOfWeek == 0 || dayOfWeek == 6) {
+				return [false];
+			} else {
+				return [true];
+			}
+		}
+	});
+});
+$(function () {
+	$("#datepicker2").datepicker({
+		beforeShowDay: function (date) {
+			var dayOfWeek = date.getDay();
+			if (dayOfWeek == 0 || dayOfWeek == 6) {
+				return [false];
+			} else {
+				return [true];
+			}
+		}
+	});
+});
 
 $(function () {
 	$.mask.definitions['~'] = '[]';

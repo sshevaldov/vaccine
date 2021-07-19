@@ -14,7 +14,7 @@ if (isset($_POST['city_selector'])) {
   $rows = mysqli_num_rows($result);
   $r = 0;
   $items = [];
-  $items[0] = "teset";
+  
   while ($row = mysqli_fetch_array($result)) {
     $items[$r] = $row['place_name'];;
     $r = $r + 1;

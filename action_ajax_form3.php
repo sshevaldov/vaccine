@@ -16,7 +16,7 @@ if (isset($_POST['place_selector'])) {
   $rows = mysqli_num_rows($result);
   $r = 0;
   $items = [];
-  $items[0] = "teset";
+
   while ($row = mysqli_fetch_array($result)) {
     $rr = $row['time'];
     $str = mb_convert_encoding($rr, "windows-1252", "utf-8");

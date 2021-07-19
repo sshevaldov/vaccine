@@ -3,7 +3,7 @@ $.datepicker.regional['ru'] = {
     prevText: 'Предыдущий',
     nextText: 'Следующий',
     dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-    dateFormat: 'dd.mm.yy',
+    dateFormat: 'yy.mm.dd',
     monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
     firstDay: 1,
     changeMonth: true,
