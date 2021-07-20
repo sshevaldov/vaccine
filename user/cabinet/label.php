@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../../common/style.css">
     <title>Табель записи на вакцинацию</title>
-    <script src="ShowHidePassword.js"></script>
+  
 </head>
 <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
     <div class="reating-arkows zatujgdsanuk">
@@ -39,7 +39,7 @@
         ?>
         <p><a href="topdf.php"><button id="button" class="btn_submit disabled">Скачать</button></a>
     </div>
-
+    <script src="../../common/PageMode.js"></script>
 </body>
 
 </html>

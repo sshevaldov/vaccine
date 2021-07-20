@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="ShowHidePassword.js"></script>
+  <script src="../../common/ShowHidePassword.js"></script>
 
-  <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="../../src/jquery.maskedinput.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="../../common/style.css">
   <title>Добро пожаловать!</title>
 </head>
 
@@ -33,15 +33,15 @@
       <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
     </div>
     <div class="table-help">
-      <a href="registration.php">Регистрация</a>
+      <a href="../registration/registration.php">Регистрация</a>
     </div>
     <div class="table-help">
-      <a href="admin_auth.php">Административный интерфейс</a>
+      <a href="../../admin/admin_auth/admin_auth.php">Административный интерфейс</a>
     </div>
   </form>
-  <script src="PageMode.js"></script>
-  <script src="Mask.js"></script>
-  <script src="auth/auth.js"></script>
+  <script src="../../common/PageMode.js"></script>
+  <script src="../mask.js"></script>
+  <script src="auth.js"></script>
 
 </body>
 

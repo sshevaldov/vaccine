@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="ShowHidePassword.js"></script>
+  <script src="../common/ShowHidePassword.js"></script>
   
-  <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="../src/jquery.maskedinput.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="../common/style.css">
   <title>Административный интерфейс</title>
 </head>
 
@@ -35,9 +35,9 @@
     </div>      
   </form>
   <div class="table-help">
-      <a href="auth.php">Пользовательский интерфейс</a>
+      <a href="../user/auth.php">Пользовательский интерфейс</a>
     </div>
-  <script src="PageMode.js"></script>
+  <script src="../common/PageMode.js"></script>
   <script src="admin_auth.js"></script>
 </body>
 

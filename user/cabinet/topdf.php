@@ -1,7 +1,7 @@
 <?php  
   session_start();   
-  define('FPDF_FONTPATH',"libs/font/");
-  require('libs/fpdf.php');  
+  define('FPDF_FONTPATH',"../../libs/font/");
+  require('../../libs/fpdf.php');  
       $pdf=new FPDF();  
       $pdf->AddPage('P');  
       $pdf->AddFont('Arial','','arial.php');  
