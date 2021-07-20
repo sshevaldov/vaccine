@@ -7,7 +7,7 @@
   <script src="../common/ShowHidePassword.js"></script>
   
   <script src="../src/jquery.maskedinput.js" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="../common/style.css">
+  <link rel="stylesheet" type="text/css" href="../../common/style.css">
   <title>Административный интерфейс</title>
 </head>
 

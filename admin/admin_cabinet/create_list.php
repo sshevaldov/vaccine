@@ -2,15 +2,15 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="../lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-    <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
+    <script src="../../src/jquery.maskedinput.js" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="../common/style.css">
-    <script src="../common/PageMode.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../common/style.css">
+    <script src="../../common/PageMode.js"></script>
     <title>Перечень вакцинаций</title>
-    <?php require_once('../common/funct.php') ?>
+    <?php require_once('../../common/funct.php') ?>
 
 </head>
 
@@ -174,6 +174,6 @@
         });
     </script>
      <script src="DatepickerAdminCabinet.js"></script>
-     <script src="Masks.js"></script>
+     <script src="../../common/mask.js"></script>
 </body>
 </html>

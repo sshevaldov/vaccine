@@ -1,14 +1,14 @@
 <?php
 
-define('FPDF_FONTPATH', "../libs/font/");
-require('../libs/fpdf.php');
+define('FPDF_FONTPATH', "../../libs/font/");
+require('../../libs/fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage('P');
 $pdf->AddFont('Arial', '', 'arial.php');
 $pdf->SetFont('Arial');
 
 
-require_once('../common/funct.php');
+require_once('../../common/funct.php');
 $link = dbconnect();
 $link->set_charset("utf8");
 $sql = "SELECT * from `list`";

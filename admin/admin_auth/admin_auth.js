@@ -37,7 +37,7 @@ function AjaxCheckInputAccount1(ajax_form, url) {
 					$("#LoginErrorMessage").html("Неверный пароль");
 
 				} else {
-					window.location = "create_list.php";
+					window.location = "../admin_cabinet/create_list.php";
 				}
 			}
 		}
