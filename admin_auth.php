@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="ajax.js"></script>
+  <script src="ShowHidePassword.js"></script>
+  
   <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Административный интерфейс</title>
@@ -33,7 +34,11 @@
       <button type="submit" id="buttonToAdminCabinet" class="btn_submit disabled">Войти</button>
     </div>      
   </form>
+  <div class="table-help">
+      <a href="auth.php">Пользовательский интерфейс</a>
+    </div>
   <script src="PageMode.js"></script>
+  <script src="admin_auth.js"></script>
 </body>
 
 </html>

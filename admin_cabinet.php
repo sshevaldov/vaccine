@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="ajax.js"></script>
+    <script src="ShowHidePassword.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />

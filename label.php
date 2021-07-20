@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Табель записи на вакцинацию</title>
-    <script src="ajax.js"></script>
+    <script src="ShowHidePassword.js"></script>
 </head>
 <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
     <div class="reating-arkows zatujgdsanuk">

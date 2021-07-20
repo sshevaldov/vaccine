@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="ajax.js"></script>
+  <script src="ShowHidePassword.js"></script>
+
   <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Добро пожаловать!</title>
@@ -23,13 +24,12 @@
     </div>
     <div class="table">
       <h1>Войти в личный кабинет</h1>
-      <p id="LoginErrorMessage" name="LoginErrorMessage"  style="color: red;"></p>
+      <p id="LoginErrorMessage" name="LoginErrorMessage" style="color: red;"></p>
       <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
       <div class="password">
         <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
         <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
       </div>
-
       <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
     </div>
     <div class="table-help">
@@ -37,10 +37,13 @@
     </div>
     <div class="table-help">
       <a href="admin_auth.php">Административный интерфейс</a>
-    </div>     
+    </div>
   </form>
   <script src="PageMode.js"></script>
-  <script src="mask.js"></script>
+  <script src="Mask.js"></script>
+  <script src="auth.js"></script>
+
 </body>
+
 
 </html>
