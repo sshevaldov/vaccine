@@ -15,8 +15,7 @@ if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($
   $_SESSION['adress'] = "{$_POST['city_selector']}, {$_POST['place_selector']}";
   $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector']}', '{$_POST['place_selector']}', '{$_POST['datepickerVak']}', '{$_POST['time_selector']}', '{$_SESSION['fio']}');";
   $result = mysqli_query($link, $sql);
-  $sql = "UPDATE `users` SET `status`='vaccinated' WHERE `passport`='{$_SESSION['passport']}'";
-  $result = mysqli_query($link, $sql);
+  
   if ($_SESSION['upl'] == 1) {
     $sql = "UPDATE `users` SET `dv1`='{$_POST['datepickerVak']}' WHERE `passport`='{$_SESSION['passport']}'";
     $result = mysqli_query($link, $sql);

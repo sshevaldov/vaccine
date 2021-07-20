@@ -58,12 +58,7 @@
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
-            <?php
-            $date = new DateTime();
-            echo $date->format("Y-m-d "); //2008-07-16
-            $date->modify('+3 week');
-            echo $date->format("Y-m-d"); //2008-07-23
-            ?>
+
             <div class="place_list"></div>
             <p>Дата вакцинации</p>
             <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" required disabled />

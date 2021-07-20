@@ -20,7 +20,7 @@ function showuser()
         $_SESSION['oms'] = $row['oms'];
         $_SESSION['district_code'] = $row['district_code'];
         $_SESSION['phone'] = $row['phone'];
-        $_SESSION['status'] = $row['status'];
+       
     }
 
     echo ("{$_SESSION['fio']}");

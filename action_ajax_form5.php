@@ -14,7 +14,7 @@ if (true) {
   $res = '';
 
   while ($row = mysqli_fetch_array($result)) {
-    $res = $row['status'];
+   
     $dv = $row['dv1'];
     $dv2 = $row['dv2'];
    
@@ -34,7 +34,7 @@ if (true) {
 
   // Формируем массив для JSON ответа
   $result1 = array(
-    'name' => $res,
+    
     'date' => $dv,
     'date2' => $dv2,
     'date3' => $dv3->format("Y.m.d ")
