@@ -10,8 +10,8 @@ if (isset($_POST['place_selector'])) {
   $link->set_charset("utf8");
   $city_selector = $_POST['city_selector'];
   $pl = $_POST['place_selector'];
-  $dt = $_POST['datepicker'];
-  $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city_selector']}' AND `place_name` = '{$_POST['place_selector']}' AND `date` = '{$_POST['datepicker']}' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
+  $dt = $_POST['datepickerVak'];
+  $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city_selector']}' AND `place_name` = '{$_POST['place_selector']}' AND `date` = '{$_POST['datepickerVak']}' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
   $result = mysqli_query($link, $sql);
   $rows = mysqli_num_rows($result);
   $r = 0;

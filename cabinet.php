@@ -38,6 +38,8 @@
             </h1>
 
             <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
+            <p id="ErrorRegistration1" name="ErrorRegistration1" style="color: red;"></p>
+            <p id="ErrorRegistration3" name="ErrorRegistration3" style="color: red;"></p>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector" required>
@@ -54,14 +56,20 @@
             </script>
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
-                <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
+                <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
+            <?php
+            $date = new DateTime();
+            echo $date->format("Y-m-d "); //2008-07-16
+            $date->modify('+3 week');
+            echo $date->format("Y-m-d"); //2008-07-23
+            ?>
             <div class="place_list"></div>
             <p>Дата вакцинации</p>
-            <p><input id="datepicker" autocomplete="off" name="datepicker" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" required disabled />
+            <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" required disabled />
             <p>Время вакцинации </p>
             <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
-                <option disabled selected hidden value=''>Время вакцинации</option>
+                <option selected hidden value=''>Время вакцинации</option>
             </select>
             <div class="time_list">
             </div>
@@ -76,11 +84,12 @@
     <script>
         $(function() {
             $.mask.definitions['~'] = '[]';
-            $("#datepicker").datepicker().mask("~~.~~.~~", {
+            $("#datepickerVak").datepicker().mask("~~.~~.~~", {
                 placeholder: "гг.мм.дд"
             });
         });
     </script>
+
 </body>
 
 </html>

@@ -41,7 +41,7 @@
   </form>
   <script src="PageMode.js"></script>
   <script src="Mask.js"></script>
-  <script src="auth.js"></script>
+  <script src="auth/auth.js"></script>
 
 </body>
 

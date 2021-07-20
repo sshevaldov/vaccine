@@ -29,7 +29,7 @@ $("#buttonSubmit").click(
 
         if (document.getElementById('city_selector').value != '' &&
             document.getElementById('place_selector').value != '' &&
-            document.getElementById('datepicker').value != '' &&
+            document.getElementById('datepickerVak').value != '' &&
             document.getElementById('time_selector').value != '') {
             AjaxSendInputLabel('CabinetForm', 'action_ajax_form4.php');
             window.location = "label.php";
@@ -51,10 +51,10 @@ $('#buttonSubmit').on('click', function () {
     });
 });
 
-window.onload = function () {
 
-    AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
-}
+window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
+
+
 
 function AjaxShowStatus(ajax_form, url) {
     $.ajax({
@@ -64,10 +64,32 @@ function AjaxShowStatus(ajax_form, url) {
         data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
         success: function (response) { //Данные отправлены успешно
             result = $.parseJSON(response);
-            if (result.name == 'vaccinated') {
-                document.getElementById('city_selector').disabled = true;
-                document.getElementById('buttonSubmit').disabled = true;
-                $('#ErrorRegistration').html('Вы уже вакицнированы. Запись на вакцинацию недоступна.');
+            console.log(result.date);
+            console.log(' ');
+            console.log(result.date2);
+            console.log(' ');
+            console.log(result.name);
+
+            if (result.date != "0000-00-00") {
+                $('#ErrorRegistration').html(`Дата первой вакцинации: ${result.date}`);
+                if (result.date2 != "0000-00-00") {
+                    $('#ErrorRegistration1').html(`Дата второй вакцинации: ${result.date2}`);
+                    $('#ErrorRegistration3').html(`Вакцинация недоступна.`);
+                    document.getElementById('city_selector').disabled = true;
+                    document.getElementById('buttonSubmit').disabled = true;
+                } else {
+                    $('#ErrorRegistration1').html(`Доступна вторая вакцинация, начиная с ${result.date3}`);
+                    $("#datepickerVak").datepicker("option", "minDate", result.date3.trim());
+                    console.log('ok');
+
+                }
+
+                //document.getElementById('city_selector').disabled = true;
+                // document.getElementById('buttonSubmit').disabled = true;
+                //   $('#ErrorRegistration').html(result.date);
+
+
+            } else {
 
             }
         }
@@ -76,7 +98,7 @@ function AjaxShowStatus(ajax_form, url) {
 
 
 $(function () {
-    $("#datepicker").datepicker({
+    $("#datepickerVak").datepicker({
         beforeShowDay: function (date) {
             var dayOfWeek = date.getDay();
             if (dayOfWeek == 0 || dayOfWeek == 6) {
@@ -93,6 +115,12 @@ $(function () {
 $("#city_selector").change(
     function () {
         AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');
+        if (document.getElementById("datepickerVak").value != '') {
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
+        }
+        else { document.getElementById("time_selector").disabled = true; }
+        document.getElementById("datepickerVak").disabled = false;
+
         return false;
     }
 );
@@ -108,6 +136,7 @@ function AjaxLoadPlaces(ajax_form, url) {
             const select = document.getElementById('place_selector');
             $(".place_options_class").remove();
             document.querySelector('.place_list').insertAdjacentElement('afterBegin', select);
+
             for (let index in result) {
                 const content = result[index];
                 const option = document.createElement('option');
@@ -123,14 +152,14 @@ function AjaxLoadPlaces(ajax_form, url) {
 
 $("#place_selector").change(
     function () {
-        if (document.getElementById("datepicker").value != '') {
+        if (document.getElementById("datepickerVak").value != '') {
             AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
         }
         else { document.getElementById("time_selector").disabled = true; }
-        document.getElementById("datepicker").disabled = false;
+        document.getElementById("datepickerVak").disabled = false;
     }
 );
-$("#datepicker").change(
+$("#datepickerVak").change(
     function () {
         AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
     }
@@ -140,9 +169,9 @@ $("#datepicker").change(
 
 
 
-$("#datepicker").change(
+$("#datepickerVak").change(
     function () {
-        if (document.getElementById('datepicker').value != '') {
+        if (document.getElementById('datepickerVak').value != '') {
             document.getElementById("time_selector").disabled = false;
         }
         else { document.getElementById("time_selector").disabled = true; }

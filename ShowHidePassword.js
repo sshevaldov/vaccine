@@ -1,7 +1,3 @@
-
-
-
-
 function show_hide_password(target) {
 	var input = document.getElementById('password');
 	if (input.getAttribute('type') == 'password') {
@@ -13,4 +9,3 @@ function show_hide_password(target) {
 	}
 	return false;
 }
-
