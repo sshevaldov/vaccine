@@ -159,6 +159,19 @@
                 return false;
             }
         );
+        
+        $(function() {
+            $.mask.definitions['~'] = '[]';
+            $("#datepicker_startDate").datepicker().mask("~~.~~.~~", {
+                placeholder: "гг.мм.дд"
+            });
+        });
+        $(function() {
+            $.mask.definitions['~'] = '[]';
+            $("#datepicker_endDate").datepicker().mask("~~.~~.~~", {
+                placeholder: "гг.мм.дд"
+            });
+        });
     </script>
      <script src="DatepickerAdminCabinet.js"></script>
      <script src="Masks.js"></script>

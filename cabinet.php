@@ -73,6 +73,14 @@
     </form>
     <script src="cab_script.js"></script>
     <script src="PageMode.js"></script>
+    <script>
+        $(function() {
+            $.mask.definitions['~'] = '[]';
+            $("#datepicker").datepicker().mask("~~.~~.~~", {
+                placeholder: "гг.мм.дд"
+            });
+        });
+    </script>
 </body>
 
 </html>

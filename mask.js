@@ -10,7 +10,7 @@ $('.mask-pasport-division').mask('999-999');
         $.mask.definitions['~'] = '[]';
         $("#datepicker")
             .mask("~~.~~.~~", {
-                placeholder: "дд.мм.гггг"
+                placeholder: "гг.мм.дд"
             });
     });
     

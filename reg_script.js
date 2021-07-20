@@ -1,6 +1,6 @@
 $.datepicker.regional['ru'] = {
     dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-    dateFormat: 'dd.mm.yy',
+    dateFormat: 'yy.mm.dd',
     monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
     firstDay: 1,
     changeMonth: true,
@@ -15,7 +15,7 @@ $(function () {
         .datepicker({
             nextText: "",
             prevText: "",
-            dateFormat: 'yyyy.mm.dd',
+            dateFormat: 'yy.mm.dd',
             changeMonth: true,
             changeYear: true,
             maxDate: 0,
@@ -24,7 +24,7 @@ $(function () {
             yearRange: '1900:2030',
             firstDay: 1
         })
-        .mask("~~.~~.~~~~", {
+        .mask("~~.~~.~~", {
             placeholder: "гг.мм.дд"
         });
 });
