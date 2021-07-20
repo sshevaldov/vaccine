@@ -14,16 +14,16 @@
 </head>
 
 <body>
-    <form method="post" id="CabinetForm" action="" >
-    <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
-      <div class="reating-arkows zatujgdsanuk">
-        <input id="e" type="checkbox" onclick="SetPageMode()">
-        <label for="e">
-          <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
-          <div class="moresharpened"></div>
-        </label>
-      </div>
-    </div>
+    <form method="post" id="CabinetForm" action="">
+        <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
+            <div class="reating-arkows zatujgdsanuk">
+                <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
+                <label for="CheckboxPageMode">
+                    <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+                    <div class="moresharpened"></div>
+                </label>
+            </div>
+        </div>
         <div class="table" style="width: 1200px;" disabled>
             <h1 style=" text-align: right; padding: 10px;">
                 <div>
@@ -33,13 +33,11 @@
                     <?php
                     showuser();
                     ?>
-                    <form action="auth.php">
-                        <p><button class="btn_submit disabled">Выйти</button>
-                    </form>
+                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit()">Выйти</button>
                 </div>
             </h1>
-          
-            <p id="ErrorRegistration" name="ErrorRegistration"   style="color: red;"></p>
+
+            <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector" required>
@@ -49,6 +47,11 @@
                     ?>
                 </select>
             </div>
+            <script>
+                function exit() {
+                    window.location = "auth.php";
+                }
+            </script>
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
@@ -69,6 +72,7 @@
         </div>
     </form>
     <script src="cab_script.js"></script>
+    <script src="PageMode.js"></script>
 </body>
 
 </html>

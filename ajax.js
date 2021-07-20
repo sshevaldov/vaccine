@@ -10,12 +10,12 @@ $(document).ready(function () {
 	);
 	$("#buttonToAdminCabinet").click(
 		function () {
-			AjaxCheckInputAccount('АuthorizationForm1', 'action_ajax_form_admin.php');
+			AjaxCheckInputAccount1('АuthorizationForm1', 'action_ajax_form_admin.php');
 			return false;
 
 		}
 	);
-	
+
 	$("#city_selector").change(
 		function () {
 			AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');
@@ -37,7 +37,7 @@ $(document).ready(function () {
 				AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
 
 			}
-			else { $("#ErrorRegistration").hide(); }
+			else { $("#ErrorRegistration").html(''); }
 
 			return false;
 		}
@@ -64,8 +64,9 @@ $(document).ready(function () {
 				document.getElementById('datepicker').value != '' &&
 				document.getElementById('time_selector').value != '') {
 				AjaxSendInputLabel('CabinetForm', 'action_ajax_form4.php');
+				window.location = "label.php";
 			}
-			window.location = "label.php";
+
 			return false;
 		}
 	);
@@ -86,7 +87,7 @@ $(document).ready(function () {
 				$(this).removeClass('empty_field');
 			} else {
 				$(this).addClass('empty_field');
-				$("#LoginErrorMessage").hide();
+				$("#LoginErrorMessage").html('');
 			}
 		});
 	});
@@ -96,11 +97,11 @@ $(document).ready(function () {
 				$(this).removeClass('empty_field');
 			} else {
 				$(this).addClass('empty_field');
-				$("#LoginErrorMessage").hide();
+				$("#LoginErrorMessage").html('');
 			}
 		});
 	});
-	
+
 	$("#datepicker").change(
 		function () {
 			if (document.getElementById('datepicker').value != '') {
@@ -119,12 +120,7 @@ $(document).ready(function () {
 		});
 	});
 
-	$('.mask-pasport-division').mask('999-999');
-	$('.mask-phone').mask('+7 (999) 999-99-99');
-	$('.mask-pasport-number').mask('9999 999999');
-	$('.number').mask("9999 9999 9999 9999", {
-		placeholder: "**** **** **** ****"
-	})
+	
 });
 
 function AjaxLoadTimes(ajax_form, url) {
@@ -158,24 +154,49 @@ function AjaxCheckInputAccount(ajax_form, url) {
 		data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
 		success: function (response) { //Данные отправлены успешн
 			result = $.parseJSON(response);
-			log = $("#passport").value;
-			pass = $("#password").value;
+			log = document.getElementById('passport').value;
+			pass = document.getElementById('password').value;
+
 			if (log != '' && pass != '') {
 				if (result.name == 0) {
-					$("#LoginErrorMessage").show();
+					$("#LoginErrorMessage").html('Пользователь не существует');
 				}
 				else if (result.psw == 0) {
-					$("#LoginErrorMessage").hide();
-					$("#PasswordErrorMessage").show();
+					$("#LoginErrorMessage").html('Неверный пароль');
 				} else {
-					$("#PasswordErrorMessage").hide();
-					$("#ToCabinetMessage").show();
-					window.location = "admin_cabinet.php";
+					window.location = "cabinet.php";
 				}
 			}
 		}
 	});
 }
+function AjaxCheckInputAccount1(ajax_form, url) {
+	$.ajax({
+		url: url, //url страницы (action_ajax_form.php)
+		type: "POST", //метод отправки
+		dataType: "html", //формат данных
+		data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
+		success: function (response) { //Данные отправлены успешн
+			result = $.parseJSON(response);
+			log = document.getElementById('login').value;
+			pass = document.getElementById('password').value;
+			console.log(log);
+			console.log(pass);
+			if (log != '' && pass != '') {
+				if (result.name == 0) {
+					$("#LoginErrorMessage").html("Пользователь не существует");
+				}
+				else if (result.psw == 0) {
+					$("#LoginErrorMessage").html("Неверный пароль");
+
+				} else {
+					window.location = "create_list.php";
+				}
+			}
+		}
+	});
+}
+
 
 function show_hide_password(target) {
 	var input = document.getElementById('password');
@@ -197,10 +218,10 @@ function AjaxSendInputUserData(ajax_form, url) {
 		success: function (response) { //Данные отправлены успешно
 			result = $.parseJSON(response);
 			if (result.name != 0) {
-				$("#ErrorRegistration").show();
+				$("#ErrorRegistration").html('Паспорт уже зарегистрирован');;
 			}
 			else {
-				$("#ErrorRegistration").hide();
+
 				window.location = "auth.php";
 			}
 		}
@@ -243,44 +264,7 @@ function AjaxSendInputLabel(ajax_form, url) {
 	});
 }
 
-function SetPageMode() {
-	
-	mode = localStorage.getItem('mode');
-	console.log(mode);
-	if (mode == "dark") {
-		ToLightMode();
-		console.log("ToLightMode");
-	} else {
-		ToDarkMode();
-		console.log("ToDarkMode");
-	}
-}
-function ToDarkMode() {
-	document.body.style.backgroundColor = "#132f56";		
-	localStorage.setItem('mode', 'dark');
-	mode = localStorage.getItem('mode');
-}
 
-function ToLightMode() {
-	document.body.style.backgroundColor = "lightblue";
-	localStorage.setItem('mode', 'light');
-	mode = localStorage.getItem('mode');
-}
-
-window.onload = function () {
-
-	switch (localStorage.getItem('mode')) {
-		case "dark":
-			document.body.style.backgroundColor = "#040040";
-			document.getElementById("toggle").checked = true;
-
-			break;
-		default:
-			document.body.style.backgroundColor = "lightblue";
-			document.getElementById("toggle").checked = false;
-	}
-
-}
 
 window.onload = function () {
 
@@ -298,7 +282,6 @@ function AjaxShowStatus(ajax_form, url) {
 			console.log(result.name);
 			if (result.name == 'vaccinated') {
 				document.getElementById('city_selector').disabled = true;
-				//	$("#ErrorRegistration").show();
 				document.getElementById('buttonSubmit').disabled = true;
 				$('#ErrorRegistration').html('Вы уже вакицнированы. Запись на вакцинацию недоступна.');
 
@@ -344,10 +327,3 @@ $(function () {
 	});
 });
 
-$(function () {
-	$.mask.definitions['~'] = '[]';
-	$("#datepicker")
-		.mask("~~.~~.~~", {
-			placeholder: "дд.мм.гггг"
-		});
-});

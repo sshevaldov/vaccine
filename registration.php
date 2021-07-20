@@ -16,8 +16,8 @@
 		<form method="post">
 			<div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
 				<div class="reating-arkows zatujgdsanuk">
-					<input id="e" type="checkbox" onclick="SetPageMode()">
-					<label for="e">
+					<input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
+					<label for="CheckboxPageMode">
 						<div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
 						<div class="moresharpened"></div>
 					</label>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="table">
 				<p>Паспорт
-				<p id="ErrorRegistration" name="ErrorRegistration" hidden style="color: red;">Паспорт уже зарегистрирован</p>
+				<p id="ErrorRegistration" name="ErrorRegistration"  style="color: red;"></p>
 				<input id="ser" name="ser" type="text" class="mask-pasport-number form-control rfield" value="" placeholder="Серия, номер паспорта" required>
 				<input id="code" name="code" type="text" class="mask-pasport-division form-control rfield" value="" placeholder="Код подразделения" required>
 				<p>Номер полиса ОМС
@@ -45,14 +45,17 @@
 				<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
 				<div class="password">
 					<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
-					<a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+					<a href="#" class="password-control" onclick="return show_hide_password(this);" style="right: 20px;top: 9px;"></a>
 				</div>
+
 
 				<button type="submit" id="buttonRegistration" class="btn_submit disabled">Зарегистрироваться</button>
 		</form>
 		</div>
 	</form>
 	<script src="reg_script.js"></script>
+	<script src="PageMode.js"></script>
+	<script src="mask.js"></script>
 </body>
 
 </html>

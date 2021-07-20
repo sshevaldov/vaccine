@@ -14,8 +14,8 @@
   <form method="post" id="АuthorizationForm1" action="">
     <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
       <div class="reating-arkows zatujgdsanuk">
-        <input id="e" type="checkbox" onclick="SetPageMode()">
-        <label for="e">
+        <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
+        <label for="CheckboxPageMode">
           <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
           <div class="moresharpened"></div>
         </label>
@@ -23,9 +23,7 @@
     </div>
     <div class="table">
       <h1>Войти как администратор</h1>
-      <p id="LoginErrorMessage" name="LoginErrorMessage" hidden style="color: red;">Пользователь не существует</p>
-      <p id="PasswordErrorMessage" name="PasswordErrorMessage" hidden style="color: red;">Неверный пароль</p>
-      <p id="ToCabinetMessage" name="ToCabinetMessage" hidden style="color: red;">Переход в личный кабинет</p>
+      <p id="LoginErrorMessage" name="LoginErrorMessage"  style="color: red;"></p>
       <input id="login" name="login" type="text" value="" class="rfield" placeholder="Логин" required>
       <div class="password">
         <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
@@ -35,6 +33,7 @@
       <button type="submit" id="buttonToAdminCabinet" class="btn_submit disabled">Войти</button>
     </div>      
   </form>
+  <script src="PageMode.js"></script>
 </body>
 
 </html>
