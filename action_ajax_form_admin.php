@@ -1,7 +1,6 @@
 <?php
 session_start();
-//используется в ajax.js, вызванном из auth.php
-//проверка введенного логина и пароля
+
 if (isset($_POST["login"]) && isset($_POST["password"])) {
     $servername = "localhost";
     $uname = "root";
@@ -13,7 +12,7 @@ if (isset($_POST["login"]) && isset($_POST["password"])) {
     $sql = "SELECT * FROM `admins` where `login`='{$_POST["login"]}'";
     $result = mysqli_query($link, $sql);
     $rows = mysqli_num_rows($result);
-    if ($rows != 0) //если есть строки с подходящим логином
+    if ($rows != 0) 
     {
         while ($row = mysqli_fetch_array($result)) {
             if ((password_verify($_POST["password"], $row['password']))) {
@@ -22,12 +21,12 @@ if (isset($_POST["login"]) && isset($_POST["password"])) {
             }
         }
     }
-    // Формируем массив для JSON ответа
+    
     $result = array(
         'name' => $rows,
         'psw' => $psw
     );
 
-    // Переводим массив в JSON
+  
     echo json_encode($result);
 }

@@ -1,6 +1,5 @@
 <?php
-//вызывается из ajax.js из cabinet.php
-//используется для подгрузки адресов по выбранному городу
+
 if (isset($_POST['city_selector'])) {
   $servername = "localhost";
   $uname = "root";
@@ -19,11 +18,10 @@ if (isset($_POST['city_selector'])) {
     $items[$r] = "{$row['place_name']}, {$row['address']}";
     $r = $r + 1;
   }
-  // Формируем массив для JSON ответа
+ 
   $result = array(
     'name' => $rows
   );
-  //SELECT * FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = 'Ульяновск' AND `place_name` = 'Ленина' AND `date` = '04.01.2021' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL
-  // Переводим массив в JSON
+
   echo json_encode($items);
 }

@@ -52,7 +52,7 @@ if ($_SESSION['pl_sel'] != '') {
 }
 $result = mysqli_query($link, $sql);
 $pdf->SetFillColor(207, 207, 207);
-// Title row
+
 $pdf->SetFontSize(8);
 $pdf->Cell(25, 4, iconv('utf-8', 'windows-1251', "Город"), 1, 0, 'L', true);
 $pdf->Cell(90, 4, iconv('utf-8', 'windows-1251', "Адрес"), 1, 0, 'L', true);

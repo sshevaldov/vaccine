@@ -1,6 +1,5 @@
 <?php
-//вызывается из ajax.js из registration.php
-//используется для проверки и сохранения данных регистрации
+
 require_once('php/funct.php');
 if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) and isset($_POST['name']) and isset($_POST['date']) and isset($_POST['code']) and isset($_POST['omc']) and isset($_POST['phone'])) {
   $servername = "localhost";
@@ -11,7 +10,7 @@ if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) 
   $sql = "SELECT * FROM `accounts` where `passport`='{$_POST["ser"]}'";
   $result = mysqli_query($link, $sql);
   $rows = mysqli_num_rows($result);
-  if ($rows == 0)   //созданяем
+  if ($rows == 0)  
   {
     $name = (trim($_POST['name']));
     $otch = "отсутствует";
@@ -35,10 +34,10 @@ if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) 
     $result = mysqli_query($link, $sql);
    
   }
-  // Формируем массив для JSON ответа
+ 
   $result = array(
     'name' => $rows
   );
-  // Переводим массив в JSON
+ 
   echo json_encode($result);
 }

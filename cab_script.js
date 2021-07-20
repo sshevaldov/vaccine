@@ -14,13 +14,13 @@ $.datepicker.regional['ru'] = {
 $.datepicker.setDefaults($.datepicker.regional['ru']);
 function AjaxSendInputLabel(ajax_form, url) {
     $.ajax({
-        url: url, //url страницы (action_ajax_form1.php)
-        type: "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
-        success: function (response) { //Данные отправлены успешно
+        url: url,  
+        type: "POST",  
+        dataType: "html",  
+        data: $("#" + ajax_form).serialize(),   
+        success: function (response) { 
             result = $.parseJSON(response);
-            //$('#result_form').html('Имя: |' + result.name + '|');
+         
         }
     });
 }
@@ -42,10 +42,10 @@ $("#buttonSubmit").click(
 $('#buttonSubmit').on('click', function () {
     $('.table .rfield').each(function () {
         if ($(this).val() != '' && $(this).val() != null) {
-            // Если поле не пустое удаляем класс-указание
+             
             $(this).removeClass('empty_field');
         } else {
-            // Если поле пустое добавляем класс-указание
+
             $(this).addClass('empty_field');
         }
     });
@@ -58,17 +58,12 @@ window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
 
 function AjaxShowStatus(ajax_form, url) {
     $.ajax({
-        url: url, //url страницы (action_ajax_form1.php)
-        type: "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
-        success: function (response) { //Данные отправлены успешно
-            result = $.parseJSON(response);
-            console.log(result.date);
-            console.log(' ');
-            console.log(result.date2);
-            console.log(' ');
-            console.log(result.name);
+        url: url,  
+        type: "POST",  
+        dataType: "html",  
+        data: $("#" + ajax_form).serialize(),   
+        success: function (response) { 
+            result = $.parseJSON(response);          
 
             if (result.date != "0000-00-00") {
                 $('#ErrorRegistration').html(`Дата первой вакцинации: ${result.date}`);
@@ -80,13 +75,9 @@ function AjaxShowStatus(ajax_form, url) {
                 } else {
                     $('#ErrorRegistration1').html(`Доступна вторая вакцинация, начиная с ${result.date3}`);
                     $("#datepickerVak").datepicker("option", "minDate", result.date3.trim());
-                    console.log('ok');
+              
 
                 }
-
-                //document.getElementById('city_selector').disabled = true;
-                // document.getElementById('buttonSubmit').disabled = true;
-                //   $('#ErrorRegistration').html(result.date);
 
 
             } else {
@@ -127,11 +118,11 @@ $("#city_selector").change(
 
 function AjaxLoadPlaces(ajax_form, url) {
     $.ajax({
-        url: url, //url страницы (action_ajax_form1.php)
-        type: "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
-        success: function (response) { //Данные отправлены успешно
+        url: url,  
+        type: "POST",  
+        dataType: "html",  
+        data: $("#" + ajax_form).serialize(),   
+        success: function (response) { 
             result = $.parseJSON(response);
             const select = document.getElementById('place_selector');
             $(".place_options_class").remove();
@@ -184,11 +175,11 @@ $("#datepickerVak").change(
 
 function AjaxLoadTimes(ajax_form, url) {
     $.ajax({
-        url: url, //url страницы
-        type: "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#" + ajax_form).serialize(), //сеарилизуем объект
-        success: function (response) { //данные отправлены успешно
+        url: url, /
+        type: "POST",  
+        dataType: "html",  
+        data: $("#" + ajax_form).serialize(), 
+        success: function (response) { 
             result = $.parseJSON(response);
             const select = document.getElementById('time_selector');
             $(".time_options_class").remove();

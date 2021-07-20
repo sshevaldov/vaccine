@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-    <!-- <script src="ShowHidePassword.js"></script> -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="src/jquery.maskedinput.js" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
@@ -120,11 +120,11 @@
 
         function AjaxLoadList(ajax_form, url) {
             $.ajax({
-                url: url, //url страницы (action_ajax_form1.php)
-                type: "POST", //метод отправки
-                dataType: "html", //формат данных
-                data: $("#" + ajax_form).serialize(), // Сеарилизуем объект
-                success: function(response) { //Данные отправлены успешно
+                url: url,  
+                type: "POST",  
+                dataType: "html",  
+                data: $("#" + ajax_form).serialize(),  
+                success: function(response) { 
 
                 }
             });
@@ -132,11 +132,11 @@
 
         function AjaxLoadPlaces(ajax_form, url) {
             $.ajax({
-                url: url, //url страницы (action_ajax_form1.php)
-                type: "POST", //метод отправки
-                dataType: "html", //формат данных
-                data: $("#" + ajax_form).serialize(), // Сеарилизуем объект
-                success: function(response) { //Данные отправлены успешно
+                url: url,  
+                type: "POST",  
+                dataType: "html",  
+                data: $("#" + ajax_form).serialize(),  
+                success: function(response) { 
                     result = $.parseJSON(response);
                     const select = document.getElementById('place_selector');
                     $(".place_options_class").remove();

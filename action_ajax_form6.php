@@ -1,7 +1,6 @@
 <?php
 session_start();
-//вызывается из ajax.js из cabinet.php
-//используется для сохранения данных о заявке
+
 if (true) {
 
 
@@ -13,11 +12,10 @@ if (true) {
 
 
   $res = $_POST['datepicker1'];
-  // Формируем массив для JSON ответа
+
   $result1 = array(
     'name' =>  $res
   );
-  //SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = 'Ульяновск' AND `place_name` = 'Ленина' AND `date` = '04.01.2021' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL
-  // Переводим массив в JSON
+
   echo json_encode($result1);
 }
