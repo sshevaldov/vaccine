@@ -66,7 +66,7 @@
 
     <script>
         function exit() {
-            window.location = "admin_auth.php"
+            window.location = "../admin_auth/admin_auth.php"
         }
 
         function get() {

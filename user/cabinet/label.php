@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../common/style.css">
+    <script src="../../lib/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
     <title>Табель записи на вакцинацию</title>
-  
+
 </head>
 <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
     <div class="reating-arkows zatujgdsanuk">
