@@ -41,7 +41,7 @@
         echo "<p>Адрес вакцинации: {$_SESSION['adress2']}";
         echo "<p>Дата и время вакцинации: {$_SESSION['datetime2']}";
         ?>
-        <p><a href="topdf.php"><button id="button" class="btn_submit disabled">Скачать</button></a>
+        <p><a href="order_list.php"><button id="button" class="btn_submit disabled">Скачать</button></a>
     </div>
     <script src="../../common/PageMode.js"></script>
 </body>

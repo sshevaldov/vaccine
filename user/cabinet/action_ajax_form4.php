@@ -14,17 +14,23 @@ if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($
   $_SESSION['adress1'] = "{$_POST['city_selector']}, {$_POST['place_selector']}";
   $_SESSION['datetime2'] = "{$_POST['datepickerVak1']} {$_POST['time_selector1']}";
   $_SESSION['adress2'] = "{$_POST['city_selector1']}, {$_POST['place_selector1']}";
-  $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector']}', '{$_POST['place_selector']}', '{$_POST['datepickerVak']}', '{$_POST['time_selector']}', '{$_SESSION['fio']}');";
+  $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`,`passport`) VALUES ('{$_POST['city_selector']}', '{$_POST['place_selector']}', '{$_POST['datepickerVak']}', '{$_POST['time_selector']}', '{$_SESSION['fio']}','{$_SESSION['passport']}');";
   $result = mysqli_query($link, $sql);
-  $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector1']}', '{$_POST['place_selector1']}', '{$_POST['datepickerVak1']}', '{$_POST['time_selector1']}', '{$_SESSION['fio']}');";
+  $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`,`passport`) VALUES ('{$_POST['city_selector1']}', '{$_POST['place_selector1']}', '{$_POST['datepickerVak1']}', '{$_POST['time_selector1']}', '{$_SESSION['fio']}','{$_SESSION['passport']}');";
+  $result = mysqli_query($link, $sql);
+
+  $sql = "UPDATE `users` SET `dv1`='{$_POST['datepickerVak']}' WHERE `passport`='{$_SESSION['passport']}'";
+  $result = mysqli_query($link, $sql);
+
+  $sql = "UPDATE `users` SET `dv2`='{$_POST['datepickerVak1']}' WHERE `passport`='{$_SESSION['passport']}'";
   $result = mysqli_query($link, $sql);
 
 
-  $rows = mysqli_num_rows($result);
+  
   $ok1 = 'ok';
 
   $result1 = array(
-    'name' => $rows
+    'name' => $ok1
   );
 
   echo json_encode($result1);
