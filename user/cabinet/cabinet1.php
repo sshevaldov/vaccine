@@ -83,8 +83,8 @@
                 <option selected hidden id="place_option1" name="place_option1" value=''> Выберите место вакцинации</option>
             </select>
             <div class="place_list1"></div>
-            <p>Дата вакцинации</p>           
-            <input id="datepickerVak1" autocomplete="off" name="datepickerVak1" type="text" require disabled>
+            <p>Дата вакцинации</p>
+            <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1" type="text"  readonly require>
             <p>Время вакцинации </p>
             <select type="text" class="rfield " id="time_selector1" name="time_selector1" required disabled>
                 <option selected hidden id="time_options_class1" name="time_options_class1" value=''>Время вакцинации</option>
@@ -108,8 +108,9 @@
                 placeholder: "гг.мм.дд"
             });
         });
+      
     </script>
-
+    <script src="../../common/mask.js"></script>
 </body>
 
 </html>
