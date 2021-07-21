@@ -50,6 +50,7 @@ if ($_SESSION['pl_sel'] != '') {
     $sql = $sql . "`place_name` = '" . $_SESSION['pl_sel'] . "'";
     $flag = 1;
 }
+$sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
 $result = mysqli_query($link, $sql);
 $pdf->SetFillColor(207, 207, 207);
 
@@ -68,4 +69,6 @@ while ($row = mysqli_fetch_array($result)) {
     $pdf->Cell(40, 4,  iconv('utf-8', 'windows-1251', "{$row['username']}"), "LTR");
     $pdf->Ln();
 }
+
+   
 $pdf->Output('label.pdf', 'I');
