@@ -50,6 +50,7 @@ if ($_SESSION['pl_sel'] != '') {
     $sql = $sql . "`place_name` = '" . $_SESSION['pl_sel'] . "'";
     $flag = 1;
 }
+$sql = $sql . " ORDER BY `city_name`, `place_name`, `date`";
 $result = mysqli_query($link, $sql);
 
 
