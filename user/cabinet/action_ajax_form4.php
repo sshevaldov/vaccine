@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($_POST['datepickerVak']) && isset($_POST['time_selector'])) {
+if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($_POST['datepickerVak']) && isset($_POST['time_selector']) && isset($_POST['city_selector1']) && isset($_POST['place_selector1']) && isset($_POST['time_selector1'])) {
 
   $servername = "localhost";
   $uname = "root";
@@ -12,16 +12,13 @@ if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($
   $link->set_charset("utf8");
   $_SESSION['datetime'] = "{$_POST['datepickerVak']} {$_POST['time_selector']}";
   $_SESSION['adress'] = "{$_POST['city_selector']}, {$_POST['place_selector']}";
+  if(isset($_POST['datepickerVak1'])){
   $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector']}', '{$_POST['place_selector']}', '{$_POST['datepickerVak']}', '{$_POST['time_selector']}', '{$_SESSION['fio']}');";
+  $result = mysqli_query($link, $sql);}
+  $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector1']}', '{$_POST['place_selector1']}', '{$_POST['datepickerVak1']}', '{$_POST['time_selector1']}', '{$_SESSION['fio']}');";
   $result = mysqli_query($link, $sql);
-  
-  if ($_SESSION['upl'] == 1) {
-    $sql = "UPDATE `users` SET `dv1`='{$_POST['datepickerVak']}' WHERE `passport`='{$_SESSION['passport']}'";
-    $result = mysqli_query($link, $sql);
-  } else {
-    $sql = "UPDATE `users` SET `dv2`='{$_POST['datepickerVak']}' WHERE `passport`='{$_SESSION['passport']}'";
-    $result = mysqli_query($link, $sql);
-  }
+
+
   $rows = mysqli_num_rows($result);
   $ok1 = 'ok';
 

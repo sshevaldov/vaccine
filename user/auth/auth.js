@@ -37,7 +37,7 @@ function AjaxCheckInputAccount(ajax_form, url) {
                 else if (result.psw == 0) {
                     $("#LoginErrorMessage").html('Неверный пароль');
                 } else {
-                    window.location = "../cabinet/cabinet.php";
+                    window.location = "../cabinet/cabinet1.php";
                 }
             }
         }

@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['place_selector'])) {
+if (isset($_POST['place_selector1'])) {
   $servername = "localhost";
   $uname = "root";
   $pword = "";
@@ -10,7 +10,7 @@ if (isset($_POST['place_selector'])) {
  
   
  
-  $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city_selector']}' AND `place_name` = '{$_POST['place_selector']}' AND `date` = '{$_POST['datepickerVak']}' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
+  $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city_selector1']}' AND `place_name` = '{$_POST['place_selector1']}' AND `date` = '{$_POST['datepickerVak1']}' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
   $result = mysqli_query($link, $sql);
   $rows = mysqli_num_rows($result);
   $r = 0;

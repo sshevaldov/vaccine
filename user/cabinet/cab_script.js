@@ -14,15 +14,15 @@ $.datepicker.regional['ru'] = {
 $.datepicker.setDefaults($.datepicker.regional['ru']);
 function AjaxSendInputLabel(ajax_form, url) {
     $.ajax({
-        url: url,  
-        type: "POST",  
-        dataType: "html",  
-        data: $("#" + ajax_form).serialize(),   
-        success: function (response) { 
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: $("#" + ajax_form).serialize(),
+        success: function (response) {
             result = $.parseJSON(response);
-         
+            alert(result.name);
         }
-    });
+    }); 
 }
 $("#buttonSubmit").click(
     function () {
@@ -42,7 +42,7 @@ $("#buttonSubmit").click(
 $('#buttonSubmit').on('click', function () {
     $('.table .rfield').each(function () {
         if ($(this).val() != '' && $(this).val() != null) {
-             
+
             $(this).removeClass('empty_field');
         } else {
 
@@ -52,18 +52,18 @@ $('#buttonSubmit').on('click', function () {
 });
 
 
-window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
+
 
 
 
 function AjaxShowStatus(ajax_form, url) {
     $.ajax({
-        url: url,  
-        type: "POST",  
-        dataType: "html",  
-        data: $("#" + ajax_form).serialize(),   
-        success: function (response) { 
-            result = $.parseJSON(response);          
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: $("#" + ajax_form).serialize(),
+        success: function (response) {
+            result = $.parseJSON(response);
 
             if (result.date != "0000-00-00") {
                 $('#ErrorRegistration').html(`Дата первой вакцинации: ${result.date}`);
@@ -75,7 +75,7 @@ function AjaxShowStatus(ajax_form, url) {
                 } else {
                     $('#ErrorRegistration1').html(`Доступна вторая вакцинация, начиная с ${result.date3}`);
                     $("#datepickerVak").datepicker("option", "minDate", result.date3.trim());
-              
+
 
                 }
 
@@ -115,14 +115,28 @@ $("#city_selector").change(
         return false;
     }
 );
+$("#city_selector1").change(
+    function () {
+        AjaxLoadPlaces1('CabinetForm', 'action_ajax_form7.php');
+        if (document.getElementById("datepickerVak1").value != '') {
+            AjaxLoadTimes1('CabinetForm', 'action_ajax_form3.php');
+        }
+        else { document.getElementById("time_selector1").disabled = true; }
+
+
+        return false;
+    }
+);
+
+
 
 function AjaxLoadPlaces(ajax_form, url) {
     $.ajax({
-        url: url,  
-        type: "POST",  
-        dataType: "html",  
-        data: $("#" + ajax_form).serialize(),   
-        success: function (response) { 
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: $("#" + ajax_form).serialize(),
+        success: function (response) {
             result = $.parseJSON(response);
             const select = document.getElementById('place_selector');
             $(".place_options_class").remove();
@@ -140,6 +154,30 @@ function AjaxLoadPlaces(ajax_form, url) {
         }
     });
 }
+function AjaxLoadPlaces1(ajax_form, url) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: $("#" + ajax_form).serialize(),
+        success: function (response) {
+            result = $.parseJSON(response);
+            const select = document.getElementById('place_selector1');
+            $(".place_options_class1").remove();
+            document.querySelector('.place_list1').insertAdjacentElement('afterBegin', select);
+
+            for (let index in result) {
+                const content = result[index];
+                const option = document.createElement('option');
+                option.classList.add('place_options_class1');
+                option.textContent = content;
+                option.value = content;
+                select.appendChild(option);
+            }
+            document.getElementById("place_selector1").disabled = false;
+        }
+    });
+}
 
 $("#place_selector").change(
     function () {
@@ -150,11 +188,33 @@ $("#place_selector").change(
         document.getElementById("datepickerVak").disabled = false;
     }
 );
+$("#place_selector1").change(
+    function () {
+        if (document.getElementById("datepickerVak1").value != '') {
+            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');
+            document.getElementById("time_selector1").disabled = false;
+        }
+        else { document.getElementById("time_selector1").disabled = true; }
+
+    }
+);
+
+
 $("#datepickerVak").change(
     function () {
         AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
+        var date = new Date(document.getElementById('datepickerVak').value);
+        date.setDate(date.getDate() + 20);
+        var Msg = date.getFullYear() + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + ('0' + (date.getDate() + 1)).slice(-2);
+        if (document.getElementById('city_selector1').value != '' && document.getElementById('place_selector1').value != '') {
+            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');
+            document.getElementById("time_selector1").disabled = false;
+        }
+        document.getElementById('datepickerVak1').value = Msg;
+
     }
 );
+
 
 
 
@@ -168,6 +228,14 @@ $("#datepickerVak").change(
         else { document.getElementById("time_selector").disabled = true; }
     }
 );
+// $("#datepickerVak").change(
+//     function () {
+//         if (document.getElementById('place_selector1').value != '' && document.getElementById('city_selector1').value != '') {
+//             document.getElementById("time_selector1").disabled = false;
+//             AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');
+//         }
+//     }
+// );
 
 
 
@@ -176,10 +244,10 @@ $("#datepickerVak").change(
 function AjaxLoadTimes(ajax_form, url) {
     $.ajax({
         url: url,
-        type: "POST",  
-        dataType: "html",  
-        data: $("#" + ajax_form).serialize(), 
-        success: function (response) { 
+        type: "POST",
+        dataType: "html",
+        data: $("#" + ajax_form).serialize(),
+        success: function (response) {
             result = $.parseJSON(response);
             const select = document.getElementById('time_selector');
             $(".time_options_class").remove();
@@ -192,6 +260,30 @@ function AjaxLoadTimes(ajax_form, url) {
                 option.value = content;
                 select.appendChild(option);
             }
+
+        }
+    });
+}
+function AjaxLoadTimes1(ajax_form, url) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "html",
+        data: $("#" + ajax_form).serialize(),
+        success: function (response) {
+            result = $.parseJSON(response);
+            const select = document.getElementById('time_selector1');
+            $(".time_options_class1").remove();
+            document.querySelector('.time_list1').insertAdjacentElement('afterBegin', select);
+            for (let index in result) {
+                const content = result[index];
+                const option = document.createElement('option');
+                option.classList.add('time_options_class1');
+                option.textContent = content;
+                option.value = content;
+                select.appendChild(option);
+            }
+
         }
     });
 }
