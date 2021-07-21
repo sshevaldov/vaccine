@@ -10,11 +10,12 @@ if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($
 
   $link = mysqli_connect($servername, $uname, $pword, $dbname);
   $link->set_charset("utf8");
-  $_SESSION['datetime'] = "{$_POST['datepickerVak']} {$_POST['time_selector']}";
-  $_SESSION['adress'] = "{$_POST['city_selector']}, {$_POST['place_selector']}";
-  if(isset($_POST['datepickerVak1'])){
+  $_SESSION['datetime1'] = "{$_POST['datepickerVak']} {$_POST['time_selector']}";
+  $_SESSION['adress1'] = "{$_POST['city_selector']}, {$_POST['place_selector']}";
+  $_SESSION['datetime2'] = "{$_POST['datepickerVak1']} {$_POST['time_selector1']}";
+  $_SESSION['adress2'] = "{$_POST['city_selector1']}, {$_POST['place_selector1']}";
   $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector']}', '{$_POST['place_selector']}', '{$_POST['datepickerVak']}', '{$_POST['time_selector']}', '{$_SESSION['fio']}');";
-  $result = mysqli_query($link, $sql);}
+  $result = mysqli_query($link, $sql);
   $sql = "INSERT INTO `list` (`city_name`, `place_name`, `date`, `time`,`username`) VALUES ('{$_POST['city_selector1']}', '{$_POST['place_selector1']}', '{$_POST['datepickerVak1']}', '{$_POST['time_selector1']}', '{$_SESSION['fio']}');";
   $result = mysqli_query($link, $sql);
 
