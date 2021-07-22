@@ -41,6 +41,7 @@
   </form>
   <script src="../../common/PageMode.js"></script>
   <script src="../../common/mask.js"></script>
+  <script src="../../common/RedError.js"></script>
   <script src="auth.js"></script>
 
 </body>
