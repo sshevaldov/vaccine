@@ -220,9 +220,6 @@ $("#datepickerVak").change(//изменилась дата первой вакц
     }
 );
 
-function exit() {//функция выхода из личного кабинета
-    window.location = "../auth/auth.php";
-}
 
 function get() {//функция установки глобальных переменных сессии
     AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');

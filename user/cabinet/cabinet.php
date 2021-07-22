@@ -33,7 +33,7 @@
                     <?php
                     showuser();
                     ?>
-                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit()">Выйти</button>
+                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit('../auth/auth.php')">Выйти</button>
                 </div>
             </h1>
 
@@ -49,11 +49,7 @@
                     ?>
                 </select>
             </div>
-            <script>
-                function exit() {
-                    window.location = "../auth/auth.php";
-                }
-            </script>
+            
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>

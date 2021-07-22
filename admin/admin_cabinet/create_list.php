@@ -10,6 +10,7 @@
     <script src="../../common/PageMode.js"></script>
     <title>Перечень вакцинаций</title>
     <?php require_once('../../common/funct.php') ?>
+    <script src="../../common/exit.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                 <?php
                 echo $_SESSION['login']
                 ?>
-                <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit()">Выйти</button>
+                <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit('../admin_auth/admin_auth.php')">Выйти</button>
             </h1>
             <p>Период</p>
             <p><input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" tabindex="1" placeholder="С" />
@@ -58,6 +59,7 @@
         </div>
     </form>
     <script src="cl.js"></script>
+    <script src="../../common/exit.js"></script>
     <script src="DatepickerAdminCabinet.js"></script>
     <script src="../../common/mask.js"></script>
 </body>

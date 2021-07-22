@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../../common/style.css">
     <title>Личный кабинет</title>
     <?php require_once('../../common/funct.php') ?>
+    <script src="../../common/exit.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
                     <?php
                     showuser();
                     ?>
-                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit()">Выйти</button>
+                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit('../auth/auth.php')">Выйти</button>
                 </div>
             </h1>
             <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>

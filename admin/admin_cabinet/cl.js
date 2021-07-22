@@ -1,7 +1,3 @@
-function exit() {
-    window.location = "../admin_auth/admin_auth.php"
-}
-
 function get() {
     AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
     window.location = "order_list.php";
