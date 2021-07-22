@@ -20,3 +20,12 @@ $('#buttonToCabinet').on('click', function () {
         }
     });
 });
+$('#buttonRegistration').on('click', function () {
+    $('.table .rfield').each(function () {
+        if ($(this).val() != '') {
+            $(this).removeClass('empty_field');
+        } else {
+            $(this).addClass('empty_field');
+        }
+    });
+});
