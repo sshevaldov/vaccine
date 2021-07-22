@@ -38,7 +38,7 @@
       <a href="../../user/auth/auth.php">Пользовательский интерфейс</a>
     </div>
   <script src="../../common/PageMode.js"></script>
- 
+  <script src="../../common/RedError.js"></script>
   <script src="admin_auth.js"></script>
 </body>
 
