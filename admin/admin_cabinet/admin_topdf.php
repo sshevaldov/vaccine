@@ -50,24 +50,29 @@ if ($_SESSION['pl_sel'] != '') {
     $sql = $sql . "`place_name` = '" . $_SESSION['pl_sel'] . "'";
     $flag = 1;
 }
-$sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
+$sql = $sql . " ORDER BY `username`,`city_name`, `place_name`, `date`, `username`";
 $result = mysqli_query($link, $sql);
 $pdf->SetFillColor(207, 207, 207);
 
 $pdf->SetFontSize(8);
+$pdf->Cell(5, 4, iconv('utf-8', 'windows-1251', "№"), 1, 0, 'L', true);
 $pdf->Cell(25, 4, iconv('utf-8', 'windows-1251', "Город"), 1, 0, 'L', true);
-$pdf->Cell(90, 4, iconv('utf-8', 'windows-1251', "Адрес"), 1, 0, 'L', true);
+$pdf->Cell(80, 4, iconv('utf-8', 'windows-1251', "Адрес"), 1, 0, 'L', true);
 $pdf->Cell(24, 4, iconv('utf-8', 'windows-1251', "Дата и время"), 1, 0, 'C', true);
 $pdf->Cell(40, 4, iconv('utf-8', 'windows-1251', "Пациент"), 1, 0, 'C', true);
+$pdf->Cell(17, 4, iconv('utf-8', 'windows-1251', "Паспорт"), 1, 0, 'C', true);
 $pdf->Ln();
-
+$index = 1;
 while ($row = mysqli_fetch_array($result)) {
     $pdf->SetFontSize(7);
+    $pdf->Cell(5, 4, "{$index}", "LTR", 0, 'L');
     $pdf->Cell(25, 4, iconv('utf-8', 'windows-1251', "{$row['city_name']} "), "LTR", 0, 'L');
-    $pdf->Cell(90, 4, iconv('utf-8', 'windows-1251', "{$row['place_name']} "), "LTR", 0, 'L');
+    $pdf->Cell(80, 4, iconv('utf-8', 'windows-1251', "{$row['place_name']} "), "LTR", 0, 'L');
     $pdf->Cell(24, 4,  iconv('utf-8', 'windows-1251', "{$row['date']} {$row['time']}"), "LTR");
     $pdf->Cell(40, 4,  iconv('utf-8', 'windows-1251', "{$row['username']}"), "LTR");
+    $pdf->Cell(17, 4,  iconv('utf-8', 'windows-1251', "{$row['passport']}"), "LTR");
     $pdf->Ln();
+    $index++;
 }
 
    
