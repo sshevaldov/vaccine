@@ -1,32 +1,23 @@
 <?php
-session_start();
-
-if (isset($_POST["login"]) && isset($_POST["password"])) {
-    $servername = "localhost";
-    $uname = "root";
-    $pword = "";
-    $dbname = "vaccine";
-    $psw = 0;
-    $rows = 0;
-    $link = mysqli_connect($servername, $uname, $pword, $dbname);
-    $sql = "SELECT * FROM `admins` where `login`='{$_POST["login"]}'";
-    $result = mysqli_query($link, $sql);
-    $rows = mysqli_num_rows($result);
-    if ($rows != 0) 
-    {
-        while ($row = mysqli_fetch_array($result)) {
-            if ((password_verify($_POST["password"], $row['password']))) {
-                $psw = 1;
+require_once("../../common/funct.php"); //подключаем скрипт с функцией
+if (isset($_POST["login"]) && isset($_POST["password"])) { //если введены логин и пароль
+    $IsMatch = false; //флаг совпадения пароля
+    $NumRows = 0; //количество строк с заданным логином
+    $link = dbconnect(); //подключение к бд
+    $sql = "SELECT * FROM `admins` where `login`='{$_POST["login"]}'"; //запрос к записям с заданным логином
+    $responce = mysqli_query($link, $sql); //воспроизведение запроса
+    $NumRows = mysqli_num_rows($responce); //количество записей с заданным логином
+    if ($NumRows != 0) { //если есть строки с заданным логином
+        while ($row = mysqli_fetch_array($responce)) { //проход по полученным записям
+            if ((password_verify($_POST["password"], $row['password']))) { //если введеный пароль совпадает
+                $IsMatch = true; //установка флага "пароль совпал"
                 $_SESSION['login'] = $_POST["login"];
             }
         }
     }
-    
-    $result = array(
-        'name' => $rows,
-        'psw' => $psw
+    $return = array(
+        'NumRows' => $NumRows,
+        'IsMatch' => $IsMatch
     );
-
-  
-    echo json_encode($result);
+    echo json_encode($return);
 }
