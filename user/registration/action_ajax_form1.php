@@ -1,7 +1,6 @@
 <?php
-
 require_once('../../common/funct.php');
-if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) and isset($_POST['name']) and isset($_POST['date']) and isset($_POST['code']) and isset($_POST['omc']) and isset($_POST['phone'])) {
+if (isset($_POST['ser']) && isset($_POST['password']) && isset($_POST['fam']) && isset($_POST['name']) && isset($_POST['date']) && isset($_POST['code']) && isset($_POST['omc']) && isset($_POST['phone'])) {
   $servername = "localhost";
   $uname = "root";
   $pword = "";
@@ -34,7 +33,7 @@ if (isset($_POST['ser']) and isset($_POST['password']) and isset($_POST['fam']) 
   }
 
   $result = array(
-    'name' => $rows
+    'NumRows' => $rows
   );
 
   echo json_encode($result);
