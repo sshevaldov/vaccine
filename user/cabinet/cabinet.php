@@ -39,7 +39,7 @@
 
             <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
             <p id="ErrorRegistration1" name="ErrorRegistration1" style="color: red;"></p>
-            <p id="ErrorRegistration3" name="ErrorRegistration3" style="color: red;"></p>
+            <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector" required>

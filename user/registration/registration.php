@@ -27,7 +27,7 @@
 
 				<h1>Регистрация</h1>
 				<p>Личные данные
-				<p><input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия" style="text-transform: capitalize;" required disabled>
+				<p><input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия" style="text-transform: capitalize;" required >
 				<p><input id="name" name="name" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Имя" style="text-transform: capitalize;" required />
 				<p><input id="otch" name="otch" type="text" onkeyup="limitInput( 'ru', this );" placeholder="Отчество (при наличии)" style="text-transform:capitalize;" />
 				<p><input id="date" name="date" autocomplete="off" type="text" class="rfield" tabindex="1" placeholder="Дата рождения" required />

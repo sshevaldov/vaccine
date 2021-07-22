@@ -1,30 +1,16 @@
 <?php
-
-if (isset($_POST['place_selector1'])) {
-  $servername = "localhost";
-  $uname = "root";
-  $pword = "";
-  $dbname = "vaccine";
-  $link = mysqli_connect($servername, $uname, $pword, $dbname);
-  $link->set_charset("utf8");
- 
-  
- 
+require_once("../../common/funct.php"); //подключение файла с функцией
+if (isset($_POST['place_selector1'])) { //если адрес задан
+  $link = dbconnect(); //соединение с бд
+  mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения  
+  // вывод свободных времен для записи в заданный день:
   $sql = "SELECT A.`time` FROM `times_pattern` A LEFT JOIN( SELECT `time` FROM `list` WHERE `city_name` = '{$_POST['city_selector1']}' AND `place_name` = '{$_POST['place_selector1']}' AND `date` = '{$_POST['datepickerVak1']}' ) B ON A.`time` = B.`time` WHERE B.`time` IS NULL";
-  $result = mysqli_query($link, $sql);
-  $rows = mysqli_num_rows($result);
-  $r = 0;
-  $items = [];
-
-  while ($row = mysqli_fetch_array($result)) {
-    $rr = $row['time'];
-    $str = mb_convert_encoding($rr, "windows-1252", "utf-8");
-    $items[$r] = $row['time'];
-    $r = $r + 1;
+  $result = mysqli_query($link, $sql); //вопроизведение запроса  
+  $r = 0; //счетчик массива адресов
+  $items = []; //массив адресов вакцинации
+  while ($row = mysqli_fetch_array($result)) { //проход по записям   
+    $items[$r] = $row['time']; //запись значения времени в массив
+    $r += 1; //переход к следующей ячейке
   }
-  
- 
-
-  echo json_encode($items);
-  
+  echo json_encode($items); //возврат данных
 }

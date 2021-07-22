@@ -29,3 +29,12 @@ $('#buttonRegistration').on('click', function () {
         }
     });
 });
+$('#buttonSubmit').on('click', function () {
+    $('.table .rfield').each(function () {
+        if ($(this).val() != '' && $(this).val() != null) {
+            $(this).removeClass('empty_field');
+        } else {
+            $(this).addClass('empty_field');
+        }
+    });
+});
