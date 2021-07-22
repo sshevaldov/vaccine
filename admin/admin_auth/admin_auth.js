@@ -12,11 +12,11 @@ function AjaxCheckInputAccount(ajax_form, url) {
 		type: "POST",//метод запроса
 		dataType: "html",//тип данных
 		data: $("#" + ajax_form).serialize(),//собираем данные со страницы
-		success: function (response) {//если php-скрипт отработал успешно, вызываетс функция
-			result = $.parseJSON(response);//получаем данные от php-скрипта
+		success: function (response) {//если php-скрипт отработал успешно, вызываетс функция			
 			login = document.getElementById('login').value;//получаем введенный логин
-			pass = document.getElementById('password').value;//получаем введенный пароль
-			if (login != '' && pass != '') {//если логин и пароль введены
+			password = document.getElementById('password').value;//получаем введенный пароль
+			if (login != '' && password != '') {//если логин и пароль введены
+				result = $.parseJSON(response);//получаем данные от php-скрипта
 				if (result.NumRows == 0) {//если записи с логином не найдены
 					$("#LoginErrorMessage").html("Пользователь не существует");
 				}
