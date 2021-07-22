@@ -1,80 +1,43 @@
-$.datepicker.regional['ru'] = {
-    dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-    dateFormat: 'yy.mm.dd',
-    monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-    firstDay: 1,
-    changeMonth: true,
-    changeYear: true,
-    maxDate: 0,
-    yearRange: '1900:2021'
-};
-$.datepicker.setDefaults($.datepicker.regional['ru']);
-$(function () {
-    $.mask.definitions['~'] = '[]';
-    $("#date")
-        .datepicker({
-            nextText: "",
-            prevText: "",
-            dateFormat: 'yy.mm.dd',
-            changeMonth: true,
-            changeYear: true,
-            maxDate: 0,
-            maxYear: 0,
-            showAnim: "fold",
-            yearRange: '1900:2030',
-            firstDay: 1
-        })
-        .mask("~~.~~.~~", {
-            placeholder: "гг.мм.дд"
-        });
-});
-
-function limitInput(_k, obj) {
-    obj.value = obj.value.replace(/[^а-яА-ЯёЁ -]/ig, '');
+function limitInput(_k, obj) {//функция замены неподходящих вводимых символов
+    obj.value = obj.value.replace(/[^а-яА-ЯёЁ -]/ig, '');//замена английских букв и цифр
+    obj.value = obj.value.replace(/ /ig, '');//замена пробела
 }
 $("#buttonRegistration").click(
-    function () {
+    function () {//производим проверку введенного паспорта
         ser = document.getElementById('ser').value;
         code = document.getElementById('code').value;
         fam = document.getElementById('fam').value;
         var name = document.getElementById('name').value;
         date = document.getElementById('date').value;
-        code = document.getElementById('code').value;
         omc = document.getElementById('omc').value;
         phone = document.getElementById('phone').value;
         password = document.getElementById('password').value;
-        if (ser != '' && code != '' && fam != '' && name != '' && date != '' && code != '' && omc != '' && phone != '' && password != '') {
+        document.getElementById('fam').disabled = false;
+        console.log(ser);
+        // если все поля введены
+        if (ser != '' && code != '' && fam != '' && name != '' && date != '' && omc != '' && phone != '' && password != '') {
             AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
-console.log('ok');
         }
-        else { $("#ErrorRegistration").html(''); }
-
+        else {
+            $("#ErrorRegistration").html('');
+        }
         return false;
     }
 );
-$('#buttonRegistration').on('click', function () {
-    $('.table .rfield').each(function () {
-        if ($(this).val() != '') {
-            $(this).removeClass('empty_field');
-        } else {
-            $(this).addClass('empty_field');
-        }
-    });
-});
-function AjaxSendInputUserData(ajax_form, url) {
-    $.ajax({
-        url: url,  
-        type: "POST",  
-        dataType: "html",  
-        data: $("#" + ajax_form).serialize(),   
-        success: function (response) { 
-            result = $.parseJSON(response);
-            if (result.name != 0) {
-                $("#ErrorRegistration").html('Паспорт уже зарегистрирован');;
-            }
-            else {
 
-                window.location = "../auth/auth.php";
+function AjaxSendInputUserData(ajax_form, url) {//проверка уникальности пароля и записи данных в бд
+    $.ajax({
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//если скрипт отработал успешно
+            result = $.parseJSON(response);//получаем данные от php-скрипта          
+            if (result.NumRows != 0) {//если введеный паспорт уже существует               
+                $("#ErrorRegistration").html('Паспорт уже зарегистрирован');//выводим сообщение
+            }
+            else {//если введеный паспорт не существует
+                window.location = "../auth/auth.php";//переход на страницу авторизации
             }
         }
     });
