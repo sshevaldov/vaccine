@@ -27,15 +27,16 @@
 
 				<h1>Регистрация</h1>
 				<p>Личные данные
-				<p><input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия" style="text-transform: capitalize;" required>
+				<p><input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия" style="text-transform: capitalize;" required disabled>
 				<p><input id="name" name="name" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Имя" style="text-transform: capitalize;" required />
 				<p><input id="otch" name="otch" type="text" onkeyup="limitInput( 'ru', this );" placeholder="Отчество (при наличии)" style="text-transform:capitalize;" />
 				<p><input id="date" name="date" autocomplete="off" type="text" class="rfield" tabindex="1" placeholder="Дата рождения" required />
 			</div>
 			<div class="table">
 				<p>Паспорт
-				<p id="ErrorRegistration" name="ErrorRegistration"  style="color: red;"></p>
-				<input id="ser" name="ser" type="text" class="mask-pasport-number form-control rfield" value="" placeholder="Серия, номер паспорта" required>
+				<p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
+				
+				<input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
 				<input id="code" name="code" type="text" class="mask-pasport-division form-control rfield" value="" placeholder="Код подразделения" required>
 				<p>Номер полиса ОМС
 					<input id="omc" name="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС" required>
@@ -55,7 +56,9 @@
 	</form>
 	<script src="reg_script.js"></script>
 	<script src="../../common/PageMode.js"></script>
+	<script src="../../common/RedError.js"></script>
 	<script src="../../common/mask.js"></script>
+	<script src="datepicker.js"></script>
 </body>
 
 </html>
