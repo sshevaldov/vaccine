@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="../common/ShowHidePassword.js"></script>
+  <script src="../../common/ShowHidePassword.js"></script>
   
-  <script src="../src/jquery.maskedinput.js" type="text/javascript"></script>
+  <script src="../../src/jquery.maskedinput.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="../../common/style.css">
   <title>Административный интерфейс</title>
 </head>
@@ -37,7 +37,7 @@
   <div class="table-help">
       <a href="../../user/auth/auth.php">Пользовательский интерфейс</a>
     </div>
-  <script src="../common/PageMode.js"></script>
+  <script src="../../common/PageMode.js"></script>
   <script src="admin_auth.js"></script>
 </body>
 
