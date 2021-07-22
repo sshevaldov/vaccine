@@ -1,43 +1,29 @@
-$("#buttonToAdminCabinet").click(
-	function () {
-		AjaxCheckInputAccount1('АuthorizationForm1', 'action_ajax_form_admin.php');
-		return false;
 
+$("#buttonToAdminCabinet").click(//событие клинка
+	function () {
+		AjaxCheckInputAccount('АuthorizationForm1', 'action_ajax_form_admin.php');//функция проверки наличия введенных данных
+		return false;//false для избавления от обновления страницы
 	}
 );
 
-$('#buttonToAdminCabinet').on('click', function () {
-	$('.table .rfield').each(function () {
-		if ($(this).val() != '') {
-			$(this).removeClass('empty_field');
-		} else {
-			$(this).addClass('empty_field');
-			$("#LoginErrorMessage").html('');
-		}
-	});
-});
-
-
-function AjaxCheckInputAccount1(ajax_form, url) {
-	$.ajax({
-		url: url, 
-		type: "POST",
-		dataType: "html", 
-		data: $("#" + ajax_form).serialize(),
-		success: function (response) { 
-			result = $.parseJSON(response);
-			log = document.getElementById('login').value;
-			pass = document.getElementById('password').value;
-
-			if (log != '' && pass != '') {
-				if (result.name == 0) {
+function AjaxCheckInputAccount(ajax_form, url) {
+	$.ajax({//ajax запрос к файлу php
+		url: url,//php файл
+		type: "POST",//метод запроса
+		dataType: "html",//тип данных
+		data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+		success: function (response) {//если php-скрипт отработал успешно, вызываетс функция
+			result = $.parseJSON(response);//получаем данные от php-скрипта
+			login = document.getElementById('login').value;//получаем введенный логин
+			pass = document.getElementById('password').value;//получаем введенный пароль
+			if (login != '' && pass != '') {//если логин и пароль введены
+				if (result.NumRows == 0) {//если записи с логином не найдены
 					$("#LoginErrorMessage").html("Пользователь не существует");
 				}
-				else if (result.psw == 0) {
+				else if (result.IsMatch == false) {//если записи с логином найдены, но пароль не подходит
 					$("#LoginErrorMessage").html("Неверный пароль");
-
-				} else {
-					window.location = "../admin_cabinet/create_list.php";
+				} else {//если логин и пароль подошли
+					window.location = "../admin_cabinet/create_list.php";//переход в кабинет администратора
 				}
 			}
 		}
