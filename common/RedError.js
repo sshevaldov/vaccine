@@ -1,35 +1,18 @@
-$("#buttonToAdminCabinet").click(
-    function () {
-        $('.table .rfield').each(function () {
-            if ($(this).val() != '') {
-                $(this).removeClass('empty_field');
-            } else {
-                $(this).addClass('empty_field');
-                $("#LoginErrorMessage").html('');
-            }
-        });
-    }
-);
+$('#buttonToAdminCabinet').on('click', function () {
+    RedError();
+});
 $('#buttonToCabinet').on('click', function () {
-    $('.table .rfield').each(function () {
-        if ($(this).val() != '') {
-            $(this).removeClass('empty_field');
-        } else {
-            $(this).addClass('empty_field');
-            $("#LoginErrorMessage").html('');
-        }
-    });
+    RedError();
 });
 $('#buttonRegistration').on('click', function () {
-    $('.table .rfield').each(function () {
-        if ($(this).val() != '') {
-            $(this).removeClass('empty_field');
-        } else {
-            $(this).addClass('empty_field');
-        }
-    });
+    RedError();
 });
 $('#buttonSubmit').on('click', function () {
+    RedError();
+});
+
+//функция подсветки поля красным если оно пустое
+function RedError() {
     $('.table .rfield').each(function () {
         if ($(this).val() != '' && $(this).val() != null) {
             $(this).removeClass('empty_field');
@@ -37,4 +20,4 @@ $('#buttonSubmit').on('click', function () {
             $(this).addClass('empty_field');
         }
     });
-});
+}
