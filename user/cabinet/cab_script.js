@@ -48,19 +48,33 @@ function AjaxShowStatus(ajax_form, url) {//функция проверки ст�
     });
 }
 
+
+
+
 $("#city_selector").change(//при изменении города вакцинации
     function () {
-        AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');//фукциция подгрузки мест вакцинации по городу
-        if (document.getElementById("datepickerVak").value != '') {//если указана дата вакцинации
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//сразу подгружаем свободное время 
+        AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');//загрузка адресов
+        if (document.getElementById("datepickerVak").value != '') {//если дата указана
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//загружаем времена           
         }
-        else {//если день вакцинации не задан
-            document.getElementById("time_selector").disabled = true;//выбоо времени блокируется до выбора даты
-        }
-        document.getElementById("datepickerVak").disabled = false;//разблокируется календарь
+        document.getElementById("time_selector").disabled = true;//время блокируется, т.к адрес не задан
         return false;//отмена перезагрузки
     }
 );
+
+// $("#city_selector").change(//при изменении города вакцинации
+//     function () {
+//         AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');//фукциция подгрузки мест вакцинации по городу
+//         if (document.getElementById("datepickerVak").value != '') {//если указана дата вакцинации
+//             AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//сразу подгружаем свободное время 
+//         }
+//         else {//если день вакцинации не задан
+//             document.getElementById("time_selector").disabled = true;//выбоо времени блокируется до выбора даты
+//         }
+//         document.getElementById("datepickerVak").disabled = false;//разблокируется календарь
+//         return false;//отмена перезагрузки
+//     }
+// );
 
 function AjaxLoadTimes(ajax_form, url) {//функция подгрузки свободного времени вакцинации
     $.ajax({
@@ -106,14 +120,17 @@ function AjaxLoadPlaces(ajax_form, url) {//функция подгрузки м�
     });
 }
 
+
+
 $("#city_selector1").change(//изменен город второй вакцинации
     function () {
         AjaxLoadPlaces1('CabinetForm', 'action_ajax_form7.php');//подгрузка адресов в городе
         if (document.getElementById("datepickerVak1").value != '') {//если дата задана
-            //   AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то подгружаем времена
+            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то подгружаем времена
         }
-        else { }
-        document.getElementById("time_selector1").disabled = true;//если дата не задана, времена блокируются до установки даты
+        //блокируются временя, т.к адрес не задан
+        document.getElementById("time_selector1").disabled = true;
+
         return false;//отмена обновления
     }
 );
@@ -163,17 +180,31 @@ function AjaxLoadTimes1(ajax_form, url) {//функция подгрузки в�
     });
 }
 
-$("#place_selector").change(//изменение места первой вакцинации
+$("#place_selector").change(//если адрес изменен
     function () {
-        if (document.getElementById("datepickerVak").value != '') {//если дата задана
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем время
+        if (document.getElementById("datepickerVak").value != '') {//если дата указана
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php'); //то подгружаем времена
+            document.getElementById("time_selector").disabled = false;//отключаем выбор времени
         }
-        else {//если дата не задана
-            document.getElementById("time_selector").disabled = true;//время блокируется
+        else {//иначе если дата не указана
+            //отключаем выбор времени, т.к дата не задана
+            document.getElementById("time_selector").disabled = true;
         }
-        document.getElementById("datepickerVak").disabled = false;//календарь разблокируется
+
     }
 );
+
+// $("#place_selector").change(//изменение места первой вакцинации
+//     function () {
+//         if (document.getElementById("datepickerVak").value != '') {//если дата задана
+//             AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем время
+//         }
+//         else {//если дата не задана
+//             document.getElementById("time_selector").disabled = true;//время блокируется
+//         }
+//         document.getElementById("datepickerVak").disabled = false;//календарь разблокируется
+//     }
+// );
 
 //измение места второй вакцинации
 //если дата не задана->ничего не происходит
@@ -192,33 +223,72 @@ $("#place_selector1").change(//измение места второй вакци
     }
 );
 
-$("#datepickerVak").change(//если изменилась дата первой вакцинации
-    function () {
-        AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем времена
-        var date = new Date(document.getElementById('datepickerVak').value);//дата второй вакцинации
-        date.setDate(date.getDate() + 20);//плюс 3 недели от первой вакцинации
-        var Msg = date.getFullYear() + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + ('0' + (date.getDate() + 1)).slice(-2);//дата во второй календарь
-        //если заданы город и место второй вакцинации
-        document.getElementById('datepickerVak1').value = Msg;//устанавливаем дату второй вакцинации
-        if (document.getElementById('city_selector1').value != '' && document.getElementById('place_selector1').value != '') {
-
-            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//загружаем времена второй вакцинации
-            document.getElementById("time_selector1").disabled = false;//времена второй вакцинации разблокируются
-        }
-
-    }
-);
 
 $("#datepickerVak").change(//изменилась дата первой вакцинации
     function () {
         if (document.getElementById('datepickerVak').value != '') {//если изменилась в ненулевое значение
-            document.getElementById("time_selector").disabled = false;//времена разблокируются
+            var date = new Date(document.getElementById('datepickerVak').value);//дата второй вакцинации
+            date.setDate(date.getDate() + 20);//плюс 3 недели от первой вакцинации
+            var Msg = date.getFullYear() + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + ('0' + (date.getDate() + 1)).slice(-2);//дата во второй календарь
+            document.getElementById('datepickerVak1').value = Msg;//устанавливаем дату второй вакцинации
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем времена
+            //если заданы город и место второй вакцинации
+            if (document.getElementById('city_selector').value != '' && document.getElementById('place_selector').value != '') {
+                document.getElementById("time_selector").disabled = false;//времена разблокируются
+            }
         }
         else {
+            document.getElementById('datepickerVak1').value = '';//устанавливаем дату второй вакцинации
             document.getElementById("time_selector").disabled = true;//иначе блокируются
         }
     }
 );
+
+$("#datepickerVak1").change(//изменилась дата первой вакцинации
+    function () {
+        alert("qwe");
+        if (document.getElementById('city_selector').value != '' && document.getElementById('place_selector').value != '') {
+           // AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то обновляем время
+         
+            document.getElementById("time_selector").disabled = false;//времена разблокируются
+        }
+        // document.getElementById('datepickerVak1').value = '';//устанавливаем дату второй вакцинации
+        // document.getElementById("time_selector").disabled = true;//иначе блокируются
+    }
+);
+
+
+
+
+
+
+// $("#datepickerVak").change(//если изменилась дата первой вакцинации
+//     function () {
+//         AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем времена
+//         var date = new Date(document.getElementById('datepickerVak').value);//дата второй вакцинации
+//         date.setDate(date.getDate() + 20);//плюс 3 недели от первой вакцинации
+//         var Msg = date.getFullYear() + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + ('0' + (date.getDate() + 1)).slice(-2);//дата во второй календарь
+//         //если заданы город и место второй вакцинации
+//         document.getElementById('datepickerVak1').value = Msg;//устанавливаем дату второй вакцинации
+//         if (document.getElementById('city_selector1').value != '' && document.getElementById('place_selector1').value != '') {
+
+//             AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//загружаем времена второй вакцинации
+//             document.getElementById("time_selector1").disabled = false;//времена второй вакцинации разблокируются
+//         }
+
+//     }
+// );
+
+// $("#datepickerVak").change(//изменилась дата первой вакцинации
+//     function () {
+//         if (document.getElementById('datepickerVak').value != '') {//если изменилась в ненулевое значение
+//             document.getElementById("time_selector").disabled = false;//времена разблокируются
+//         }
+//         else {
+//             document.getElementById("time_selector").disabled = true;//иначе блокируются
+//         }
+//     }
+// );
 
 
 function get() {//функция установки глобальных переменных сессии
