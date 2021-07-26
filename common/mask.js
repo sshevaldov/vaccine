@@ -6,6 +6,9 @@ $('.mask-pasport-division').mask('999-999');
 	})
 
 
+
+    
+
     $(function () {
         $.mask.definitions['~'] = '[]';
         $("#datepicker")
