@@ -1,12 +1,8 @@
 <?php
-
+require_once("../../common/funct.php");
 if (isset($_POST['city_selector'])) {
-  $servername = "localhost";
-  $uname = "root";
-  $pword = "";
-  $dbname = "vaccine";
-  $link = mysqli_connect($servername, $uname, $pword, $dbname);
-  $link->set_charset("utf8");
+  $link = dbconnect(); //соединение с бд
+  mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения
   $city_selector = $_POST['city_selector'];
   $sql = "SELECT * FROM `places` where `city_name`= '{$city_selector}'";
   $result = mysqli_query($link, $sql);

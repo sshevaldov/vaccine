@@ -1,3 +1,4 @@
+// функция показа-скрытия вводимого пароля
 function show_hide_password(target) {
 	var input = document.getElementById('password');
 	if (input.getAttribute('type') == 'password') {

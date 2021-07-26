@@ -34,10 +34,10 @@
         echo "<p>ОМС: <ins>{$_SESSION['oms']}";
         echo "<p>Серия/номер паспорта: <ins>{$_SESSION['passport']} <p>Код подразделения: <ins>{$_SESSION['district_code']}";
         echo "<p>Телефон: <ins>{$_SESSION['phone']}";
-        echo "<h2 style=\"font-weight:bold\">Записан на вакцинацию:</h2>";
+        echo "<h2 style=\"font-weight:bold\">Первая вакинация:</h2>";
         echo "<p>Адрес вакцинации: {$_SESSION['adress1']}";
         echo "<p>Дата и время вакцинации: {$_SESSION['datetime1']}";
-        echo "<h2 style=\"font-weight:bold\">вторая на вакцинацию:</h2>";
+        echo "<h2 style=\"font-weight:bold\">Вторая вакцинация:</h2>";
         echo "<p>Адрес вакцинации: {$_SESSION['adress2']}";
         echo "<p>Дата и время вакцинации: {$_SESSION['datetime2']}";
         ?>

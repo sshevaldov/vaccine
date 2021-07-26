@@ -1,27 +1,16 @@
 <?php
-
-if (isset($_POST['city_selector'])) {
-  $servername = "localhost";
-  $uname = "root";
-  $pword = "";
-  $dbname = "vaccine";
-  $link = mysqli_connect($servername, $uname, $pword, $dbname);
-  $link->set_charset("utf8");
-  $city_selector = $_POST['city_selector'];
-  $sql = "SELECT * FROM `places` where `city_name`= '{$city_selector}'";
-  $result = mysqli_query($link, $sql);
-  $rows = mysqli_num_rows($result);
-  $r = 0;
-  $items = [];
-  
-  while ($row = mysqli_fetch_array($result)) {
-    $items[$r] = "{$row['place_name']}, {$row['address']}";
-    $r = $r + 1;
+require_once("../../common/funct.php");
+if (isset($_POST['city_selector'])) { //если город установлен
+  $link = dbconnect(); //подключение к бд
+  mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения
+  $city_selector = $_POST['city_selector']; //установленное значение города
+  $sql = "SELECT * FROM `places` where `city_name`= '{$city_selector}'"; //выводим адреса в заданном городе
+  $result = mysqli_query($link, $sql); //воспроизведение запроса
+  $r = 0; //счетчик массива адресов
+  $items = []; //массив адресов вакцинации
+  while ($row = mysqli_fetch_array($result)) { //проход по записям
+    $items[$r] = "{$row['place_name']}, {$row['address']}"; //запись название+адрес в ячейку массива
+    $r += 1; //переход к следующей незанятой ячейке массива
   }
- 
-  $result = array(
-    'name' => $rows
-  );
-
-  echo json_encode($items);
+  echo json_encode($items); //возвращаем массив адресов
 }

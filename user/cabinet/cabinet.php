@@ -33,13 +33,13 @@
                     <?php
                     showuser();
                     ?>
-                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit()">Выйти</button>
+                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit('../auth/auth.php')">Выйти</button>
                 </div>
             </h1>
 
             <p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
             <p id="ErrorRegistration1" name="ErrorRegistration1" style="color: red;"></p>
-            <p id="ErrorRegistration3" name="ErrorRegistration3" style="color: red;"></p>
+            <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector" required>
@@ -49,11 +49,7 @@
                     ?>
                 </select>
             </div>
-            <script>
-                function exit() {
-                    window.location = "../auth/auth.php";
-                }
-            </script>
+            
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>

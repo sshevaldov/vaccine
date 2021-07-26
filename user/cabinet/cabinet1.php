@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../common/style.css">
     <title>Личный кабинет</title>
     <?php require_once('../../common/funct.php') ?>
-
+    <?php require_once('showuser.php') ?>
+   
 </head>
 
 <body>
@@ -33,13 +34,11 @@
                     <?php
                     showuser();
                     ?>
-                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick="exit()">Выйти</button>
+                    <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../auth/auth.php"'>Выйти</button>
                 </div>
             </h1>
-
-
-            <p id="ErrorRegistration3" name="ErrorRegistration3" style="color: red;"></p>
-            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden >Загрузить отчет</button></b>
+            <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
+            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить отчет</button></b>
             <h3 style=" border-bottom: 1px solid black;">Первая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
@@ -50,19 +49,13 @@
                     ?>
                 </select>
             </div>
-            <script>
-                function exit() {
-                    window.location = "../auth/auth.php";
-                }
-            </script>
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
-
             <div class="place_list"></div>
             <p>Дата вакцинации</p>
-            <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата вакцинации" required disabled />
+            <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата первой вакцинации" required  />
             <p>Время вакцинации </p>
             <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
                 <option selected hidden value=''>Время вакцинации</option>
@@ -85,7 +78,7 @@
             </select>
             <div class="place_list1"></div>
             <p>Дата вакцинации</p>
-            <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1" type="text" readonly require>
+            <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1" type="text" readonly require placeholder="Дата второй вакцинации">
             <p>Время вакцинации </p>
             <select type="text" class="rfield " id="time_selector1" name="time_selector1" required disabled>
                 <option selected hidden id="time_options_class1" name="time_options_class1" value=''>Время вакцинации</option>
@@ -96,40 +89,12 @@
             <div>
                 <button id="buttonSubmit" class="btn_submit disabled">Записаться</button>
             </div>
-           
-
-
         </div>
     </form>
     <script src="cab_script.js"></script>
+    <script src="datepicker.js"></script>
+    <script src="../../common/RedError.js"></script>
     <script src="../../common/PageMode.js"></script>
-    <script>
-        function get() {
-            AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
-            window.location = "order_list.php";
-        }
-
-        function AjaxLoadList(ajax_form, url) {
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "html",
-                data: $("#" + ajax_form).serialize(),
-                success: function(response) {
-
-                }
-            });
-        }
-        $(function() {
-            $.mask.definitions['~'] = '[]';
-            $("#datepickerVak").datepicker().mask("~~.~~.~~", {
-                placeholder: "гг.мм.дд"
-            });
-        });
-    </script>
-    <script>
-        window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
-    </script>
     <script src="../../common/mask.js"></script>
 </body>
 

@@ -1,27 +1,3 @@
-$.datepicker.regional['ru'] = {
-    closeText: 'Закрыть',
-    prevText: 'Предыдущий',
-    nextText: 'Следующий',
-    dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-    dateFormat: 'yy.mm.dd',
-    monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-    firstDay: 1,
-    changeMonth: true,
-    changeYear: true,
-    minDate: 0,
-    yearRange: '2021:2021'
-};
-$.datepicker.setDefaults($.datepicker.regional['ru']);
-
-function AjaxSendInputLabel(ajax_form, url) {
-    $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: $("#" + ajax_form).serialize(),
-        success: function (response) { }
-    });
-}
 $("#buttonSubmit").click(
     function () {
         if (document.getElementById('city_selector').value != '' &&
@@ -39,249 +15,239 @@ $("#buttonSubmit").click(
     }
 );
 
-$('#buttonSubmit').on('click', function () {
-    $('.table .rfield').each(function () {
-        if ($(this).val() != '' && $(this).val() != null) {
-            $(this).removeClass('empty_field');
-        } else {
-            $(this).addClass('empty_field');
-        }
-    });
-});
-
-
-
-
-window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');
-
-function AjaxShowStatus(ajax_form, url) {
+function AjaxSendInputLabel(ajax_form, url) {//запись данных о вакцинациях в бд
     $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: $("#" + ajax_form).serialize(),
-        success: function (response) {
-            result = $.parseJSON(response);
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function () { }
+    });
+}
 
-            if (result.date != "0000-00-00") {
-                if (result.date2 = "0000-00-00") {
-                    $('#ErrorRegistration3').html(`Вакцинация недоступна.`);
-                    $("#buttonToList").show();
-                    document.getElementById('city_selector').disabled = true;
-                    document.getElementById('buttonSubmit').disabled = true;
-                } else {
-                    $("#datepickerVak").datepicker("option", "minDate", result.date3.trim());
+window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');//проверка статуса вакцинации при загрузке
 
-
-                }
-
-
-            } else {
-
+function AjaxShowStatus(ajax_form, url) {//функция проверки статуса вакцинации пользователя
+    $.ajax({
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//действия при корректной отработке скрипта
+            result = $.parseJSON(response);//получаем данные от php-скрипта
+            if (result.date != "0000-00-00") {//если дата первой вакцинации есть 
+                $('#ErrorVaccinated').html(`Вакцинация недоступна.`);//Сообщение о недоступности записи на вакцинацию
+                $("#buttonToList").show();//отображение кнопки для загрузки сертификата о прививке
+                // блокировка элементов управления
+                document.getElementById('city_selector').disabled = true;
+                document.getElementById('city_selector1').disabled = true;
+                document.getElementById('buttonSubmit').disabled = true;
             }
         }
     });
 }
 
 
-$(function () {
-    $("#datepickerVak").datepicker({
-        beforeShowDay: function (date) {
-            var dayOfWeek = date.getDay();
-            if (dayOfWeek == 0 || dayOfWeek == 6) {
-                return [false];
-            } else {
-                return [true];
+
+
+$("#city_selector").change(//при изменении города вакцинации
+    function () {
+        AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');//загрузка адресов
+        if (document.getElementById("datepickerVak").value != '') {//если дата указана
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//загружаем времена           
+        }
+        document.getElementById("time_selector").disabled = true;//время блокируется, т.к адрес не задан
+        return false;//отмена перезагрузки
+    }
+);
+$("#city_selector1").change(//изменен город второй вакцинации
+    function () {
+        AjaxLoadPlaces1('CabinetForm', 'action_ajax_form7.php');//подгрузка адресов в городе
+        if (document.getElementById("datepickerVak1").value != '') {//если дата задана
+            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то подгружаем времена
+        }
+        //блокируются временя, т.к адрес не задан
+        document.getElementById("time_selector1").disabled = true;
+        return false;//отмена обновления
+    }
+);
+
+$("#place_selector").change(//если адрес изменен
+    function () {
+        if (document.getElementById("datepickerVak").value != '') {//если дата указана
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php'); //то подгружаем времена
+            document.getElementById("time_selector").disabled = false;//отключаем выбор времени
+        }
+        else {//иначе если дата не указана
+            //отключаем выбор времени, т.к дата не задана
+            document.getElementById("time_selector").disabled = true;
+        }
+
+    }
+);
+$("#place_selector1").change(//измение места второй вакцинации
+    function () {
+        if (document.getElementById("datepickerVak1").value != '') {//если дата задана
+            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то обновляем время
+            document.getElementById("time_selector1").disabled = false;//время разблокируется
+        }
+        else {
+            document.getElementById("time_selector1").disabled = true;//иначе время блокируется
+        }
+    }
+);
+
+$("#datepickerVak").change(//изменилась дата первой вакцинации
+    function () {
+        console.log("1");
+        if (document.getElementById('datepickerVak').value != '') {//если изменилась в ненулевое значение
+            console.log("2");
+            var date = new Date(document.getElementById('datepickerVak').value);//дата второй вакцинации
+            date.setDate(date.getDate() + 20);//плюс 3 недели от первой вакцинации
+            var Msg = date.getFullYear() + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + ('0' + (date.getDate() + 1)).slice(-2);//дата во второй календарь
+            console.log("qwe");
+            document.getElementById('datepickerVak1').value = Msg;//устанавливаем дату второй вакцинации
+            console.log("qwe");
+            dpchange();
+            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем времена
+            //если заданы город и место второй вакцинации
+            if (document.getElementById('city_selector').value != '' && document.getElementById('place_selector').value != '') {
+                document.getElementById("time_selector").disabled = false;//времена разблокируются
             }
         }
-    });
-});
-
-
-
-$("#city_selector").change(
-    function () {
-        AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');
-        if (document.getElementById("datepickerVak").value != '') {
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
+        else {
+            document.getElementById('datepickerVak1').value = '';//устанавливаем дату второй вакцинации
+            document.getElementById("time_selector").disabled = true;//иначе блокируются
         }
-        else { document.getElementById("time_selector").disabled = true; }
-        document.getElementById("datepickerVak").disabled = false;
-
-        return false;
-    }
-);
-$("#city_selector1").change(
-    function () {
-        AjaxLoadPlaces1('CabinetForm', 'action_ajax_form7.php');
-        if (document.getElementById("datepickerVak1").value != '') {
-            AjaxLoadTimes1('CabinetForm', 'action_ajax_form3.php');
-        }
-        else { document.getElementById("time_selector1").disabled = true; }
-
-
-        return false;
     }
 );
 
+function dpchange() {
+    if (document.getElementById('city_selector1').value != '' && document.getElementById('place_selector1').value != '') {
+        AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то обновляем время
+        console.log("разблокировка");
+        document.getElementById("time_selector1").disabled = false;//времена разблокируются
+    } else {
+        console.log(document.getElementById('city_selector1').value);
+        console.log(document.getElementById('place_selector1').value);
+        console.log("блокировка");
+        document.getElementById("time_selector1").disabled = true;//иначе блокируются
+    }
+}
 
 
-function AjaxLoadPlaces(ajax_form, url) {
+function AjaxLoadTimes(ajax_form, url) {//функция подгрузки свободного времени вакцинации
     $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: $("#" + ajax_form).serialize(),
-        success: function (response) {
-            result = $.parseJSON(response);
-            const select = document.getElementById('place_selector');
-            $(".place_options_class").remove();
-            document.querySelector('.place_list').insertAdjacentElement('afterBegin', select);
-
-            for (let index in result) {
-                const content = result[index];
-                const option = document.createElement('option');
-                option.classList.add('place_options_class');
-                option.textContent = content;
-                option.value = content;
-                select.appendChild(option);
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//действия при корректной отработке скрипта
+            result = $.parseJSON(response);//получение данных от php-скрипта
+            const select = document.getElementById('time_selector');//обращаемся к селектору с временами
+            $(".time_options_class").remove();//удаляем устарые значения селектора         
+            for (let index in result) {//проход по полученному массиву
+                const content = result[index];//содержимое ячейки селектора
+                const option = document.createElement('option');//создаем ячейку селектора
+                option.classList.add('time_options_class');//запись класса к созданной ячейке
+                option.textContent = content;//запись содержимого в ячейку
+                option.value = content;//запись значения в ячейку
+                select.appendChild(option);//запись эелемента в конец
             }
-            document.getElementById("place_selector").disabled = false;
         }
     });
 }
-function AjaxLoadPlaces1(ajax_form, url) {
+function AjaxLoadPlaces(ajax_form, url) {//функция подгрузки мест вакцинации в городе
     $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: $("#" + ajax_form).serialize(),
-        success: function (response) {
-            result = $.parseJSON(response);
-            const select = document.getElementById('place_selector1');
-            $(".place_options_class1").remove();
-            document.querySelector('.place_list1').insertAdjacentElement('afterBegin', select);
-
-            for (let index in result) {
-                const content = result[index];
-                const option = document.createElement('option');
-                option.classList.add('place_options_class1');
-                option.textContent = content;
-                option.value = content;
-                select.appendChild(option);
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//если скрипт отработал
+            result = $.parseJSON(response);//получение данных от php-скрипта
+            const select = document.getElementById('place_selector');//обращение к селектору адресов
+            $(".place_options_class").remove();//удаление старых записей в селекторе
+            for (let index in result) {//проход по массиву
+                const content = result[index];//содержимое ячейки селектора
+                const option = document.createElement('option');//создаем ячейку
+                option.classList.add('place_options_class');//запись класса к созданной ячейке
+                option.textContent = content;//запись содержимого в ячейку
+                option.value = content;//запись значения в ячейку
+                select.appendChild(option);//запись эелемента в конец
             }
-            document.getElementById("place_selector1").disabled = false;
+            document.getElementById("place_selector").disabled = false;//селектор дат разблокирован
         }
     });
 }
 
-$("#place_selector").change(
-    function () {
-        if (document.getElementById("datepickerVak").value != '') {
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
-        }
-        else { document.getElementById("time_selector").disabled = true; }
-        document.getElementById("datepickerVak").disabled = false;
-    }
-);
-$("#place_selector1").change(
-    function () {
-        if (document.getElementById("datepickerVak1").value != '') {
-            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');
-            document.getElementById("time_selector1").disabled = false;
-        }
-        else { document.getElementById("time_selector1").disabled = true; }
-
-    }
-);
-
-
-$("#datepickerVak").change(
-    function () {
-        AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');
-        var date = new Date(document.getElementById('datepickerVak').value);
-        date.setDate(date.getDate() + 20);
-        var Msg = date.getFullYear() + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + ('0' + (date.getDate() + 1)).slice(-2);
-        if (document.getElementById('city_selector1').value != '' && document.getElementById('place_selector1').value != '') {
-            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');
-            document.getElementById("time_selector1").disabled = false;
-        }
-        document.getElementById('datepickerVak1').value = Msg;
-
-    }
-);
 
 
 
 
-
-
-$("#datepickerVak").change(
-    function () {
-        if (document.getElementById('datepickerVak').value != '') {
-            document.getElementById("time_selector").disabled = false;
-        }
-        else { document.getElementById("time_selector").disabled = true; }
-    }
-);
-// $("#datepickerVak").change(
-//     function () {
-//         if (document.getElementById('place_selector1').value != '' && document.getElementById('city_selector1').value != '') {
-//             document.getElementById("time_selector1").disabled = false;
-//             AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');
-//         }
-//     }
-// );
-
-
-
-
-
-function AjaxLoadTimes(ajax_form, url) {
+function AjaxLoadPlaces1(ajax_form, url) {//функция подгрузки адресов по второй вакцинации
     $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: $("#" + ajax_form).serialize(),
-        success: function (response) {
-            result = $.parseJSON(response);
-            const select = document.getElementById('time_selector');
-            $(".time_options_class").remove();
-            document.querySelector('.time_list').insertAdjacentElement('afterBegin', select);
-            for (let index in result) {
-                const content = result[index];
-                const option = document.createElement('option');
-                option.classList.add('time_options_class');
-                option.textContent = content;
-                option.value = content;
-                select.appendChild(option);
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//если скрипт отработал
+            result = $.parseJSON(response);//получение данных от php-скрипта
+            const select = document.getElementById('place_selector1');//обращение к селектору адресов второй вакцинации
+            $(".place_options_class1").remove();//удаление существующих значений
+            for (let index in result) {//проход по массиву адресов
+                const content = result[index];//содержимое ячейки селектора
+                const option = document.createElement('option');//создаем ячейку
+                option.classList.add('place_options_class1');//запись класса к созданной ячейке
+                option.textContent = content;//запись содержимого в ячейку
+                option.value = content;//запись значения в ячейку
+                select.appendChild(option);//запись эелемента в конец
             }
-
+            document.getElementById("place_selector1").disabled = false;//разблокировка селектора адресов
         }
     });
 }
-function AjaxLoadTimes1(ajax_form, url) {
-    $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: $("#" + ajax_form).serialize(),
-        success: function (response) {
-            result = $.parseJSON(response);
-            const select = document.getElementById('time_selector1');
-            $(".time_options_class1").remove();
-            document.querySelector('.time_list1').insertAdjacentElement('afterBegin', select);
-            for (let index in result) {
-                const content = result[index];
-                const option = document.createElement('option');
-                option.classList.add('time_options_class1');
-                option.textContent = content;
-                option.value = content;
-                select.appendChild(option);
-            }
 
+function AjaxLoadTimes1(ajax_form, url) {//функция подгрузки времен второй вакцинации
+    $.ajax({
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//если скрипт отработал
+            result = $.parseJSON(response);//получение данных от php-скрипта
+            const select = document.getElementById('time_selector1');//обращение к селектору времен
+            $(".time_options_class1").remove();//удаление старых значений          
+            for (let index in result) {//проход по массиву времен
+                const content = result[index];//содержимое ячейки селектора
+                const option = document.createElement('option');//создаем ячейку
+                option.classList.add('time_options_class1');//запись класса к созданной ячейке
+                option.textContent = content;//запись содержимого в ячейку
+                option.value = content;//запись значения в ячейку
+                select.appendChild(option);//запись эелемента в конец
+            }
         }
     });
 }
+
+
+
+
+function get() {//функция установки глобальных переменных сессии
+    AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
+    window.location = "order_list.php";//перенаправление на вывод сертификата о прививке
+}
+
+function AjaxLoadList(ajax_form, url) {//функция установки глобальных переменных сессии
+    $.ajax({
+        url: url,//скрипт-файл php
+        type: "POST",//тип метода
+        dataType: "html",//тип данных
+        data: $("#" + ajax_form).serialize(),//собираем данные со страницы
+        success: function (response) {//если скрипт отработал
+        }
+    });
+}
+
+
 
 
