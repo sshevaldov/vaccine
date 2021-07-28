@@ -15,7 +15,6 @@
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Дата рождения: {$_SESSION['birthdate']}"));
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"ОМС: {$_SESSION['oms']}"));
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Серия/номер паспорта: {$_SESSION['passport']}"));
-      $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Код подразделения: {$_SESSION['district_code']}"));
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Телефон :{$_SESSION['phone']}"));
       $pdf->SetFontSize(15); 
       $pdf->MultiCell(0,8,iconv('utf-8', 'windows-1251',"Записан на вакцинацию"));
