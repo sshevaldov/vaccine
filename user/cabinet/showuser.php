@@ -10,7 +10,7 @@ function showuser()
         $_SESSION['fio'] = "${row['surname']} ${row['name']} ${row['secondname']}";
         $_SESSION['birthdate'] = $row['birthdate'];
         $_SESSION['oms'] = $row['oms'];
-        $_SESSION['district_code'] = $row['district_code'];
+        $_SESSION['sex'] = $row['sex'];
         $_SESSION['phone'] = $row['phone'];
     }
 
