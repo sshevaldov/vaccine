@@ -9,13 +9,14 @@ $("#buttonRegistration").click(
         fam = document.getElementById('fam').value;
         var name = document.getElementById('name').value;
         date = document.getElementById('date').value;
+        sex = document.getElementById('sex').value;
         omc = document.getElementById('omc').value;
         phone = document.getElementById('phone').value;
         password = document.getElementById('password').value;
         document.getElementById('fam').disabled = false;
         console.log(ser);
         // если все поля введены
-        if (ser != '' && code != '' && fam != '' && name != '' && date != '' && omc != '' && phone != '' && password != '') {
+        if (ser != '' && code != '' && fam != '' && name != '' && sex != '' && date != '' && omc != '' && phone != '' && password != '') {
             AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
         }
         else {
