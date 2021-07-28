@@ -46,7 +46,6 @@ $("#datepicker_endDate").change(
     }
 );
 
-
 function AjaxLoadList(ajax_form, url) {
     $.ajax({
         url: url,
