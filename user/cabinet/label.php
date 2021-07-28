@@ -28,16 +28,17 @@
         session_start();
 
 
-        echo "<h2 style=\"font-weight:bold\">Пациент:</h2>";
-        echo "<ins>{$_SESSION['fio']} </ins>";
-        echo "<p>Дата рождения: <ins> {$_SESSION['birthdate']}";
-        echo "<p>ОМС: <ins>{$_SESSION['oms']}";
-        echo "<p>Серия/номер паспорта: <ins>{$_SESSION['passport']} <p>Код подразделения: <ins>{$_SESSION['district_code']}";
-        echo "<p>Телефон: <ins>{$_SESSION['phone']}";
-        echo "<h2 style=\"font-weight:bold\">Первая вакинация:</h2>";
+        echo "<h3 style=\"font-weight:bold\">Персональный данные:</h2>";
+        echo "{$_SESSION['fio']}";
+        echo "<p>Дата рождения: {$_SESSION['birthdate']}";     
+        echo "<p>Пол: {$_SESSION['sex']}";
+        echo "<p>Телефон: {$_SESSION['phone']}";
+        echo "<p>ОМС: {$_SESSION['oms']}";
+        echo "<p>Серия/номер паспорта: {$_SESSION['passport']}";
+        echo "<h3 style=\"font-weight:bold\">Первая вакинация:</h3>";
         echo "<p>Адрес вакцинации: {$_SESSION['adress1']}";
         echo "<p>Дата и время вакцинации: {$_SESSION['datetime1']}";
-        echo "<h2 style=\"font-weight:bold\">Вторая вакцинация:</h2>";
+        echo "<h3 style=\"font-weight:bold\">Вторая вакцинация:</h3>";
         echo "<p>Адрес вакцинации: {$_SESSION['adress2']}";
         echo "<p>Дата и время вакцинации: {$_SESSION['datetime2']}";
         ?>
