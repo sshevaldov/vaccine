@@ -40,9 +40,7 @@
 			<div class="table">
 				<p>Паспорт
 				<p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
-
 				<input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
-				<input id="code" name="code" type="text" class="mask-pasport-division form-control rfield" value="" placeholder="Код подразделения" required>
 				<p>Номер полиса ОМС
 					<input id="omc" name="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС" required>
 			</div>
