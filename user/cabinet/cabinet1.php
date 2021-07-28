@@ -37,8 +37,8 @@
                     <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../auth/auth.php"'>Выйти</button>
                 </div>
             </h1>
-            <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
-            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить отчет</button></b>
+         <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
+         <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить отчет</button></b>
             <h3 style=" border-bottom: 1px solid black;">Первая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
