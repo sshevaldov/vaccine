@@ -21,16 +21,13 @@
 </div>
 
 <body>
-
     <div class="table" style="width: max-content;">
         <h1>Заявка отправлена</h1>
         <?php
         session_start();
-
-
         echo "<h3 style=\"font-weight:bold\">Персональный данные:</h2>";
         echo "{$_SESSION['fio']}";
-        echo "<p>Дата рождения: {$_SESSION['birthdate']}";     
+        echo "<p>Дата рождения: {$_SESSION['birthdate']}";
         echo "<p>Пол: {$_SESSION['sex']}";
         echo "<p>Телефон: {$_SESSION['phone']}";
         echo "<p>ОМС: {$_SESSION['oms']}";
