@@ -31,8 +31,8 @@
 				<p><input id="name" name="name" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Имя" style="text-transform: capitalize;" required />
 				<p><input id="otch" name="otch" type="text" onkeyup="limitInput( 'ru', this );" placeholder="Отчество (при наличии)" style="text-transform:capitalize;" />
 				<p><input id="date" name="date" autocomplete="off" type="text" class="rfield" tabindex="1" placeholder="Дата рождения" required />
-				<p><select type="text" class="rfield " id="sex" name="sex" required>
-						<option disabled selected hidden value=''>Пол</option>
+				<p><select type="text" class="rfield " id="sex" name="sex" required >
+						<option disabled selected hidden value='' >Ваш пол</option>
 						<option value='Мужской'>Мужской</option>
 						<option value='Женский'>Женский</option>
 					</select></p>
