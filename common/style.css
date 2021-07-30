@@ -80,9 +80,7 @@ body {
   box-shadow: 0 1px whitesmoke;
 }
 
-.table p {
-  margin: 5px 0 0;
-}
+
 
 .table p:first-child {
   margin-top: 0;
@@ -156,7 +154,7 @@ input {
 }
 
 input[type=text], input[type=password] {
-  margin: 5px;
+  
   padding: 0 10px;
   width: 200px;
   height: 34px;
