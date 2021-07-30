@@ -5,7 +5,7 @@ function limitInput(_k, obj) {//функция замены неподходящ
 $("#buttonRegistration").click(
     function () {//производим проверку введенного паспорта
         ser = document.getElementById('ser').value;
-        code = document.getElementById('code').value;
+       
         fam = document.getElementById('fam').value;
         var name = document.getElementById('name').value;
         date = document.getElementById('date').value;
@@ -16,7 +16,7 @@ $("#buttonRegistration").click(
         document.getElementById('fam').disabled = false;
         console.log(ser);
         // если все поля введены
-        if (ser != '' && code != '' && fam != '' && name != '' && sex != '' && date != '' && omc != '' && phone != '' && password != '') {
+        if (ser != '' && fam != '' && name != '' && sex != '' && date != '' && omc != '' && phone != '' && password != '') {
             AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
         }
         else {
