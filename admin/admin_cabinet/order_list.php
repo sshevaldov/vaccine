@@ -50,7 +50,12 @@ if ($_SESSION['pl_sel'] != '') {
     $sql = $sql . "`place_name` = '" . $_SESSION['pl_sel'] . "'";
     $flag = 1;
 }
-$sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
+if ($_SESSION['sort'] != '') {
+    $sql = $sql . " ORDER BY `" . $_SESSION['sort'] . "`";
+} else {
+    $sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
+}
+
 $result = mysqli_query($link, $sql);
 
 
@@ -61,6 +66,7 @@ while ($row = mysqli_fetch_array($result)) {
     $pdf->MultiCell(0, 4, iconv('utf-8', 'windows-1251', "Адрес: {$row['city_name']}, {$row['place_name']} "));
     $pdf->MultiCell(0, 4, iconv('utf-8', 'windows-1251', "Дата и время: {$row['date']} {$row['time']}"));
     $pdf->MultiCell(0, 4, iconv('utf-8', 'windows-1251', "Пациент: {$row['username']}"));
+    $pdf->MultiCell(0, 4, iconv('utf-8', 'windows-1251', "Пациент: {$row['passport']}"));
     $pdf->MultiCell(0, 4, iconv('utf-8', 'windows-1251', " "));
 }
 
