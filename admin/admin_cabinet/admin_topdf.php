@@ -50,7 +50,11 @@ if ($_SESSION['pl_sel'] != '') {
     $sql = $sql . "`place_name` = '" . $_SESSION['pl_sel'] . "'";
     $flag = 1;
 }
-$sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
+if ($_SESSION['sort'] != '') {
+    $sql = $sql . " ORDER BY `" . $_SESSION['sort'] . "`";
+} else {
+    $sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
+}
 $result = mysqli_query($link, $sql);
 $pdf->SetFillColor(207, 207, 207);
 
@@ -75,5 +79,5 @@ while ($row = mysqli_fetch_array($result)) {
     $index++;
 }
 
-   
+
 $pdf->Output('label.pdf', 'I');
