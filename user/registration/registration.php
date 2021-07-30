@@ -49,7 +49,7 @@
 				<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
 				<div class="password">
 					<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
-					<a href="#" class="password-control" onclick="return show_hide_password(this);" style="right: 20px;top: 9px;"></a>
+					<a href="#" class="password-control" onclick="return show_hide_password(this);" style="right: 25px;top: 9px;"></a>
 				</div>
 
 
