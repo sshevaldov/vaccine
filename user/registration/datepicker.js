@@ -18,7 +18,7 @@ $(function () {
             dateFormat: 'yy.mm.dd',
             changeMonth: true,
             changeYear: true,
-            maxDate: 0,
+            maxDate: -1,
             maxYear: 0,
             showAnim: "fold",
             yearRange: '1900:2030',
