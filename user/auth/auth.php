@@ -32,7 +32,9 @@
 
       </div>
       <p> <input type="checkbox" id="passhide" onclick=" show_hide_password(this)">Показать пароль</p>
-      <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
+      <div>
+        <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
+      </div>
     </div>
     <div class="table-help">
       <a href="../registration/registration.php">Регистрация</a>
