@@ -34,9 +34,11 @@
                 ?>
                 <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../admin_auth/admin_auth.php"'>Выйти</button>
             </h1>
-            <p>Период</p>
-            <p><input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" tabindex="1" placeholder="С" />
-            <p><input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield" tabindex="1" placeholder="По" />
+            <p>Период дат</p>
+            <div style="display: flex;">
+                <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" tabindex="1" placeholder="С" />
+               <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield" tabindex="1" placeholder="По" />
+            </div>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector">
@@ -46,18 +48,18 @@
                     ?>
                 </select>
             </div>
-            <p> Сортировка </p> <select type="text" class="rfield " id="sort" name="sort" required >
+
+            <p>Место вакцинации</p>
+            <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
+                <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
+            </select>
+            <p> Сортировка </p> <select type="text" class="rfield " id="sort" name="sort" required>
                 <option disabled selected hidden id="place_option" name="place_option" value=''> По умолчанию</option>
                 <option id="place_option" name="place_option" value='city_name'> Город</option>
                 <option id="place_option" name="place_option" value='place_name'> Место вакцинации</option>
                 <option id="place_option" name="place_option" value='date'> Дата</option>
                 <option id="place_option" name="place_option" value='passport'> Номер паспорта пациента</option>
             </select>
-            <p>Место вакцинации</p>
-            <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
-                <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
-            </select>
-     
             <div class="place_list"></div>
             <br>
             <div class="buttons">
