@@ -62,7 +62,7 @@ body {
 }
 
 .table h1 {
-  margin: -20px -20px 21px;
+  margin: -20px -20px 16px;
   line-height: 40px;
   font-size: 15px;
   font-weight: bold;
@@ -80,14 +80,16 @@ body {
   box-shadow: 0 1px whitesmoke;
 }
 
-
+p{
+  margin-bottom: 5px;
+}
 
 .table p:first-child {
   margin-top: 0;
 }
 
 .table input[type=text], .table input[type=password] {
-  width: 278px;
+  width: 250px;
   display: block;
   border: 2px solid #cfcfcf;
   font-size: 14px;
@@ -289,15 +291,19 @@ input[type=submit]:active {
   padding: 0;
 }
 
+input[type="checkbox"] {
+  margin-left: 0px;
+}
+
 select {
   width: auto;
   border: 2px solid #cfcfcf;
   font-size: 14px;
   color: #444444;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
-  margin: 5px;
+ 
   padding: 0 10px;
   height: 34px;
   color: #404040;
