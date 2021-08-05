@@ -31,7 +31,7 @@
         <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
 
       </div>
-      <p> <input type="checkbox" onclick=" show_hide_password(this)">Показать пароль</p>
+      <p> <input type="checkbox" id="passhide" onclick=" show_hide_password(this)">Показать пароль</p>
       <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
     </div>
     <div class="table-help">
