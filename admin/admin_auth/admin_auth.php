@@ -28,9 +28,9 @@
       <input id="login" name="login" type="text" value="" class="rfield" placeholder="Логин" required>
       <div class="password">
         <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
-        <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+      
       </div>
-
+      <p> <input type="checkbox" onclick=" show_hide_password(this)" >Показать пароль</p>
       <button type="submit" id="buttonToAdminCabinet" class="btn_submit disabled">Войти</button>
     </div>      
   </form>
