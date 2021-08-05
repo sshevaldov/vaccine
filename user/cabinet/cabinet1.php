@@ -11,7 +11,7 @@
     <title>Личный кабинет</title>
     <?php require_once('../../common/funct.php') ?>
     <?php require_once('showuser.php') ?>
-   
+
 </head>
 
 <body>
@@ -29,7 +29,7 @@
             <h1 style=" text-align: right; padding: 10px;">
                 <div>
                     <div style="position: absolute; font-size: -webkit-xxx-large;">
-                        <p style="margin-top:15px">Сервис записи на вакцинацию</p>
+                        <p style="margin-top:5px">Сервис записи на вакцинацию</p>
                     </div>
                     <?php
                     showuser();
@@ -37,8 +37,8 @@
                     <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../auth/auth.php"'>Выйти</button>
                 </div>
             </h1>
-         <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
-         <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить отчет</button></b>
+            <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
+            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить отчет</button></b>
             <h3 style=" border-bottom: 1px solid black;">Первая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
@@ -54,12 +54,18 @@
                 <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
             <div class="place_list"></div>
-            <p>Дата вакцинации</p>
-            <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата первой вакцинации" required  />
-            <p>Время вакцинации </p>
-            <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
-                <option selected hidden value=''>Время вакцинации</option>
-            </select>
+            <div style="display: flex;">
+                <div>
+                    <p>Дата вакцинации</p>
+                    <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата первой вакцинации" required />
+                </div>
+                <div style="margin-left: 15px;">
+                    <p>Время вакцинации </p>
+                    <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
+                        <option selected hidden value=''>Время вакцинации</option>
+                    </select>
+                </div>
+            </div>
             <div class="time_list">
             </div>
             <h3 style=" border-bottom: 1px solid black;">Вторая вакцинация</h3>
@@ -77,12 +83,18 @@
                 <option selected hidden id="place_option1" name="place_option1" value=''> Выберите место вакцинации</option>
             </select>
             <div class="place_list1"></div>
-            <p>Дата вакцинации</p>
-            <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1" type="text" readonly require placeholder="Дата второй вакцинации">
-            <p>Время вакцинации </p>
-            <select type="text" class="rfield " id="time_selector1" name="time_selector1" required disabled>
-                <option selected hidden id="time_options_class1" name="time_options_class1" value=''>Время вакцинации</option>
-            </select>
+            <div style="display: flex;">
+                <div>
+                    <p>Дата вакцинации</p>
+                    <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1" type="text" readonly require placeholder="Дата второй вакцинации">
+                </div>
+                <div style="margin-left: 15px;">
+                    <p>Время вакцинации </p>
+                    <select type="text" class="rfield " id="time_selector1" name="time_selector1" required disabled>
+                        <option selected hidden id="time_options_class1" name="time_options_class1" value=''>Время вакцинации</option>
+                    </select>
+                </div>
+            </div>
             <div class="time_list1">
             </div>
             <p>Незабывайте о необходимости приходить заранее.</p>
