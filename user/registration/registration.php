@@ -45,11 +45,12 @@
 					<input id="omc" name="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС" required>
 			</div>
 			<div class="table">
+		
 				<p>Данные аккаунта</p>
 				<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
 				<div class="password">
 					<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
-					<a href="#" class="password-control" onclick="return show_hide_password(this);" style="right: 25px;top: 9px;"></a>
+					<p> <input type="checkbox" onclick=" show_hide_password(this)" >Показать пароль</p>
 				</div>
 
 
