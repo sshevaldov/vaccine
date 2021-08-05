@@ -41,7 +41,7 @@ body {
 .table {
   position: relative;
   margin: 30px auto 0 auto;
-  padding: 20px 20px 20px;
+  padding: 17px 20px 17px;
   width: 310px;
   background: white;
   border-radius: 3px;
@@ -92,7 +92,7 @@ body {
   border: 2px solid #cfcfcf;
   font-size: 14px;
   color: #444444;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -269,7 +269,7 @@ input[type=submit]:active {
   font-size: 14px;
   color: #444444;
   /* width: 250px; */
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
