@@ -42,7 +42,7 @@ body {
   position: relative;
   margin: 30px auto 0 auto;
   padding: 17px 20px 17px;
-  width: 310px;
+  width: 280px;
   background: white;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -94,7 +94,7 @@ p{
   border: 2px solid #cfcfcf;
   font-size: 14px;
   color: #444444;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -123,7 +123,7 @@ p{
 }
 
 .table-help {
-  margin: 20px 0;
+  margin: 15px 0;
   font-size: 11px;
   color: white;
   text-align: center;
@@ -271,7 +271,7 @@ input[type=submit]:active {
   font-size: 14px;
   color: #444444;
   /* width: 250px; */
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
