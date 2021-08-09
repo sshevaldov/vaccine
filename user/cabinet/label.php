@@ -10,11 +10,11 @@
     <title>Табель записи на вакцинацию</title>
 
 </head>
-<div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
-    <div class="reating-arkows zatujgdsanuk">
+<div class="CheckBoxNight" style="margin-left: 15px; margin-top:15px">
+    <div class="CheckBoxPageModeSub CheckBoxSub">
         <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
         <label for="CheckboxPageMode">
-            <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+            <div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
             <div class="moresharpened"></div>
         </label>
     </div>
