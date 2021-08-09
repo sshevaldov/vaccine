@@ -10,16 +10,15 @@
     <script src="../../common/PageMode.js"></script>
     <title>Перечень вакцинаций</title>
     <?php require_once('../../common/funct.php') ?>
-
 </head>
 
 <body>
     <form method="post" id="AdminCabinetForm" action="">
-        <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
-            <div class="reating-arkows zatujgdsanuk">
+        <div class="CheckBoxNight">
+            <div class="CheckBoxPageModeSub CheckBoxSub">
                 <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
                 <label for="CheckboxPageMode">
-                    <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+                    <div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
                     <div class="moresharpened"></div>
                 </label>
             </div>
@@ -37,7 +36,7 @@
             <p>Период дат</p>
             <div style="display: flex;">
                 <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" tabindex="1" placeholder="С" />
-               <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield" tabindex="1" placeholder="По" />
+                <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield" tabindex="1" placeholder="По" />
             </div>
             <p>Город вакцинации</p>
             <div style="display: flex;">
@@ -48,7 +47,6 @@
                     ?>
                 </select>
             </div>
-
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
