@@ -14,17 +14,16 @@
 <body>
 	<form method="post" id="RegistrationForm" action="">
 		<form method="post">
-			<div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
-				<div class="reating-arkows zatujgdsanuk">
+			<div class="CheckBoxNight">
+				<div class="CheckBoxPageModeSub CheckBoxSub">
 					<input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
 					<label for="CheckboxPageMode">
-						<div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+						<div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
 						<div class="moresharpened"></div>
 					</label>
 				</div>
 			</div>
 			<div class="table">
-
 				<h1>Регистрация</h1>
 				<p>Личные данные
 				<p><input id="fam" name="fam" type="text" class="rfield" onkeyup="limitInput( 'ru', this );" placeholder="Фамилия" style="text-transform: capitalize;" required>
@@ -45,15 +44,12 @@
 					<input id="omc" name="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС" required>
 			</div>
 			<div class="table">
-
 				<p>Данные аккаунта</p>
 				<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
 				<div class="password">
 					<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
 					<p> <input type="checkbox" id="passhide" onclick=" show_hide_password(this)">Показать пароль</p>
 				</div>
-
-
 				<button type="submit" id="buttonRegistration" class="btn_submit disabled">Зарегистрироваться</button>
 		</form>
 		</div>
