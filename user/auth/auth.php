@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="../../common/ShowHidePassword.js"></script>
-
   <script src="../../src/jquery.maskedinput.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="../../common/style.css">
   <title>Добро пожаловать!</title>
@@ -13,15 +12,11 @@
 
 <body>
   <form method="post" id="АuthorizationForm" action="">
-    <div class="tableyktyk" style="margin-left: 15px; margin-top:15px">
-
-      <div class="reating-arkows zatujgdsanuk">
-        <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
-        <label for="CheckboxPageMode">
-          <div class="trianglesusing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
-          <div class="moresharpened"></div>
-        </label>
-      </div>
+    <div class=" CheckBoxPageModeSub CheckBoxSub">
+      <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
+      <label for="CheckboxPageMode">
+        <div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
+      </label>
     </div>
     <div class="table">
       <h1>Войти в личный кабинет</h1>
@@ -29,7 +24,6 @@
       <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
       <div class="password">
         <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
-
       </div>
       <p> <input type="checkbox" id="passhide" onclick=" show_hide_password(this)">Показать пароль</p>
       <div>
