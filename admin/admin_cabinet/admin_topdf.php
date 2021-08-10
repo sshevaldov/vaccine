@@ -9,7 +9,10 @@ $pdf->SetFont('Arial');
 
 
 require_once('../../common/funct.php');
-$link = dbconnect();
+include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
+// $link = dbconnect();
 $link->set_charset("utf8");
 $sql = "SELECT * from `list`";
 $flag = 0;
