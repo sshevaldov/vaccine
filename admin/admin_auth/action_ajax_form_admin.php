@@ -1,7 +1,10 @@
 <?php
 require_once("../../common/funct.php"); //подключаем скрипт с функцией
 if (isset($_POST["login"]) && isset($_POST["password"])) { //если введены логин и пароль   
-    $link = dbconnect(); //подключение к бд
+    include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
+    // $link = dbconnect(); //подключение к бд
     $sql = "SELECT * FROM `admins` where `login`='{$_POST["login"]}'"; //запрос к записям с заданным логином
     $responce = mysqli_query($link, $sql); //воспроизведение запроса
     $NumRows = mysqli_num_rows($responce); //количество записей с заданным логином
