@@ -17,7 +17,7 @@ $("#buttonRegistration").click(
         console.log(ser);
         // если все поля введены
         if (ser != '' && fam != '' && name != '' && sex != '' && date != '' && omc != '' && phone != '' && password != '') {
-            AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
+            AjaxSendInputUserData('RegistrationForm', 'rcl.php');
         }
         else {
             $("#ErrorRegistration").html('');
@@ -33,7 +33,8 @@ function AjaxSendInputUserData(ajax_form, url) {//проверка уникал�
         dataType: "html",//тип данных
         data: $("#" + ajax_form).serialize(),//собираем данные со страницы
         success: function (response) {//если скрипт отработал успешно
-            result = $.parseJSON(response);//получаем данные от php-скрипта          
+            result = $.parseJSON(response);//получаем данные от php-скрипта    
+            console.log(result.NumRows);
             if (result.NumRows != 0) {//если введеный паспорт уже существует               
                 $("#ErrorRegistration").html('Паспорт уже зарегистрирован');//выводим сообщение
             }
