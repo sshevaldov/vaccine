@@ -1,7 +1,10 @@
 <?php
 require_once('../../common/funct.php');
 if (isset($_POST['ser']) && isset($_POST['sex']) && isset($_POST['password']) && isset($_POST['fam']) && isset($_POST['name']) && isset($_POST['date']) && isset($_POST['omc']) && isset($_POST['phone'])) {
-  $link = dbconnect();
+  // $link = dbconnect();
+  include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
   $sql = "SELECT * FROM `accounts` where `passport`='{$_POST["ser"]}'";
   $result = mysqli_query($link, $sql);
   $rows = mysqli_num_rows($result);
