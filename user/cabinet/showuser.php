@@ -2,7 +2,10 @@
 // функция отображения пользователя по введенному номеру паспорта
 function showuser()
 {
-    $link = dbconnect();
+    // $link = dbconnect();
+    include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
     mysqli_set_charset($link, "utf8");
     $result = mysqli_query($link, "SELECT * FROM `users` where `passport`='{$_SESSION['passport']}'");
     mysqli_set_charset($link, "utf8");
