@@ -34,12 +34,13 @@
                 <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../admin_auth/admin_auth.php"'>Выйти</button>
             </h1>
             <p>Период дат</p>
-            <div style="display: flex;">
+            <div>
                 <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" tabindex="1" placeholder="С" />
                 <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield" tabindex="1" placeholder="По" />
             </div>
             <p>Город вакцинации</p>
-            <div style="display: flex;">
+           
+            <div>
                 <select type="text" class="rfield " id="city_selector" name="city_selector">
                     <option selected value=''>Выберите город</option>
                     <?php
