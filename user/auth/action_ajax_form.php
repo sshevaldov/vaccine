@@ -1,7 +1,12 @@
 <?php
+
 require_once("../../common/funct.php"); //подключаем скрипт с функцией
 if (isset($_POST["passport"]) && isset($_POST["password"])) { //если паспорт и логин введены
-    $link = dbconnect(); //подключение к бд
+    //$link = dbconnect(); //подключение к бд
+    include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
+    // $link = new mysqli("localhost", "root", "", "vaccine");
     $sql = "SELECT * FROM `accounts` where `passport`='{$_POST["passport"]}'"; //запрос к записям с заданным паспортом
     $responce = mysqli_query($link, $sql); //воспроизведение запроса
     $NumRows = mysqli_num_rows($responce); //количество записей с заданным паспортом
