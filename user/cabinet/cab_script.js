@@ -8,7 +8,7 @@ $("#buttonSubmit").click(
             document.getElementById('place_selector1').value != '' &&
             document.getElementById('datepickerVak1').value != '' &&
             document.getElementById('time_selector1').value != '') {
-            AjaxSendInputLabel('CabinetForm', 'action_ajax_form4.php');
+            AjaxSendInputLabel('CabinetForm', 'InsertDataVacctinated.php');
             window.location = "label.php";
         }
         return false;
@@ -25,7 +25,7 @@ function AjaxSendInputLabel(ajax_form, url) {//запись данных о ва
     });
 }
 
-window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');//проверка статуса вакцинации при загрузке
+window.onload = AjaxShowStatus('CabinetForm', 'CheckStatus.php');//проверка статуса вакцинации при загрузке
 
 function AjaxShowStatus(ajax_form, url) {//функция проверки статуса вакцинации пользователя
     $.ajax({
@@ -39,9 +39,9 @@ function AjaxShowStatus(ajax_form, url) {//функция проверки ст�
                 $('#ErrorVaccinated').html(`Вакцинация недоступна.`);//Сообщение о недоступности записи на вакцинацию
                 $("#buttonToList").show();//отображение кнопки для загрузки сертификата о прививке
                 // блокировка элементов управления
-                document.getElementById('city_selector').disabled = true;
-                document.getElementById('city_selector1').disabled = true;
-                document.getElementById('buttonSubmit').disabled = true;
+            //    document.getElementById('city_selector').disabled = true;
+             //   document.getElementById('city_selector1').disabled = true;
+             //   document.getElementById('buttonSubmit').disabled = true;
             }
         }
     });
@@ -52,9 +52,9 @@ function AjaxShowStatus(ajax_form, url) {//функция проверки ст�
 
 $("#city_selector").change(//при изменении города вакцинации
     function () {
-        AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');//загрузка адресов
+        AjaxLoadPlaces('CabinetForm', 'CityLoaderClass.php');//загрузка адресов
         if (document.getElementById("datepickerVak").value != '') {//если дата указана
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//загружаем времена           
+            AjaxLoadTimes('CabinetForm', 'TimeLoaderClass.php');//загружаем времена           
         }
         document.getElementById("time_selector").disabled = true;//время блокируется, т.к адрес не задан
         return false;//отмена перезагрузки
