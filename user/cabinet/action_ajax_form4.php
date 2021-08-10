@@ -1,7 +1,10 @@
 <?php
 require_once("../../common/funct.php"); //подключение файла с функцией
 if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($_POST['datepickerVak']) && isset($_POST['time_selector']) && isset($_POST['city_selector1']) && isset($_POST['place_selector1']) && isset($_POST['time_selector1'])) { //если все поля введены
-  $link = dbconnect(); //соединение с бд
+  // $link = dbconnect(); //соединение с бд
+  include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
   mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения
   $_SESSION['datetime1'] = "{$_POST['datepickerVak']} {$_POST['time_selector']}";
   $_SESSION['adress1'] = "{$_POST['city_selector']}, {$_POST['place_selector']}";
