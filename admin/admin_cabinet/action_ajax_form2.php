@@ -1,7 +1,10 @@
 <?php
 require_once("../../common/funct.php");
 if (isset($_POST['city_selector'])) {
-  $link = dbconnect(); //соединение с бд
+  // $link = dbconnect(); //соединение с бд
+  include("../../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
   mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения
   $city_selector = $_POST['city_selector'];
   $sql = "SELECT * FROM `places` where `city_name`= '{$city_selector}'";
