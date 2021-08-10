@@ -14,7 +14,10 @@ function dbconnect()
 // функция загрузки списка городов из бд
 function city_loader()
 {
-    $link = dbconnect(); // функция установки соединения с бд
+    include("../f.php");
+    $link = new Dbconnect();
+    $link=$link->dbconnect();
+    // $link = dbconnect(); // функция установки соединения с бд
     mysqli_set_charset($link, "utf8"); // установка кодовой страницы подключения
     $sql = "SELECT `city_name` FROM `cities`"; // запрос на выгрузку списка городов
     $result = mysqli_query($link, $sql); // воспроизведение запроса   
