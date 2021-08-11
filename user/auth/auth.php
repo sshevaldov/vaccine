@@ -18,7 +18,7 @@
         <div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
       </label>
     </div>
-    <div class="table">
+    <div class="table" >
       <h1>Войти в личный кабинет</h1>
       <p id="LoginErrorMessage" name="LoginErrorMessage" style="color: red;"></p>
       <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
@@ -30,11 +30,11 @@
         <button type="submit" id="buttonToCabinet" class="btn_submit disabled">Войти</button>
       </div>
     </div>
-    <div class="table-help">
-      <a href="../registration/registration.php">Регистрация</a>
+    <div class="table_help">
+      <a id="reg" href="../registration/registration.php">Регистрация</a>
     </div>
-    <div class="table-help">
-      <a href="../../admin/admin_auth/admin_auth.php">Административный интерфейс</a>
+    <div class="table_help">
+      <a id="adm" href="../../admin/admin_auth/admin_auth.php">Административный интерфейс</a>
     </div>
   </form>
   <script src="../../common/PageMode.js"></script>
