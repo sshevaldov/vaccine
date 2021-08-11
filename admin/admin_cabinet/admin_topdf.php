@@ -20,7 +20,7 @@ if ($_SESSION['dp1'] != '') {
     } else {
         $sql = $sql . ' AND ';
     }
-    $sql = $sql . "`date` >'" . $_SESSION['dp1'] . "'";
+    $sql = $sql . "`date` >='" . $_SESSION['dp1'] . "'";
     $flag = 1;
 }
 if ($_SESSION['dp2'] != '') {
@@ -29,7 +29,7 @@ if ($_SESSION['dp2'] != '') {
     } else {
         $sql = $sql . ' AND ';
     }
-    $sql = $sql . "`date` < '" . $_SESSION['dp2'] . "'";
+    $sql = $sql . "`date` <= '" . $_SESSION['dp2'] . "'";
     $flag = 1;
 }
 if ($_SESSION['city_sel'] != '') {
@@ -59,7 +59,7 @@ $result = mysqli_query($link, $sql);
 $pdf->SetFillColor(207, 207, 207);
 
 $pdf->SetFontSize(8);
-$pdf->Cell(5, 4, iconv('utf-8', 'windows-1251', "№"), 1, 0, 'L', true);
+$pdf->Cell(6, 4, iconv('utf-8', 'windows-1251', "№"), 1, 0, 'L', true);
 $pdf->Cell(25, 4, iconv('utf-8', 'windows-1251', "Город"), 1, 0, 'L', true);
 $pdf->Cell(80, 4, iconv('utf-8', 'windows-1251', "Адрес"), 1, 0, 'L', true);
 $pdf->Cell(24, 4, iconv('utf-8', 'windows-1251', "Дата и время"), 1, 0, 'C', true);
@@ -69,7 +69,7 @@ $pdf->Ln();
 $index = 1;
 while ($row = mysqli_fetch_array($result)) {
     $pdf->SetFontSize(7);
-    $pdf->Cell(5, 4, "{$index}", "LTR", 0, 'L');
+    $pdf->Cell(6, 4, "{$index}", "LTR", 0, 'L');
     $pdf->Cell(25, 4, iconv('utf-8', 'windows-1251', "{$row['city_name']} "), "LTR", 0, 'L');
     $pdf->Cell(80, 4, iconv('utf-8', 'windows-1251', "{$row['place_name']} "), "LTR", 0, 'L');
     $pdf->Cell(24, 4,  iconv('utf-8', 'windows-1251', "{$row['date']} {$row['time']}"), "LTR");
