@@ -23,7 +23,7 @@
                 </label>
             </div>
         </div>
-        <div class="table" style="width: 1200px;" disabled>
+        <div class="table" id="table" style="width: 1200px;" disabled>
             <h1 style=" text-align: right; padding: 10px;">
                 <div>
                     <div style="position: absolute; font-size: -webkit-xxx-large;">
@@ -36,7 +36,7 @@
                 </div>
             </h1>
             <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
-            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить отчет</button></b>
+            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить сертификат</button></b>
             <h3 style=" border-bottom: 1px solid black;">Первая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
