@@ -41,7 +41,7 @@
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector">
-                    <option selected value=''>Выберите город</option>
+                    <option selected value=''>По умолчанию</option>
                     <?php
                     city_loader();
                     ?>
@@ -51,14 +51,15 @@
             <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
                 <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
+            <div class="place_list"></div>
             <p> Сортировка </p> <select type="text" class="rfield " id="sort" name="sort" required>
-                <option disabled selected hidden id="place_option" name="place_option" value=''> По умолчанию</option>
+                <option   id="place_option" name="place_option" value=''> По умолчанию</option>
                 <option id="place_option" name="place_option" value='city_name'> Город</option>
                 <option id="place_option" name="place_option" value='place_name'> Место вакцинации</option>
-                <option id="place_option" name="place_option" value='date'> Дата</option>
+                <option selected id="place_option" name="place_option" value='date'> Дата</option>
                 <option id="place_option" name="place_option" value='passport'> Номер паспорта пациента</option>
             </select>
-            <div class="place_list"></div>
+            
             <br>
             <div class="buttons">
                 <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()">Списком</button></b>
