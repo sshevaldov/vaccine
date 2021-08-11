@@ -32,8 +32,8 @@
       <button type="submit" id="buttonToAdminCabinet" class="btn_submit disabled">Войти</button>
     </div>
   </form>
-  <div class="table-help">
-    <a href="../../user/auth/auth.php">Пользовательский интерфейс</a>
+  <div class="table_help" >
+    <a id="role" href="../../user/auth/auth.php">Пользовательский интерфейс</a>
   </div>
   <script src="../../common/PageMode.js"></script>
   <script src="../../common/RedError.js"></script>
