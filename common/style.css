@@ -41,10 +41,10 @@ body {
 .table {
   position: relative;
   margin: 30px auto 0 auto;
-  padding: 17px 20px 17px;
+  padding: 17px 20px 10px;
   width: 280px;
   background: white;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -58,7 +58,7 @@ body {
   left: -8px;
   z-index: -1;
   background: rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 
@@ -73,7 +73,7 @@ body {
   text-shadow: 0 1px white;
   background: #f3f3f3;
   border-bottom: 1px solid #cfcfcf;
-  border-radius: 3px 3px 0 0;
+  /* border-radius: 3px 3px 0 0; */
   background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
   background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
   background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
@@ -160,7 +160,7 @@ input {
 input[type=text], input[type=password] {
   padding: 0 10px;
   width: 200px;
-  height: 34px;
+  height: 31px;
   color: #404040;
   background: white;
   border: 1px solid;
@@ -188,7 +188,7 @@ input[type=submit] {
   background: #cde5ef;
   border: 1px solid;
   border-color: #b4ccce #b3c0c8 #9eb9c2;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   outline: 0;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -209,7 +209,7 @@ input[type=submit]:active {
 }
 
 /* .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
-  line-height: 34px;
+  line-height: 31px;
 } */
 
 /* .vladmaxi-top {
@@ -285,7 +285,7 @@ input[type=submit]:active {
   border: none;
   width: 180px;
   text-align: center;
-  background: #24b6f0;
+  background: #4caed5;
   font-size: 13px;
   font-weight: bold;
   color: #ffffff;
@@ -308,7 +308,7 @@ select {
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   padding: 0 10px;
-  height: 34px;
+  height: 31px;
   color: #404040;
   background: white;
   border: 1px solid;
@@ -604,10 +604,10 @@ select {
 
 .CheckBoxPageModeSub label .CheckBoxRing {
   height: 36px;
-  -webkit-flex: 0 0 134px;
-  -ms-flex: 0 0 134px;
-  flex: 0 0 134px;
-  border-radius: 4px;
+  -webkit-flex: 0 0 131px;
+  -ms-flex: 0 0 131px;
+  flex: 0 0 131px;
+  /* border-radius: 4px; */
 }
 
 .CheckBoxPageModeSub label .CheckBoxRing:before {
@@ -621,7 +621,7 @@ select {
 .CheckBoxPageModeSub label .CheckBoxRing:after {
   top: 2px;
   left: 2px;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   width: 65px;
   line-height: 32px;
   font-size: 12px;
@@ -653,7 +653,7 @@ select {
   -webkit-flex: 0 0 90px;
   -ms-flex: 0 0 90px;
   flex: 0 0 90px;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 }
 
 .CheckBoxPageModeSub.twokadjacent label .CheckBoxRing:before {
@@ -667,7 +667,7 @@ select {
 .CheckBoxPageModeSub.twokadjacent label .CheckBoxRing:after {
   top: 1px;
   left: 1px;
-  border-radius: 1px;
+  /* border-radius: 1px; */
   width: 44px;
   line-height: 26px;
   font-size: 10px;
@@ -699,7 +699,7 @@ select {
   -webkit-flex: 0 0 160px;
   -ms-flex: 0 0 160px;
   flex: 0 0 160px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 .CheckBoxPageModeSub.transparentin label .CheckBoxRing:before {
@@ -713,7 +713,7 @@ select {
 .CheckBoxPageModeSub.transparentin label .CheckBoxRing:after {
   top: 2px;
   left: 2px;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   width: 78px;
   line-height: 46px;
   font-size: 14px;
