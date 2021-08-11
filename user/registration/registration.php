@@ -52,7 +52,11 @@
 				</div>
 				<button type="submit" id="buttonRegistration" class="btn_submit disabled">Зарегистрироваться</button>
 		</form>
+		
 		</div>
+		<div class="table_help">
+      <a id="reg" href="../auth/auth.php">У меня есть аккаунт</a>
+    </div>
 	</form>
 	<script src="reg_script.js"></script>
 	<script src="../../common/PageMode.js"></script>
