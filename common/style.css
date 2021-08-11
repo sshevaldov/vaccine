@@ -124,7 +124,7 @@ p {
   text-align: right;
 }
 
-.table-help {
+.table_help {
   margin: 15px 0;
   font-size: 11px;
   color: white;
@@ -132,13 +132,13 @@ p {
   text-shadow: 0 1px #2a85a1;
 }
 
-.table-help a {
+.table_help a {
   color: #cce7fa;
   text-decoration: none;
   font-size: 12px;
 }
 
-.table-help a:hover {
+.table_help a:hover {
   text-decoration: underline;
 }
 
@@ -264,6 +264,9 @@ input[type=submit]:active {
 .table input.empty_field {
   border-width: 2px;
   border-color: red;
+}
+.table_help a.drk {
+  color: red;
 }
 
 .table input {
