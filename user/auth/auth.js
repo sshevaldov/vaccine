@@ -26,6 +26,7 @@ function AjaxCheckInputAccount(ajax_form, url) {
                     window.location = "../cabinet/cabinet1.php";//переход в кабинет администратора
                 }
             }
+            else   $("#LoginErrorMessage").html('');
         }
     });
 }
