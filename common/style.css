@@ -40,8 +40,9 @@ body {
 
 .table {
   position: relative;
-  margin: 30px auto 0 auto;
-  padding: 17px 20px 10px;
+  margin: 10px auto 0 auto;
+ 
+  padding: 17px 20px 13px;
   width: 280px;
   background: white;
   /* border-radius: 3px; */
@@ -60,6 +61,7 @@ body {
   background: rgba(0, 0, 0, 0.08);
   /* border-radius: 4px; */
 }
+
 
 
 
@@ -82,8 +84,8 @@ body {
   box-shadow: 0 1px whitesmoke;
 }
 
-p {
-  margin-bottom: 5px;
+button{
+  margin-top: 5px;
 }
 
 .table p:first-child {
@@ -102,9 +104,9 @@ p {
   -moz-transition: all 0.5s;
 }
 
-.table p.remember_me {
+/* .table p.remember_me {
   float: left;
-  line-height: 31px;
+  line-height: 30px;
 }
 
 .table p.remember_me label {
@@ -118,7 +120,7 @@ p {
   bottom: 1px;
   margin-right: 4px;
   vertical-align: middle;
-}
+} */
 
 .table p.submit {
   text-align: right;
@@ -133,7 +135,7 @@ p {
 }
 
 .table_help a {
-  color: #cce7fa;
+  color: #132f56;
   text-decoration: none;
   font-size: 12px;
 }
@@ -160,7 +162,7 @@ input {
 input[type=text], input[type=password] {
   padding: 0 10px;
   width: 200px;
-  height: 31px;
+  height: 30px;
   color: #404040;
   background: white;
   border: 1px solid;
@@ -209,7 +211,7 @@ input[type=submit]:active {
 }
 
 /* .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
-  line-height: 31px;
+  line-height: 30px;
 } */
 
 /* .vladmaxi-top {
@@ -285,12 +287,12 @@ input[type=submit]:active {
   border: none;
   width: 180px;
   text-align: center;
-  background: #4caed5;
+  background: #4a9ab9;
   font-size: 13px;
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
-  height: 35px;
+  height: 30px;
   line-height: 28px;
   padding: 0;
 }
@@ -304,11 +306,11 @@ select {
   border: 2px solid #cfcfcf;
   font-size: 14px;
   color: #444444;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   padding: 0 10px;
-  height: 31px;
+  height: 30px;
   color: #404040;
   background: white;
   border: 1px solid;
@@ -604,9 +606,9 @@ select {
 
 .CheckBoxPageModeSub label .CheckBoxRing {
   height: 36px;
-  -webkit-flex: 0 0 131px;
-  -ms-flex: 0 0 131px;
-  flex: 0 0 131px;
+  -webkit-flex: 0 0 127px;
+  -ms-flex: 0 0 127px;
+  flex: 0 0 127px;
   /* border-radius: 4px; */
 }
 
