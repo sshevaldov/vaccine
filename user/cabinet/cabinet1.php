@@ -23,8 +23,8 @@
                 </label>
             </div>
         </div>
-        <div class="table" id="table" style="width: 1200px;" disabled>
-            <h1 style=" text-align: right; padding: 10px;">
+        <div class="table" id="table" style="width: 1030px;" disabled>
+            <h1 style=" text-align: right; padding: 6px 10px 10px 10px;">
                 <div>
                     <div style="position: absolute; font-size: -webkit-xxx-large;">
                         <p style="margin-top:5px">Сервис записи на вакцинацию</p>
@@ -37,7 +37,7 @@
             </h1>
             <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
             <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить сертификат</button></b>
-            <h3 style=" border-bottom: 1px solid black;">Первая вакцинация</h3>
+            <h3 style="border-bottom: 1px solid black;margin-bottom: 7px;margin-top: 5px;">Первая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector" name="city_selector" required>
@@ -66,7 +66,7 @@
             </div>
             <div class="time_list">
             </div>
-            <h3 style=" border-bottom: 1px solid black;">Вторая вакцинация</h3>
+            <h3 style="border-bottom: 1px solid black;margin-bottom: 7px;margin-top: 5px;">Вторая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
                 <select type="text" class="rfield " id="city_selector1" name="city_selector1" required>
