@@ -33,10 +33,16 @@
                 ?>
                 <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../admin_auth/admin_auth.php"'>Выйти</button>
             </h1>
-            <p>Период дат</p>
-            <div style="display: flex;">
-                <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" tabindex="1" placeholder="С" />
-                <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield" tabindex="1" placeholder="По" />
+            <p> Период </p> <select type="text" class="rfield " id="period_selector" name="period_selector" required>
+                <option id="place_option" name="place_option" value='today'> Сегодня</option>
+                <option id="place_option" name="place_option" value='tom'> Завтра</option>
+                <option id="place_option" name="place_option" value='pper'> Период дат</option>
+
+            </select>
+            <p></p>
+            <div id="per_date" style="display: none;" >
+                <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" value= tabindex="1" placeholder="С" />
+                <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield"  value='' tabindex="1" placeholder="По" hidden />
             </div>
             <p>Город вакцинации</p>
             <div style="display: flex;">
@@ -53,13 +59,13 @@
             </select>
             <div class="place_list"></div>
             <p> Сортировка </p> <select type="text" class="rfield " id="sort" name="sort" required>
-                <option   id="place_option" name="place_option" value=''> По умолчанию</option>
+                <option id="place_option" name="place_option" value=''> По умолчанию</option>
                 <option id="place_option" name="place_option" value='city_name'> Город</option>
                 <option id="place_option" name="place_option" value='place_name'> Место вакцинации</option>
                 <option selected id="place_option" name="place_option" value='date,time'> Дата</option>
                 <option id="place_option" name="place_option" value='passport'> Номер паспорта пациента</option>
             </select>
-            
+
             <br>
             <div class="buttons">
                 <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()">Списком</button></b>
