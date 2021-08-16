@@ -7,7 +7,7 @@ $pdf->AddPage('P');
 $pdf->AddFont('Arial', '', 'arial.php');
 $pdf->SetFont('Arial', '');
 $pdf->SetFontSize(20);
-$pdf->MultiCell(0, 10, iconv('utf-8', 'windows-1251', "Сертификат о вакцинации"));
+$pdf->MultiCell(0, 10, iconv('utf-8', 'windows-1251', "Направление на вакцинацию"));
 $pdf->SetFontSize(15);
 $pdf->MultiCell(0, 9, iconv('utf-8', 'windows-1251', "Персональные данные"));
 $link = dbconnect();
