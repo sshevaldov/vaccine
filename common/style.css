@@ -5,6 +5,7 @@ html, body, div, span, applet, object, iframe, h1, p, blockquote, pre, a, abbr, 
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  margin-bottom: 3px;
 }
 
 /* article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -42,7 +43,7 @@ body {
   position: relative;
   margin: 10px auto 0 auto;
  
-  padding: 17px 20px 13px;
+  padding: 15px 20px 13px;
   width: 280px;
   background: white;
   /* border-radius: 3px; */
@@ -72,7 +73,7 @@ body {
   font-weight: bold;
   color: #555;
   text-align: center;
-  text-shadow: 0 1px white;
+  /* text-shadow: 0 1px white; */
   background: #f3f3f3;
   border-bottom: 1px solid #cfcfcf;
   /* border-radius: 3px 3px 0 0; */
@@ -95,7 +96,7 @@ button{
 .table input[type=text], .table input[type=password] {
   width: 250px;
   display: block;
-  border: 2px solid #cfcfcf;
+  /* border: 2px solid #cfcfcf; */
   font-size: 14px;
   color: #444444;
   margin-bottom: 10px;
@@ -127,15 +128,15 @@ button{
 }
 
 .table_help {
-  margin: 15px 0;
+  margin: 5px 0;
   font-size: 11px;
-  color: white;
+  /* color: white; */
   text-align: center;
-  text-shadow: 0 1px #2a85a1;
 }
 
 .table_help a {
-  color: #132f56;
+  /* color: #132f56; */
+  /* color: white; */
   text-decoration: none;
   font-size: 12px;
 }
@@ -186,7 +187,7 @@ input[type=submit] {
   font-size: 12px;
   font-weight: bold;
   color: #527881;
-  text-shadow: 0 1px #e3f1f1;
+  /* text-shadow: 0 1px #e3f1f1; */
   background: #cde5ef;
   border: 1px solid;
   border-color: #b4ccce #b3c0c8 #9eb9c2;
@@ -273,7 +274,7 @@ input[type=submit]:active {
 
 .table input {
   /* display: block; */
-  border: 2px solid #cfcfcf;
+  /* border: 2px solid #cfcfcf; */
   font-size: 14px;
   color: #444444;
   /* width: 250px; */
@@ -306,7 +307,6 @@ select {
   border: 2px solid #cfcfcf;
   font-size: 14px;
   color: #444444;
-  margin-bottom: 10px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   padding: 0 10px;
