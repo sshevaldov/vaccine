@@ -40,6 +40,7 @@
         echo "<p>Дата и время вакцинации: {$_SESSION['datetime2']}";
         ?>
         <p><a href="order_list.php"><button id="button" class="btn_submit disabled">Скачать</button></a>
+        <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../auth/auth.php"'>Выйти</button>
     </div>
     <script src="../../common/PageMode.js"></script>
 </body>
