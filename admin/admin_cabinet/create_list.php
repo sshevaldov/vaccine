@@ -33,20 +33,24 @@
                 ?>
                 <p><button id="buttonExit" class="btn_submit disabled" type='button' onclick='window.location = "../admin_auth/admin_auth.php"'>Выйти</button>
             </h1>
-            <p> Период </p> <select type="text" class="rfield " id="period_selector" name="period_selector" required>
-                <option id="place_option" name="place_option" value='today'> Сегодня</option>
-                <option id="place_option" name="place_option" value='tom'> Завтра</option>
-                <option id="place_option" name="place_option" value='pper'> Период дат</option>
-
+            <p> Период </p> <select type="text"  id="period_selector" name="period_selector">
+                <option id="place_option" name="place_option" value='today'>Сегодня</option>
+                <option id="place_option" name="place_option" value='tom'>Завтра</option>
+                <option id="place_option" name="place_option" value='pper'>За период</option>
+                <option id="place_option" name="place_option" value='all'>Все время</option>
+                <option id="place_option" name="place_option" value='dayy'>Дата</option>
             </select>
             <p></p>
-            <div id="per_date" style="display: none;" >
-                <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text" class="rfield" value= tabindex="1" placeholder="С" />
-                <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text" class="rfield"  value='' tabindex="1" placeholder="По" hidden />
+            <div id="per_date" style="display: none;">
+                <input id="datepicker_startDate" autocomplete="off" name="datepicker_startDate" type="text"  value='' tabindex="1" placeholder="С" />
+                <p> по </p> <input id="datepicker_endDate" autocomplete="off" name="datepicker_endDate" type="text"  value='' tabindex="1" placeholder="По"  />
+            </div>
+            <div id="dayyp" style="display: none;">
+                <input id="dayy" autocomplete="off" name="dayy" type="text" class="rfield" tabindex="1" placeholder="Дата" required />
             </div>
             <p>Город вакцинации</p>
             <div style="display: flex;">
-                <select type="text" class="rfield " id="city_selector" name="city_selector">
+                <select type="text"  id="city_selector" name="city_selector">
                     <option selected value=''>По умолчанию</option>
                     <?php
                     city_loader();
@@ -54,11 +58,11 @@
                 </select>
             </div>
             <p>Место вакцинации</p>
-            <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
+            <select type="text"  id="place_selector" name="place_selector"  disabled>
                 <option disabled selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
             </select>
             <div class="place_list"></div>
-            <p> Сортировка </p> <select type="text" class="rfield " id="sort" name="sort" required>
+            <p> Сортировка </p> <select type="text"  id="sort" name="sort" >
                 <option id="place_option" name="place_option" value=''> По умолчанию</option>
                 <option id="place_option" name="place_option" value='city_name'> Город</option>
                 <option id="place_option" name="place_option" value='place_name'> Место вакцинации</option>
@@ -77,6 +81,7 @@
     <script src="../../common/exit.js"></script>
     <script src="DatepickerAdminCabinet.js"></script>
     <script src="../../common/mask.js"></script>
+    <script src="../../common/RedError.js"></script>
 </body>
 
 </html>

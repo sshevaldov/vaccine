@@ -1,17 +1,20 @@
 <?php
 session_start();
 if (true) {
-    $_SESSION['ps'] = $_POST['datepicker_startDate'];
+    $_SESSION['ps'] = $_POST['dayy'];
     if ($_POST['period_selector'] == "today") {
         $_SESSION['dp1'] = "CURRENT_DATE";
         $_SESSION['dp2'] = "CURRENT_DATE";
+    } elseif ($_POST['period_selector'] == "dayy") {
+        $_SESSION['dp1'] = "'{$_POST['dayy']}'";
+        $_SESSION['dp2'] = "'{$_POST['dayy']}'";
     } elseif ($_POST['period_selector'] == "tom") {
         $_SESSION['dp1'] = "DATE_ADD(CURRENT_DATE, INTERVAL +1 DAY)";
         $_SESSION['dp2'] = "DATE_ADD(CURRENT_DATE, INTERVAL +1 DAY)";
+    } elseif ($_POST['period_selector'] == "all") {
+        $_SESSION['dp1'] = null;
+        $_SESSION['dp2'] = null;
     } else {
-
-
-
         if ($_POST['datepicker_startDate'] == '')
             $_SESSION['dp1'] = null;
         else $_SESSION['dp1'] = "'{$_POST['datepicker_startDate']}'";

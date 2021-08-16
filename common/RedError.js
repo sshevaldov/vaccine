@@ -10,6 +10,12 @@ $('#buttonRegistration').on('click', function () {
 $('#buttonSubmit').on('click', function () {
     RedError();
 });
+$('#buttonToGrid').on('click', function () {
+    RedError();
+});
+
+
+
 
 //функция подсветки поля красным если оно пустое
 function RedError() {

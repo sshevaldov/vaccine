@@ -4,12 +4,41 @@ function get() {
 }
 
 function get1() {
-    AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
-    window.location = "admin_topdf.php";
+
+    a = document.getElementById("period_selector").value;
+    console.info(a);
+    switch (a) {
+        case "dayy":
+            if (document.getElementById("dayy").value != '') {
+                AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
+                window.location = "admin_topdf.php";
+            }
+            break;
+        
+        default:
+            AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
+            window.location = "admin_topdf.php";
+
+    }
+
+
+    
 }
 
 $(function () {
     $("#datepicker_startDate").datepicker({
+        beforeShowDay: function (date) {
+            var dayOfWeek = date.getDay();
+            if (dayOfWeek == 0 || dayOfWeek == 6) {
+                return [false];
+            } else {
+                return [true];
+            }
+        }
+    });
+});
+$(function () {
+    $("#dayy").datepicker({
         beforeShowDay: function (date) {
             var dayOfWeek = date.getDay();
             if (dayOfWeek == 0 || dayOfWeek == 6) {
@@ -104,18 +133,24 @@ $("#period_selector").change(
         a = document.getElementById("period_selector").value;
         console.info(a);
         switch (a) {
-            case "er":               
+            case "dayy":
+                $("#dayyp").show();
+                document.getElementById("dayyp").style.display = 'flex';
+                console.info("day");
+                document.getElementById("dayyp").disabled = true;
+                document.getElementById("per_date").style.display = 'none';
                 break;
             case "pper":
                 $("#datepicker_day").show();
-                document.getElementById("per_date").style.display='flex';
+                document.getElementById("per_date").style.display = 'flex';
                 console.info("day");
                 document.getElementById("per_date").disabled = true;
-              
+                document.getElementById("dayyp").style.display = 'none';
                 break;
             default:
-                $("#datepicker_day").hide();
-                $("#per_date").hide();
+                document.getElementById("per_date").style.display = 'none';
+                document.getElementById("dayyp").style.display = 'none';
+
         }
         return false;
     }
@@ -136,6 +171,12 @@ $(function () {
 $(function () {
     $.mask.definitions['~'] = '[]';
     $("#datepicker_day").datepicker().mask("~~.~~.~~", {
+        placeholder: "гг.мм.дд"
+    });
+});
+$(function () {
+    $.mask.definitions['~'] = '[]';
+    $("#dayy").datepicker().mask("~~.~~.~~", {
         placeholder: "гг.мм.дд"
     });
 });
