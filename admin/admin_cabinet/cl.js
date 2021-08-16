@@ -8,9 +8,9 @@ function get1() {
     window.location = "admin_topdf.php";
 }
 
-$(function() {
+$(function () {
     $("#datepicker_startDate").datepicker({
-        beforeShowDay: function(date) {
+        beforeShowDay: function (date) {
             var dayOfWeek = date.getDay();
             if (dayOfWeek == 0 || dayOfWeek == 6) {
                 return [false];
@@ -20,9 +20,21 @@ $(function() {
         }
     });
 });
-$(function() {
+$(function () {
     $("#datepicker_endDate").datepicker({
-        beforeShowDay: function(date) {
+        beforeShowDay: function (date) {
+            var dayOfWeek = date.getDay();
+            if (dayOfWeek == 0 || dayOfWeek == 6) {
+                return [false];
+            } else {
+                return [true];
+            }
+        }
+    });
+});
+$(function () {
+    $("#datepicker_day").datepicker({
+        beforeShowDay: function (date) {
             var dayOfWeek = date.getDay();
             if (dayOfWeek == 0 || dayOfWeek == 6) {
                 return [false];
@@ -33,14 +45,13 @@ $(function() {
     });
 });
 $("#datepicker_startDate").change(
-    function() {
+    function () {
         min = document.getElementById('datepicker_startDate').value;
-
         $("#datepicker_endDate").datepicker("option", "minDate", min);
     }
 );
 $("#datepicker_endDate").change(
-    function() {
+    function () {
         var max = document.getElementById('datepicker_endDate').value;
         $("#datepicker_startDate").datepicker("option", "maxDate", max);
     }
@@ -52,7 +63,7 @@ function AjaxLoadList(ajax_form, url) {
         type: "POST",
         dataType: "html",
         data: $("#" + ajax_form).serialize(),
-        success: function(response) {
+        success: function (response) {
 
         }
     });
@@ -64,7 +75,7 @@ function AjaxLoadPlaces(ajax_form, url) {
         type: "POST",
         dataType: "html",
         data: $("#" + ajax_form).serialize(),
-        success: function(response) {
+        success: function (response) {
             result = $.parseJSON(response);
             const select = document.getElementById('place_selector');
             $(".place_options_class").remove();
@@ -82,21 +93,49 @@ function AjaxLoadPlaces(ajax_form, url) {
     });
 }
 $("#city_selector").change(
-    function() {
+    function () {
         AjaxLoadPlaces('AdminCabinetForm', 'action_ajax_form2.php');
         return false;
     }
 );
 
-$(function() {
+$("#period_selector").change(
+    function () {
+        a = document.getElementById("period_selector").value;
+        console.info(a);
+        switch (a) {
+            case "er":               
+                break;
+            case "pper":
+                $("#datepicker_day").show();
+                document.getElementById("per_date").style.display='flex';
+                console.info("day");
+                document.getElementById("per_date").disabled = true;
+              
+                break;
+            default:
+                $("#datepicker_day").hide();
+                $("#per_date").hide();
+        }
+        return false;
+    }
+);
+
+$(function () {
     $.mask.definitions['~'] = '[]';
     $("#datepicker_startDate").datepicker().mask("~~.~~.~~", {
         placeholder: "гг.мм.дд"
     });
 });
-$(function() {
+$(function () {
     $.mask.definitions['~'] = '[]';
     $("#datepicker_endDate").datepicker().mask("~~.~~.~~", {
+        placeholder: "гг.мм.дд"
+    });
+});
+$(function () {
+    $.mask.definitions['~'] = '[]';
+    $("#datepicker_day").datepicker().mask("~~.~~.~~", {
         placeholder: "гг.мм.дд"
     });
 });
