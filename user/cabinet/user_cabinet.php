@@ -101,7 +101,7 @@
             </div>
         </div>
     </form>
-    <script src="cab_script.js"></script>
+    <script src="cabinet_script.js"></script>
     <script src="datepicker.js"></script>
     <script src="../../common/RedError.js"></script>
     <script src="../../common/PageMode.js"></script>

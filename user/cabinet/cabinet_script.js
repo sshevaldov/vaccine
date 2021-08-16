@@ -8,7 +8,7 @@ $("#buttonSubmit").click(
             document.getElementById('place_selector1').value != '' &&
             document.getElementById('datepickerVak1').value != '' &&
             document.getElementById('time_selector1').value != '') {
-            AjaxSendInputLabel('CabinetForm', 'action_ajax_form4.php');
+            AjaxSendInputLabel('CabinetForm', 'AjaxSendInputLabel.php');
             window.location = "label.php";
         }
         return false;
@@ -25,7 +25,7 @@ function AjaxSendInputLabel(ajax_form, url) {//запись данных о ва
     });
 }
 
-window.onload = AjaxShowStatus('CabinetForm', 'action_ajax_form5.php');//проверка статуса вакцинации при загрузке
+window.onload = AjaxShowStatus('CabinetForm', 'AjaxShowStatus.php');//проверка статуса вакцинации при загрузке
 
 function AjaxShowStatus(ajax_form, url) {//функция проверки статуса вакцинации пользователя
     $.ajax({
@@ -47,14 +47,11 @@ function AjaxShowStatus(ajax_form, url) {//функция проверки ст�
     });
 }
 
-
-
-
 $("#city_selector").change(//при изменении города вакцинации
     function () {
-        AjaxLoadPlaces('CabinetForm', 'action_ajax_form2.php');//загрузка адресов
+        AjaxLoadPlaces('CabinetForm', 'AjaxLoadPlaces.php');//загрузка адресов
         if (document.getElementById("datepickerVak").value != '') {//если дата указана
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//загружаем времена           
+            AjaxLoadTimes('CabinetForm', 'AjaxLoadTimes.php');//загружаем времена           
         }
         document.getElementById("time_selector").disabled = true;//время блокируется, т.к адрес не задан
         return false;//отмена перезагрузки
@@ -62,9 +59,9 @@ $("#city_selector").change(//при изменении города вакцин
 );
 $("#city_selector1").change(//изменен город второй вакцинации
     function () {
-        AjaxLoadPlaces1('CabinetForm', 'action_ajax_form7.php');//подгрузка адресов в городе
+        AjaxLoadPlaces1('CabinetForm', 'AjaxLoadPlaces1.php');//подгрузка адресов в городе
         if (document.getElementById("datepickerVak1").value != '') {//если дата задана
-            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то подгружаем времена
+            AjaxLoadTimes1('CabinetForm', 'AjaxLoadTimes1.php');//то подгружаем времена
         }
         //блокируются временя, т.к адрес не задан
         document.getElementById("time_selector1").disabled = true;
@@ -75,7 +72,7 @@ $("#city_selector1").change(//изменен город второй вакци�
 $("#place_selector").change(//если адрес изменен
     function () {
         if (document.getElementById("datepickerVak").value != '') {//если дата указана
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php'); //то подгружаем времена
+            AjaxLoadTimes('CabinetForm', 'AjaxLoadTimes.php'); //то подгружаем времена
             document.getElementById("time_selector").disabled = false;//отключаем выбор времени
         }
         else {//иначе если дата не указана
@@ -88,7 +85,7 @@ $("#place_selector").change(//если адрес изменен
 $("#place_selector1").change(//измение места второй вакцинации
     function () {
         if (document.getElementById("datepickerVak1").value != '') {//если дата задана
-            AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то обновляем время
+            AjaxLoadTimes1('CabinetForm', 'AjaxLoadTimes1.php');//то обновляем время
             document.getElementById("time_selector1").disabled = false;//время разблокируется
         }
         else {
@@ -109,7 +106,7 @@ $("#datepickerVak").change(//изменилась дата первой вакц
             document.getElementById('datepickerVak1').value = Msg;//устанавливаем дату второй вакцинации
             console.log("qwe");
             dpchange();
-            AjaxLoadTimes('CabinetForm', 'action_ajax_form3.php');//обновляем времена
+            AjaxLoadTimes('CabinetForm', 'AjaxLoadTimes.php');//обновляем времена
             //если заданы город и место второй вакцинации
             if (document.getElementById('city_selector').value != '' && document.getElementById('place_selector').value != '') {
                 document.getElementById("time_selector").disabled = false;//времена разблокируются
@@ -124,7 +121,7 @@ $("#datepickerVak").change(//изменилась дата первой вакц
 
 function dpchange() {
     if (document.getElementById('city_selector1').value != '' && document.getElementById('place_selector1').value != '') {
-        AjaxLoadTimes1('CabinetForm', 'action_ajax_form8.php');//то обновляем время
+        AjaxLoadTimes1('CabinetForm', 'AjaxLoadTimes1.php');//то обновляем время
         console.log("разблокировка");
         document.getElementById("time_selector1").disabled = false;//времена разблокируются
     } else {

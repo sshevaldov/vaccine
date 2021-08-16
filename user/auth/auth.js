@@ -23,7 +23,7 @@ function AjaxCheckInputAccount(ajax_form, url) {
                 else if (result.IsMatch == 0) {//если записи с логином найдены, но пароль не подходит
                     $("#LoginErrorMessage").html('Неверный пароль');
                 } else {
-                    window.location = "../cabinet/cabinet1.php";//переход в кабинет администратора
+                    window.location = "../cabinet/user_cabinet.php";//переход в кабинет администратора
                 }
             }
             else $("#LoginErrorMessage").html('');

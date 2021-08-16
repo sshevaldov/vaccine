@@ -8,11 +8,13 @@ function showuser()
     mysqli_set_charset($link, "utf8");
     while ($row = mysqli_fetch_array($result)) {
         $_SESSION['fio'] = "${row['surname']} ${row['name']} ${row['secondname']}";
-        $_SESSION['birthdate'] = $row['birthdate'];
+        $_SESSION['birthdatэe'] = $row['birthdate'];
         $_SESSION['oms'] = $row['oms'];
         $_SESSION['sex'] = $row['sex'];
         $_SESSION['phone'] = $row['phone'];
     }
-
     echo ("{$_SESSION['fio']}");
 }
+
+
+
