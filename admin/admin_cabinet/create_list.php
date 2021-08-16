@@ -56,7 +56,7 @@
                 <option   id="place_option" name="place_option" value=''> По умолчанию</option>
                 <option id="place_option" name="place_option" value='city_name'> Город</option>
                 <option id="place_option" name="place_option" value='place_name'> Место вакцинации</option>
-                <option selected id="place_option" name="place_option" value='date'> Дата</option>
+                <option selected id="place_option" name="place_option" value='date,time'> Дата</option>
                 <option id="place_option" name="place_option" value='passport'> Номер паспорта пациента</option>
             </select>
             
