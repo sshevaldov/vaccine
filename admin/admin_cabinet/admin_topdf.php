@@ -51,7 +51,7 @@ if ($_SESSION['pl_sel'] != '') {
     $flag = 1;
 }
 if ($_SESSION['sort'] != '') {
-    $sql = $sql . " ORDER BY `" . $_SESSION['sort'] . "`";
+    $sql = $sql . " ORDER BY " . $_SESSION['sort'] . "";
 } else {
     $sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
 }
