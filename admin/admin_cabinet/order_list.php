@@ -20,7 +20,7 @@ if ($_SESSION['dp1'] != '') {
     } else {
         $sql = $sql . ' AND ';
     }
-    $sql = $sql . "`date` >'" . $_SESSION['dp1'] . "'";
+    $sql = $sql . "`date` >='" . $_SESSION['dp1'] . "'";
     $flag = 1;
 }
 if ($_SESSION['dp2'] != '') {
@@ -29,7 +29,7 @@ if ($_SESSION['dp2'] != '') {
     } else {
         $sql = $sql . ' AND ';
     }
-    $sql = $sql . "`date` < '" . $_SESSION['dp2'] . "'";
+    $sql = $sql . "`date` <= '" . $_SESSION['dp2'] . "'";
     $flag = 1;
 }
 if ($_SESSION['city_sel'] != '') {
@@ -51,7 +51,7 @@ if ($_SESSION['pl_sel'] != '') {
     $flag = 1;
 }
 if ($_SESSION['sort'] != '') {
-    $sql = $sql . " ORDER BY `" . $_SESSION['sort'] . "`";
+    $sql = $sql . " ORDER BY " . $_SESSION['sort'] . "";
 } else {
     $sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
 }
