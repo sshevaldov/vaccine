@@ -36,7 +36,7 @@
                 </div>
             </h1>
             <p id="ErrorVaccinated" name="ErrorVaccinated" style="color: red;"></p>
-            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Загрузить сертификат</button></b>
+            <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()" hidden>Скачать направление</button></b>
             <h3 style="border-bottom: 1px solid black;margin-bottom: 7px;margin-top: 5px;">Первая вакцинация</h3>
             <p>Город вакцинации</p>
             <div style="display: flex;">
