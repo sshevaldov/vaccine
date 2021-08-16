@@ -1,6 +1,6 @@
 function get() {
-    AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
-    window.location = "order_list.php";
+    AjaxLoadList('AdminCabinetForm', 'AjaxSetSessionVars.php');
+    window.location = "list_tolist.php";
 }
 
 function get1() {
@@ -10,14 +10,14 @@ function get1() {
     switch (a) {
         case "dayy":
             if (document.getElementById("dayy").value != '') {
-                AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
-                window.location = "admin_topdf.php";
+                AjaxLoadList('AdminCabinetForm', 'AjaxSetSessionVars.php');
+                window.location = "list_topdf.php";
             }
             break;
         
         default:
-            AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
-            window.location = "admin_topdf.php";
+            AjaxLoadList('AdminCabinetForm', 'AjaxSetSessionVars.php');
+            window.location = "list_topdf.php";
 
     }
 
@@ -123,7 +123,7 @@ function AjaxLoadPlaces(ajax_form, url) {
 }
 $("#city_selector").change(
     function () {
-        AjaxLoadPlaces('AdminCabinetForm', 'action_ajax_form2.php');
+        AjaxLoadPlaces('AdminCabinetForm', 'AjaxLoadPlaces.php');
         return false;
     }
 );

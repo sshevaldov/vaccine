@@ -1,5 +1,5 @@
 <?php
-require_once('../../common/funct.php');
+require_once('../../common/dbfunct.php');
 if (isset($_POST['ser']) && isset($_POST['sex']) && isset($_POST['password']) && isset($_POST['fam']) && isset($_POST['name']) && isset($_POST['date']) && isset($_POST['omc']) && isset($_POST['phone'])) {
   $link = dbconnect();
   $sql = "SELECT * FROM `accounts` where `passport`='{$_POST["ser"]}'";

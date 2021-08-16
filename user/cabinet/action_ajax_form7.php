@@ -1,5 +1,5 @@
 <?php
-require_once("../../common/funct.php"); //подключение файла с функцией
+require_once("../../common/dbfunct.php"); //подключение файла с функцией
 if (isset($_POST['city_selector1'])) { //если установлен город
   $link = dbconnect(); //соединение с бд
   mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения

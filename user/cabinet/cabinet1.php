@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="../../common/style.css">
     <title>Личный кабинет</title>
-    <?php require_once('../../common/funct.php') ?>
+    <?php require_once('../../common/dbfunct.php') ?>
     <?php require_once('showuser.php') ?>
 </head>
 

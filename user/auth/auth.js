@@ -1,7 +1,7 @@
 
 $("#buttonToCabinet").click(//событие клинка
     function () {
-        AjaxCheckInputAccount('АuthorizationForm', 'action_ajax_form.php');//функция проверки наличия введенных данных
+        AjaxCheckInputAccount('АuthorizationForm', 'AjaxCheckInputAccount.php');//функция проверки наличия введенных данных
         return false;//false для избавления от обновления страницы
     }
 );
@@ -26,7 +26,7 @@ function AjaxCheckInputAccount(ajax_form, url) {
                     window.location = "../cabinet/cabinet1.php";//переход в кабинет администратора
                 }
             }
-            else   $("#LoginErrorMessage").html('');
+            else $("#LoginErrorMessage").html('');
         }
     });
 }

@@ -1,5 +1,5 @@
 <?php
-require_once("../../common/funct.php"); //подключение файла с функцией
+require_once("../../common/dbfunct.php"); //подключение файла с функцией
 $link = dbconnect(); //соединение с бд
 mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения
 $sql = "SELECT * FROM `users` where `passport`='{$_SESSION['passport']}'"; //вывести запись пользователя по паспорту

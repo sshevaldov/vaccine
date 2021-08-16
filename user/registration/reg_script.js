@@ -17,7 +17,7 @@ $("#buttonRegistration").click(
         console.log(ser);
         // если все поля введены
         if (ser != '' && fam != '' && name != '' && sex != '' && date != '' && omc != '' && phone != '' && password != '') {
-            AjaxSendInputUserData('RegistrationForm', 'action_ajax_form1.php');
+            AjaxSendInputUserData('RegistrationForm', 'AjaxSendInputUserData.php');
         }
         else {
             $("#ErrorRegistration").html('');

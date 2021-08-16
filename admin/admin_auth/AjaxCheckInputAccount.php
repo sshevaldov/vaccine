@@ -1,5 +1,5 @@
 <?php
-require_once("../../common/funct.php"); //подключаем скрипт с функцией
+require_once("../../common/dbfunct.php"); //подключаем скрипт с функцией
 if (isset($_POST["login"]) && isset($_POST["password"])) { //если введены логин и пароль   
     $link = dbconnect(); //подключение к бд
     $sql = "SELECT * FROM `admins` where `login`='{$_POST["login"]}'"; //запрос к записям с заданным логином

@@ -231,7 +231,7 @@ function AjaxLoadTimes1(ajax_form, url) {//функция подгрузки в�
 
 
 function get() {//функция установки глобальных переменных сессии
-    AjaxLoadList('AdminCabinetForm', 'action_ajax_form6.php');
+    AjaxLoadList('AdminCabinetForm', 'AjaxSetSessionVars.php');
     window.location = "order_list.php";//перенаправление на вывод сертификата о прививке
 }
 

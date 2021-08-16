@@ -1,7 +1,7 @@
 
 $("#buttonToAdminCabinet").click(//событие клинка
 	function () {
-		AjaxCheckInputAccount('АuthorizationForm1', 'action_ajax_form_admin.php');//функция проверки наличия введенных данных
+		AjaxCheckInputAccount('АuthorizationForm1', 'AjaxCheckInputAccount.php');//функция проверки наличия введенных данных
 		return false;//false для избавления от обновления страницы
 	}
 );
@@ -23,7 +23,7 @@ function AjaxCheckInputAccount(ajax_form, url) {
 				else if (result.IsMatch == false) {//если записи с логином найдены, но пароль не подходит
 					$("#LoginErrorMessage").html("Неверный пароль");
 				} else {//если логин и пароль подошли
-					window.location = "../admin_cabinet/create_list.php";//переход в кабинет администратора
+					window.location = "../admin_cabinet/admin_cabinet.php";//переход в кабинет администратора
 				}
 			}
 		}

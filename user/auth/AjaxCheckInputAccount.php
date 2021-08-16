@@ -1,5 +1,5 @@
 <?php
-require_once("../../common/funct.php"); //подключаем скрипт с функцией
+require_once("../../common/dbfunct.php"); //подключаем скрипт с функцией
 if (isset($_POST["passport"]) && isset($_POST["password"])) { //если паспорт и логин введены
     $link = dbconnect(); //подключение к бд
     $sql = "SELECT * FROM `accounts` where `passport`='{$_POST["passport"]}'"; //запрос к записям с заданным паспортом

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../../common/style.css">
     <script src="../../common/PageMode.js"></script>
     <title>Перечень вакцинаций</title>
-    <?php require_once('../../common/funct.php') ?>
+    <?php require_once('../../common/dbfunct.php') ?>
 </head>
 
 <body>
@@ -77,7 +77,7 @@
             </div>
         </div>
     </form>
-    <script src="cl.js"></script>
+    <script src="admin_cabinet.js"></script>
     <script src="../../common/exit.js"></script>
     <script src="DatepickerAdminCabinet.js"></script>
     <script src="../../common/mask.js"></script>

@@ -1,5 +1,5 @@
 <?php
-require_once("../../common/funct.php"); //подключение файла с функцией
+require_once("../../common/dbfunct.php"); //подключение файла с функцией
 if (isset($_POST['city_selector']) && isset($_POST['place_selector']) && isset($_POST['datepickerVak']) && isset($_POST['time_selector']) && isset($_POST['city_selector1']) && isset($_POST['place_selector1']) && isset($_POST['time_selector1'])) { //если все поля введены
   $link = dbconnect(); //соединение с бд
   mysqli_set_charset($link, "utf8"); //установка кодовой страницы подключения

@@ -8,31 +8,36 @@ $pdf->AddFont('Arial', '', 'arial.php');
 $pdf->SetFont('Arial');
 
 
-require_once('../../common/funct.php');
+require_once('../../common/dbfunct.php');
 $link = dbconnect();
 $link->set_charset("utf8");
 $sql = "SELECT * from `list`";
 $flag = 0;
+$pdf->SetFontSize(12);
+$pdf->MultiCell(0, 6, iconv('utf-8', 'windows-1251', "Перечень вакцинаций"));
 
-if ($_SESSION['dp1'] != '') {
+if ($_SESSION['dp1'] != '') {  
     if ($flag == 0) {
         $sql = $sql . 'WHERE ';
     } else {
         $sql = $sql . ' AND ';
     }
-    $sql = $sql . "`date` >='" . $_SESSION['dp1'] . "'";
+    $sql = $sql . "`date` >= " . $_SESSION['dp1'] . "";
     $flag = 1;
 }
+
 if ($_SESSION['dp2'] != '') {
     if ($flag == 0) {
         $sql = $sql . 'WHERE ';
     } else {
         $sql = $sql . ' AND ';
     }
-    $sql = $sql . "`date` <= '" . $_SESSION['dp2'] . "'";
+    $sql = $sql . "`date` <= ".$_SESSION['dp2']."";
     $flag = 1;
 }
 if ($_SESSION['city_sel'] != '') {
+    $pdf->SetFontSize(12);
+    $pdf->MultiCell(0, 6, iconv('utf-8', 'windows-1251', "Город: {$_SESSION['city_sel']}"));
     if ($flag == 0) {
         $sql = $sql . 'WHERE ';
     } else {
@@ -42,6 +47,8 @@ if ($_SESSION['city_sel'] != '') {
     $flag = 1;
 }
 if ($_SESSION['pl_sel'] != '') {
+    $pdf->SetFontSize(12);
+    $pdf->MultiCell(0, 6, iconv('utf-8', 'windows-1251', "Учреждение: {$_SESSION['pl_sel']}"));
     if ($flag == 0) {
         $sql = $sql . 'WHERE ';
     } else {
@@ -55,7 +62,6 @@ if ($_SESSION['sort'] != '') {
 } else {
     $sql = $sql . " ORDER BY `city_name`, `place_name`, `date`, `username`";
 }
-
 $result = mysqli_query($link, $sql);
 
 

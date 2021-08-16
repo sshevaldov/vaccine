@@ -8,7 +8,7 @@ $pdf->AddFont('Arial', '', 'arial.php');
 $pdf->SetFont('Arial');
 
 
-require_once('../../common/funct.php');
+require_once('../../common/dbfunct.php');
 $link = dbconnect();
 $link->set_charset("utf8");
 $sql = "SELECT * from `list`";
