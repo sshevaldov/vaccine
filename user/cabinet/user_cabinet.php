@@ -84,7 +84,7 @@
             <div style="display: flex;">
                 <div>
                     <p>Дата вакцинации</p>
-                    <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1" type="text" readonly require placeholder="Дата второй вакцинации">
+                    <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1 rfield" type="text" readonly require placeholder="Дата второй вакцинации">
                 </div>
                 <div style="margin-left: 15px;">
                     <p>Время вакцинации </p>
