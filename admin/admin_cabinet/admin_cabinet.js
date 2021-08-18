@@ -1,12 +1,10 @@
-function get() {
+function ToList() {
     AjaxLoadList('AdminCabinetForm', 'AjaxSetSessionVars.php');
     window.location = "list_tolist.php";
 }
 
-function get1() {
-
+function ToPdf() {
     a = document.getElementById("period_selector").value;
-    console.info(a);
     switch (a) {
         case "dayy":
             if (document.getElementById("dayy").value != '') {
@@ -14,15 +12,10 @@ function get1() {
                 window.location = "list_topdf.php";
             }
             break;
-        
         default:
             AjaxLoadList('AdminCabinetForm', 'AjaxSetSessionVars.php');
             window.location = "list_topdf.php";
-
     }
-
-
-    
 }
 
 $(function () {
@@ -131,19 +124,19 @@ $("#city_selector").change(
 $("#period_selector").change(
     function () {
         a = document.getElementById("period_selector").value;
-        console.info(a);
+
         switch (a) {
             case "dayy":
                 $("#dayyp").show();
                 document.getElementById("dayyp").style.display = 'flex';
-                console.info("day");
+
                 document.getElementById("dayyp").disabled = true;
                 document.getElementById("per_date").style.display = 'none';
                 break;
             case "pper":
                 $("#datepicker_day").show();
                 document.getElementById("per_date").style.display = 'flex';
-                console.info("day");
+
                 document.getElementById("per_date").disabled = true;
                 document.getElementById("dayyp").style.display = 'none';
                 break;

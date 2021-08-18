@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form method="post" id="АuthorizationForm" action="">
+  <form method="post" id="UserАuthorizationForm" action="">
     <div class=" CheckBoxPageModeSub CheckBoxSub">
       <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
       <label for="CheckboxPageMode">
@@ -21,9 +21,11 @@
     <div class="table" >
       <h1>Войти в личный кабинет</h1>
       <p id="LoginErrorMessage" name="LoginErrorMessage" style="color: red;"></p>
+      <p>Номера паспорта</p>
       <input id="passport" name="passport" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
       <div class="password">
-        <input id="password" name="password" type="password" value="" class="rfield" placeholder="Пароль" required>
+        <p>Пароль</p>
+        <input id="password" name="password" type="password" value="" class="rfield" placeholder="Введите пароль" required>
       </div>
       <p> <input type="checkbox" id="passhide" onclick=" show_hide_password(this)">Показать пароль</p>
       <div>

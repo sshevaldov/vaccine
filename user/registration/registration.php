@@ -37,15 +37,17 @@
 					</select></p>
 			</div>
 			<div class="table">
-				<p>Паспорт
-				<p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
-				<input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
+				<p>Телефон</p>
+			<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
 				<p>Номер полиса ОМС
 					<input id="omc" name="omc" type="text" class="number form-control rfield" placeholder="Номер полиса ОМС" required>
 			</div>
 			<div class="table">
 				<p>Данные аккаунта</p>
-				<input id="phone" name="phone" type="text" class="rfield mask-phone form-control" placeholder="Номер телефона" required>
+				
+				<p id="ErrorRegistration" name="ErrorRegistration" style="color: red;"></p>
+				<input id="ser" name="ser" type="text" value="" class="mask-pasport-number form-control rfield" placeholder="Серия, номер паспорта" required>
+				
 				<div class="password">
 					<input id="password" type="password" class="rfield" name="password" value="" placeholder="Пароль" required>
 					<p> <input type="checkbox" id="passhide" onclick=" show_hide_password(this)">Показать пароль</p>

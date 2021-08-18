@@ -1,7 +1,7 @@
 
 $("#buttonToCabinet").click(//событие клинка
     function () {
-        AjaxCheckInputAccount('АuthorizationForm', 'AjaxCheckInputAccount.php');//функция проверки наличия введенных данных
+        AjaxCheckInputAccount('UserАuthorizationForm', 'AjaxCheckInputAccount.php');//функция проверки наличия введенных данных
         return false;//false для избавления от обновления страницы
     }
 );

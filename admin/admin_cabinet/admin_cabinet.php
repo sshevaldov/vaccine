@@ -73,8 +73,8 @@
 
             <br>
             <div class="buttons">
-                <button id="buttonToList" class="btn_submit disabled" type='button' onclick="get()">Списком</button></b>
-                <button id="buttonToGrid" class="btn_submit disabled" type='button' onclick="get1()">Таблицей</button>
+                <button id="buttonToPdf" class="btn_submit disabled" type='button' onclick="ToList()">Списком</button></b>
+                <button id="buttonToGrid" class="btn_submit disabled" type='button' onclick="ToPdf()">Таблицей</button>
             </div>
         </div>
     </form>

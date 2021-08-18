@@ -11,13 +11,12 @@
 </head>
 
 <body>
-  <form method="post" id="АuthorizationForm1" action="">
+  <form method="post" id="AdminАuthorizationForm" action="">
     <div class="CheckBoxNight">
       <div class="CheckBoxPageModeSub CheckBoxSub">
         <input id="CheckboxPageMode" type="checkbox" onclick="ChangePageMode()">
         <label for="CheckboxPageMode">
-          <div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>
-          <div class="moresharpened"></div>
+          <div class="CheckBoxRing" data-checked="ㅤ" data-unchecked="ㅤ"></div>         
         </label>
       </div>
     </div>
@@ -32,7 +31,7 @@
       <button type="submit" id="buttonToAdminCabinet" class="btn_submit disabled">Войти</button>
     </div>
   </form>
-  <div class="table_help" >
+  <div class="table_help">
     <a id="role" href="../../user/auth/auth.php">Пользовательский интерфейс</a>
   </div>
   <script src="../../common/PageMode.js"></script>

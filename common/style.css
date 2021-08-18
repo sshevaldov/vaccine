@@ -36,7 +36,7 @@ table {
 
 body {
   font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
-  background: #132f56;
+  background: #0e1e34;
 }
 
 .table {
@@ -55,9 +55,9 @@ body {
   content: '';
   position: absolute;
   top: -8px;
-  right: -8px;
-  bottom: -8px;
-  left: -8px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
   z-index: -1;
   background: rgba(0, 0, 0, 0.08);
   /* border-radius: 4px; */
@@ -135,7 +135,7 @@ button{
 }
 
 .table_help a {
-  /* color: #132f56; */
+  /* color: #0e1e34; */
   /* color: white; */
   text-decoration: none;
   font-size: 12px;
@@ -333,7 +333,7 @@ select {
   --blue-color: #96dcee;
   /** dark side **/
   --indigo-border: #20477c;
-  --indigo-color: #132f56;
+  --indigo-color: #0e1e34;
   --gray-border: #e8e8ea;
   /** general **/
   --white: #fff;

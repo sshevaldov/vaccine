@@ -1,9 +1,8 @@
 window.onload = function () {
-    console.log(localStorage.getItem('mode'));
-    switch (localStorage.getItem('mode')) {
+       switch (localStorage.getItem('mode')) {
       
         case "dark":
-            SetPageMode("#132f56", "dark", true);
+            SetPageMode("#0e1e34", "dark", true);
             break;
         default:
             SetPageMode("lightblue", "light", false);
@@ -14,17 +13,17 @@ function ChangePageMode() {
     if (localStorage.getItem('mode') == "dark") {
         SetPageMode("lightblue", "light", false);
     } else {
-        SetPageMode("#132f56", "dark", true);
+        SetPageMode("#0e1e34", "dark", true);
     }
 }
 
 function SetPageMode(color, mode, isCheck) {
-    console.log(localStorage.getItem('mode'))
+   
     switch(mode) {
         case "light": {
             var a = document.getElementsByTagName('a');
             for (var i = 0; i < a.length; i++) {
-                a[i].style.color = "#132f56";
+                a[i].style.color = "#0e1e34";
             }
           break;
         }

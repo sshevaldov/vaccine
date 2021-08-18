@@ -14,7 +14,7 @@ $("#buttonRegistration").click(
         phone = document.getElementById('phone').value;
         password = document.getElementById('password').value;
         document.getElementById('fam').disabled = false;
-        console.log(ser);
+    
         // если все поля введены
         if (ser != '' && fam != '' && name != '' && sex != '' && date != '' && omc != '' && phone != '' && password != '') {
             AjaxSendInputUserData('RegistrationForm', 'AjaxSendInputUserData.php');

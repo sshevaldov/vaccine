@@ -47,17 +47,19 @@
                     ?>
                 </select>
             </div>
-            <p>Место вакцинации</p>
-            <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
-                <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
-            </select>
-            <div class="place_list"></div>
+            <div id="pls" style="display: none;">
+                <p>Место вакцинации</p>
+                <select type="text" class="rfield " id="place_selector" name="place_selector" required disabled>
+                    <option selected hidden id="place_option" name="place_option" value=''> Выберите место вакцинации</option>
+                </select>
+                <div class="place_list"></div>
+            </div>
             <div style="display: flex;">
                 <div>
                     <p>Дата вакцинации</p>
                     <p><input id="datepickerVak" autocomplete="off" name="datepickerVak" type="text" class="rfield" tabindex="1" placeholder="Дата первой вакцинации" required />
                 </div>
-                <div style="margin-left: 15px;">
+                <div style="margin-left: 15px; display: none;" id="tt">
                     <p>Время вакцинации </p>
                     <select type="text" class="rfield " id="time_selector" name="time_selector" required disabled>
                         <option selected hidden value=''>Время вакцинации</option>
@@ -76,17 +78,19 @@
                     ?>
                 </select>
             </div>
+            <div id="pls1" style="display: none;">
             <p>Место вакцинации</p>
             <select type="text" class="rfield " id="place_selector1" name="place_selector1" required disabled>
                 <option selected hidden id="place_option1" name="place_option1" value=''> Выберите место вакцинации</option>
             </select>
+            </div>
             <div class="place_list1"></div>
             <div style="display: flex;">
                 <div>
                     <p>Дата вакцинации</p>
                     <input id="datepickerVak1" name="datepickerVak1" class="datepickerVak1 rfield" type="text" readonly require placeholder="Дата второй вакцинации">
                 </div>
-                <div style="margin-left: 15px;">
+                <div style="margin-left: 15px; display: none;" id="tt1">
                     <p>Время вакцинации </p>
                     <select type="text" class="rfield " id="time_selector1" name="time_selector1" required disabled>
                         <option selected hidden id="time_options_class1" name="time_options_class1" value=''>Время вакцинации</option>

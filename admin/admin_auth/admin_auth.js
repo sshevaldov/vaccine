@@ -1,11 +1,14 @@
-
-$("#buttonToAdminCabinet").click(//событие клинка
+// событие клика на кнопку
+// запускает проверку введенный логина и пароля в бд
+$("#buttonToAdminCabinet").click(
 	function () {
-		AjaxCheckInputAccount('АuthorizationForm1', 'AjaxCheckInputAccount.php');//функция проверки наличия введенных данных
+		AjaxCheckInputAccount('AdminАuthorizationForm', 'AjaxCheckInputAccount.php');//функция проверки наличия введенных данных
 		return false;//false для избавления от обновления страницы
 	}
 );
 
+// функция обрабатывает ответ от бд на введеный логин и пароль
+// выводит соответствующие сообщения, если пароль и/или логин введены неверно или не существуют
 function AjaxCheckInputAccount(ajax_form, url) {
 	$.ajax({//ajax запрос к файлу php
 		url: url,//php файл
@@ -22,9 +25,12 @@ function AjaxCheckInputAccount(ajax_form, url) {
 				}
 				else if (result.IsMatch == false) {//если записи с логином найдены, но пароль не подходит
 					$("#LoginErrorMessage").html("Неверный пароль");
-				} else {//если логин и пароль подошли
+				}
+				else {//если логин и пароль подошли
 					window.location = "../admin_cabinet/admin_cabinet.php";//переход в кабинет администратора
 				}
+			} else {
+				$("#LoginErrorMessage").html("");
 			}
 		}
 	});
